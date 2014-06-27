@@ -1,16 +1,42 @@
 @charset "utf-8";
 
 /**********index**********/
+
 .index-guide{}
-.index-guide li{font-size: 3.2em; line-height: 2.5em; border-bottom: 0.0625em solid #cecece}
-.index-guide li a{display: block; padding: 0.625em 9.722%}
-.index-guide li a:hover{text-decoration: none; background-color: #f2f2f2}
+
+.index-guide li{font-size: 3.2em; line-height: 2.5em; border-bottom: 0.0625em solid #cecece; padding: 0.625em 9.722%}
+.index-guide li:hover{background-color: #f2f2f2}
+
 .index-guide li .tit{float: left; white-space: nowrap}
-.index-guide li .tit .ico{margin-right: 16px}
 .index-guide li .tit .txt{padding-left: 12.06%}
+
+.index-guide li .tit .ico{width: 64px; height: 64px; margin-right: 16px}
+.index-guide li .tit .ico-join{background-position: 0 -96px}
+.index-guide li .tit .ico-login{background-position: -64px -96px}
+.index-guide li .tit .ico-leveltest{background-position: -128px -96px}
+.index-guide li .tit .ico-classroom{background-position: -192px -96px}
+.index-guide li .tit .ico-teachvideo{background-position: -256px -96px}
+.index-guide li .tit .ico-activity{background-position: -256px -96px}
+.index-guide li .tit .ico-consult{width: 80px; background-position: 0 -160px}
+
 .index-guide li .pointer{float: right; line-height: 2.5em}
-.index-guide li .pointer .ico{}
+.index-guide li .pointer .ico-pointer{width: 24px; height: 48px; background-position: -120px 0}
+
 .index-guide .consult{border-bottom: none; background-color: #64cfe9; box-shadow: 0 0 30px 0 #333 inset}
 .index-guide .consult .tit .ico{margin-right: 0}
 .index-guide .welcome{border-bottom: none; background-color: #64cfe9; box-shadow: 0 0 30px 0 #333 inset; line-height: 1.25em}
 .index-guide .welcome .tit .txt{padding-left: 0}
+.index-guide .consult a:hover,
+.index-guide .welcome a:hover{background-color: #64cfe9; box-shadow: 0 0 20px 0 #333 inset}
+
+
+/**********loginbox**********/
+.login-box{padding: 3em 9.722% 9em 9.722%; background: #003359; color: #fff}
+.login-box dl{margin-top: 1em}
+.login-box dt{font-size: 3em; line-height: 1.5em; padding: .3333em 0}
+.login-box .text{width: 96%; padding-left: 2%; padding-right: 2%}
+.login-box .exec{margin-top:6em; text-align: right}
+.login-box .exec .btn-submit{background-color: #f12c3e; width: 50%; color: #fff}
+.login-box .exec .btn-submit .ico{margin-left:18%}
+
+

@@ -35,21 +35,14 @@ label input{vertical-align:middle; cursor:pointer}
 
 /*icon*/
 .ico{display:inline-block; border:none; background:url(../images/icons.png) transparent 0 0 no-repeat; overflow:hidden; vertical-align:middle; text-align:center; width:12px; height:12px}
-.ico-leveltest{width: 64px; height: 64px; background-position: -128px -48px}
-.ico-classroom{width: 64px; height: 64px; background-position: -192px -48px}
-.ico-teachvideo{width: 64px; height: 64px; background-position: -256px -48px}
-.ico-consult{width: 80px; height: 64px; background-position: 0 -112px}
-.ico-pointer{width: 32px; height: 48px; background-position: -120px 0}
-
 
 /*button*/
-.btn{display:inline-block; border:none; background:transparent 0 0 no-repeat; overflow:visible; cursor:pointer; text-align:center; vertical-align:top; text-decoration:none; font-weight:normal; font-size:1.2em; box-sizing:content-box; -moz-box-sizing:content-box; padding:0; margin:0}
+.btn{display:inline-block; border:none; font-family: "微软雅黑", "Arial", "Helvetica", "sans-serif"; font-size: 3em; height: 2.6666em; line-height: 2.6666em; background:transparent 0 0 no-repeat; overflow:visible; cursor:pointer; text-align:center; vertical-align:top; text-decoration:none; font-weight:normal; box-sizing:content-box; -moz-box-sizing:content-box; padding:0; margin:0}
 .btn .patch{display:inline-block; font-size:0; width:0; line-height:0; overflow:hidden; vertical-align:middle; visibility:hidden}
 .btn:hover{text-decoration:none; transition-property:border-color,color}
 
 /*input text*/
-.ui-text{padding:0 3px; height:30px; line-height:30px; border:1px solid #ccc; border-right-color:#e1e1e1; border-bottom-color:#e1e1e1; color:#999; display:inline-block; vertical-align:middle; overflow:hidden; box-shadow:inset 2px 2px 8px 0 #eee}
-.ui-text input{border:none; height:30px; line-height:30px; margin:0; width:100%; background:transparent; vertical-align:top}
+.text{font-size: 3em; height: 2.6666em; line-height: 2.6666em; border: none; vertical-align:middle; display: inline-block; overflow:hidden; box-shadow:inset 2px 2px 8px 0 #eee}
 
 /*textarea*/
 .ui-textarea{display:inline-block; zoom:1; *display:inline; padding:3px; height:90px; border:1px solid #ccc; border-right-color:#e1e1e1; border-bottom-color:#e1e1e1; color:#999; overflow:hidden; box-shadow:inset 2px 2px 8px 0 #eee; line-height:18px}
@@ -88,25 +81,61 @@ label input{vertical-align:middle; cursor:pointer}
 
 
 /**********layout**********/
-.layout-header,.layout-focus,.layout-navig,.layout-main,.layout-footer{min-width:640px}
+.layout-top,
+.layout-header,
+.layout-focus,
+.layout-navig,
+.layout-main,
+.layout-footer{min-width:640px}
 .container{padding:0 9.722%; margin:0 auto}
 
 
+/**********top**********/
+.layout-top{}
+.layout-top .container{font-size: 2.6em; line-height: 1.846em; padding-top: .5384em; padding-bottom: .5384em}
+.layout-top .tit{float:left}
+.layout-top .contact{float:right}
+.layout-top .contact .ico{width: 48px; height: 48px; background-position: 0 0;}
+
+
 /**********header**********/
-.layout-header{}
-.layout-header .container{font-size: 2.6em; line-height: 1.846em; padding-top: .5384em; padding-bottom: .5384em}
-.layout-header .tit{float:left}
-.layout-header .contact{float:right}
-.layout-header .contact .ico{width: 48px; height: 48px; background-position: 0 0;}
+.layout-header{background: #fff}
+.layout-header .container{font-size: 2.6em; line-height:3.730em; padding-top: .5769em; padding-bottom: .5769em}
+.layout-header .logo{float:left}
+.layout-header .logo .ico{width: 382px; height:97px; background-position: 0 bottom}
+.layout-header .navig-trigger{float:right}
+.layout-header .navig-trigger .ico{width: 48px; height: 48px; background-position: -48px 0;}
 
 
 /**********navig**********/
-.layout-navig{background: #fff}
-.layout-navig .container{font-size: 2.6em; line-height:3.730em; padding-top: .5769em; padding-bottom: .5769em}
-.layout-navig .logo{float:left}
-.layout-navig .logo .ico{width: 382px; height:97px; background-position: 0 bottom}
-.layout-navig .navig{float:right}
-.layout-navig .navig .ico{width: 48px; height: 48px; background-position: -48px 0;}
+.layout-navig{position: relative}
+.layout-navig .container{width: auto; padidng:0; }
+.layout-navig a{color: #fff; text-decoration: none}
+
+.layout-navig .nav-back{font-size: 3em; line-height: 1.6em; background-color: #001834; padding: 1.3em 9.722%; border-bottom: none}
+.layout-navig .nav-back a{color: #115e98}
+.layout-navig .nav-back .tit{float:left; white-space: nowrap}
+.layout-navig .nav-back .tit .txt{padding-left: 12.06%}
+.layout-navig .nav-back .tit .ico-back{height: 48px; width: 24px; background-position: -96px 0; margin-right: 24px}
+
+.layout-navig .navig{position: absolute; top: 0; left: 0; width: 100%; background-color: #003359; display: none; overflow: auto}
+.layout-navig .navig li{font-size: 3em; line-height: 1.6em; border-bottom: 0.0667em solid #4378a6; padding: 0.6333em 9.722%}
+.layout-navig .navig li:hover{background-color: #013a65}
+.layout-navig .navig li .tit{float:left; white-space: nowrap}
+.layout-navig .navig li .tit .txt{padding-left: 12.06%}
+
+.layout-navig .navig li .tit .ico{width: 48px; height: 48px}
+.layout-navig .navig li .tit .ico-join{background-position: 0 -48px}
+.layout-navig .navig li .tit .ico-login{background-position: -48px -48px}
+.layout-navig .navig li .tit .ico-leveltest{background-position: -96px -48px}
+.layout-navig .navig li .tit .ico-classroom{background-position: -144px -48px}
+.layout-navig .navig li .tit .ico-teachvideo{background-position: -192px -48px}
+.layout-navig .navig li .tit .ico-activity{background-position: -240px -48px}
+
+.layout-navig .navig .back{background-color: #001834; padding-top: 1.3em; padding-bottom: 1.3em}
+.layout-navig .navig .back:hover{background-color: #001834}
+.layout-navig .navig .back a{color: #115e98}
+.layout-navig .navig .back .tit .ico-back{width: 24px; background-position: -96px 0; margin-right: 24px}
 
 
 /**********focus**********/
@@ -122,7 +151,7 @@ label input{vertical-align:middle; cursor:pointer}
 
 
 /**********footer**********/
-.layout-footer{}
+.layout-footer{border-top:.2em solid #013a65}
 .layout-footer .container{font-size:2em; line-height: 1.5em; padding-top:1.5em; padding-bottom: 1.5em; text-align: center}
 .layout-footer a{color: #fff}
 .layout-footer .logo{font-size: 1.4em; line-height: 3em; font-weight: bold}
