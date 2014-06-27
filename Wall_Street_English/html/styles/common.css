@@ -7,7 +7,7 @@ nav,header,footer,section,article,aside,details,summary,
 form,label,fieldset,legend,hr,dialog,
 canvas,object,embed,progress,audio,video,track,map,area,figure,figcaption,
 table,caption,tbody,tfoot,thead,tr,th,td,
-span,a,b,strong,em,mark,blockquote,code,del,abbr,dfn,big,small,time,i,acronym,address,cite,ins,kbd,q,samp,sub,sup,tt,var{margin:0; padding:0; border:none}
+span,a,b,strong,em,mark,blockquote,code,del,abbr,dfn,big,small,time,i,acronym,address,cite,ins,kbd,q,samp,sub,sup,tt,var{margin:0; padding:0; border:none; font: inherit}
 
 body{font-size:62.5%; line-height: 1.5em; letter-spacing:0; font-family:"微软雅黑", "Arial", "Helvetica", "sans-serif"; background:#003359; color:#fff; cursor:default; vertical-align:baseline; word-wrap:break-word; word-break:break-all}
 
@@ -31,10 +31,15 @@ a:active{}
 img{vertical-align:top; border:none; -ms-interpolation-mode:bicubic;}
 
 label{vertical-align:middle}
-label input{vertical-align:middle; margin-right:3px; cursor:pointer}
+label input{vertical-align:middle; cursor:pointer}
 
 /*icon*/
-.ico{display:inline-block; border:none; background:url(../images/icons.png) transparent 0 0 no-repeat; overflow:hidden; vertical-align:middle; text-align:center; width:12px; height:12px; background-color: #fff}
+.ico{display:inline-block; border:none; background:url(../images/icons.png) transparent 0 0 no-repeat; overflow:hidden; vertical-align:middle; text-align:center; width:12px; height:12px}
+.ico-leveltest{width: 64px; height: 64px; background-position: -128px -48px}
+.ico-classroom{width: 64px; height: 64px; background-position: -192px -48px}
+.ico-teachvideo{width: 64px; height: 64px; background-position: -256px -48px}
+.ico-consult{width: 80px; height: 64px; background-position: 0 -112px}
+
 
 /*button*/
 .btn{display:inline-block; border:none; background:transparent 0 0 no-repeat; overflow:visible; cursor:pointer; text-align:center; vertical-align:top; text-decoration:none; font-weight:normal; font-size:1.2em; box-sizing:content-box; -moz-box-sizing:content-box; padding:0; margin:0}
@@ -82,13 +87,13 @@ label input{vertical-align:middle; margin-right:3px; cursor:pointer}
 
 
 /**********layout**********/
-.layout-header,.layout-navig,.layout-main,.layout-footer{min-width:480px}
-.container{width:80.555%; margin:0 auto}
+.layout-header,.layout-focus,.layout-navig,.layout-main,.layout-footer{min-width:640px}
+.container{padding:0 9.722%; margin:0 auto}
 
 
 /**********header**********/
 .layout-header{}
-.layout-header .container{font-size: 2.6em; line-height: 1.846em; padding: .5384em 0}
+.layout-header .container{font-size: 2.6em; line-height: 1.846em; padding-top: .5384em; padding-bottom: .5384em}
 .layout-header .tit{float:left}
 .layout-header .contact{float:right}
 .layout-header .contact .ico{width: 48px; height: 48px; background-position: 0 0;}
@@ -96,23 +101,30 @@ label input{vertical-align:middle; margin-right:3px; cursor:pointer}
 
 /**********navig**********/
 .layout-navig{background: #fff}
-.layout-navig .container{font-size: 2.6em; line-height:3.730em; padding: .5769em 0}
+.layout-navig .container{font-size: 2.6em; line-height:3.730em; padding-top: .5769em; padding-bottom: .5769em}
 .layout-navig .logo{float:left}
-.layout-navig .logo .ico{width: 382px; height:97px}
+.layout-navig .logo .ico{width: 382px; height:97px; background-position: 0 bottom}
 .layout-navig .navig{float:right}
-.layout-navig .navig .ico{width: 48px; height: 48px; background-position: 0 0;}
+.layout-navig .navig .ico{width: 48px; height: 48px; background-position: -48px 0;}
+
+
+/**********focus**********/
+.layout-focus{}
+.layout-focus .container{width: auto; overflow: hidden; text-align: center; padding: 0}
+.layout-focus img{height: 407px}
 
 
 /**********main**********/
-.layout-main{}
-.layout-main .container{}
+.layout-main{background:#fff; color: #003359}
+.layout-main .container{padding-left:0; padding-right: 0}
+.layout-main a{color: #003359}
 
 
 /**********footer**********/
 .layout-footer{}
-.layout-footer .container{padding:30px 0; text-align: center}
+.layout-footer .container{font-size:2em; line-height: 1.5em; padding-top:1.5em; padding-bottom: 1.5em; text-align: center}
 .layout-footer a{color: #fff}
-.layout-footer .logo{font-size: 2.8em}
+.layout-footer .logo{font-size: 1.4em; line-height: 3em; font-weight: bold}
 
 
 /**********floater**********/
@@ -121,7 +133,7 @@ label input{vertical-align:middle; margin-right:3px; cursor:pointer}
 
 /*responsive*/
 /*
-@media screen and (max-width:1220px){
+@media screen and (max-width:960px){
 	.container{width:960px}
 }
 */

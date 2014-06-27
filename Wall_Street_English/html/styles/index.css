@@ -1,5 +1,13 @@
 @charset "utf-8";
 
 /**********index**********/
-.index-guide-list{}
-
+.index-guide{}
+.index-guide li{font-size: 3.2em; line-height: 2.5em; border-bottom: 0.0625em solid #cecece}
+.index-guide li a{display: block; padding: 0.625em 9.722%}
+.index-guide li a:hover{text-decoration: none; background-color: #f2f2f2}
+.index-guide li .tit{padding-left: 12.06%}
+.index-guide li .ico-main{margin-right: 16px}
+.index-guide li .ico-consult{margin-right: 0}
+.index-guide .consult{border-bottom: none; background-color: #64cfe9; box-shadow: 0 0 30px 0 #333 inset}
+.index-guide .welcome{border-bottom: none; background-color: #64cfe9; box-shadow: 0 0 30px 0 #333 inset; line-height: 1.25em}
+.index-guide .welcome .tit{margin-left: 0}
