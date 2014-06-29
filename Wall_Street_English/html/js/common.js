@@ -1,8 +1,8 @@
 /********** functions **********/
-;(function(){
+;(function(obj){
 	var _window=$(window);
 
-	return ui={
+	ui={
 		//navig initialize
 		navigInit:function(triggerobj,activeObj){
 			var _triggerobj=$(triggerobj), _activeObj=$(activeObj);
@@ -53,7 +53,7 @@
 
 	};
 
-}());
+}(window.ui));
 
 
 /*********** exec ***********/
