@@ -9,7 +9,7 @@ canvas,object,embed,progress,audio,video,track,map,area,figure,figcaption,
 table,caption,tbody,tfoot,thead,tr,th,td,
 span,a,b,strong,em,mark,blockquote,code,del,abbr,dfn,big,small,time,i,acronym,address,cite,ins,kbd,q,samp,sub,sup,tt,var{margin:0; padding:0; border:none; font: inherit}
 
-body{font-size:62.5%; line-height: 1.5em; letter-spacing:0; font-family:"微软雅黑", "Arial", "Helvetica", "sans-serif"; background:#003359; color:#fff; cursor:default; vertical-align:baseline}
+body{font-size:62.5%; line-height: 1.5em; letter-spacing:0; font-family:"微软雅黑", "Arial", "Helvetica", "sans-serif"; background:#003359; color:#777; cursor:default; vertical-align:baseline}
 
 :hover{transition-duration:.3s; transition-timing-function:ease; transition-property:color, border-color, background-color}
 
@@ -60,9 +60,9 @@ label input{vertical-align:middle; cursor:pointer}
 .clearfix:after {clear:both;content:" ";display:block;height:0;visibility:hidden;}
 .clearfix {zoom:1;}
 
-.txt_left{text-align:left}
-.txt_right{text-align:right}
-.txt_center{text-align:center}
+.txt-left{text-align:left!important}
+.txt-right{text-align:right!important}
+.txt-center{text-align:center!important}
 
 .widthfull{width:100%}
 .widthInit{width:auto}
@@ -95,7 +95,7 @@ label input{vertical-align:middle; cursor:pointer}
 
 
 /**********top**********/
-.layout-top{}
+.layout-top{color: #fff}
 .layout-top .container{font-size: 2.6em; line-height: 1.8461em; padding-top: .6153em; padding-bottom: .6153em}
 .layout-top .tit{float:left}
 .layout-top .contact{float:right}
@@ -112,7 +112,7 @@ label input{vertical-align:middle; cursor:pointer}
 
 
 /**********navig**********/
-.layout-navig{position: relative}
+.layout-navig{position: relative; color: #fff}
 .layout-navig .container{width: auto; padding:0; }
 .layout-navig a{color: #fff; text-decoration: none}
 
@@ -143,12 +143,12 @@ label input{vertical-align:middle; cursor:pointer}
 
 
 /**********focus**********/
-.layout-focus{}
+.layout-focus{ color: #fff}
 .layout-focus .container{width: auto; overflow: hidden; text-align: center; padding: 0}
 
 
 /**********main**********/
-.layout-main{background:#fff; color: #777}
+.layout-main{background:#fff}
 .layout-main .container{padding-left:0; padding-right: 0}
 .layout-main a{color: #003359}
 
@@ -156,9 +156,9 @@ label input{vertical-align:middle; cursor:pointer}
 .mainlist{padding: 6em 9.722%}
 .mainlist .item{border: .2em solid #d5d5d5; margin-bottom: 7.5em; position: relative}
 .mainlist .ico-main{position: absolute; height: 128px; width: 128px; bottom: -24px; left: -24px; background-color: #fff}
-.mainlist .tit{font-size: 4.8em; line-height: 1.3em; padding: .625em}
-.mainlist .tit .cn{color: #64cfe9}
-.mainlist .tit .en{font-size: .8333em; line-height: .16025em; color: #666}
+.mainlist .tit{padding: 3em}
+.mainlist .tit .cn{font-size: 4.8em; line-height: 1.3em; color: #64cfe9}
+.mainlist .tit .en{font-size: 4em; line-height: 1.5em}
 .mainlist .summary{font-size: 2.6em; line-height: 1.7em; margin-right: 17%; border-top: .0769em solid #d5d5d5; padding: 1.1538em}
 .mainlist .summary .trigger{color: #666}
 .mainlist .summary .txt{margin-top: .5769em; display: none}
@@ -168,8 +168,11 @@ label input{vertical-align:middle; cursor:pointer}
 
 /*detail*/
 .maindetail{padding: 4em 0}
-.maindetail h3{font-size: 3.2em; line-height: 1.5em; padding: 0 9.722%; color: #333; text-transform:uppercase}
-.maindetail .detail{font-size: 4em; line-height: 1.2em; padding: .625em 9.722%; color: #64cfe9}
+.maindetail .title{font-size: 3.2em; line-height: 1.5em; margin: 0 9.722%}
+.maindetail .detail{padding: 2.5em 9.722%}
+.maindetail .detail h3{font-size:3.6em; line-height: 1.5em; color: #64cfe9}
+.maindetail .detail h4{font-size:2.8em; line-height: 1.5em; color: #666; margin-top: .3571em}
+.maindetail .detail p{font-size:2.8em; line-height: 1.5em; color: #64cfe9}
 .maindetail .options{margin-top: 2.5em; border-top: .2em solid #d5d5d5}
 .maindetail .options li{font-size: 4.6em; line-height: 1.3913em; padding: 0 9.722%; border-bottom: .0435em solid #d5d5d5}
 .maindetail .options li:hover{background-color: #f2f2f2}
@@ -179,15 +182,15 @@ label input{vertical-align:middle; cursor:pointer}
 .maindetail .exec .btn .ico{margin: 0 5.862% 0 3.1034%}
 .maindetail .exec .btn-prev .ico{background-position: -96px 0; margin: 0 7.5% 0 -7.5%}
 .maindetail .exec .btn-next .ico{background-position: -120px -24px; margin: 0 -7.5% 0 7.5%}
-.maindetail .exec .btn-back {float: right}
 .maindetail .exec .btn-back .ico{background-position: -120px -24px; margin: 0 -7.5% 0 7.5%}
+.maindetail .exec .btn-download .ico{background-position: -120px -24px; margin: 0 -7.5% 0 7.5%}
 
 
 /**********footer**********/
-.layout-footer{border-top:.2em solid #013a65}
-.layout-footer .container{font-size:2em; line-height: 1.5em; padding-top:1.5em; padding-bottom: 1.5em; text-align: center}
+.layout-footer{border-top:.2em solid #013a65; color: #fff}
+.layout-footer .container{font-size:2em; line-height: 1.5em; padding-top:2em; padding-bottom: 2em; text-align: center}
 .layout-footer a{color: #fff}
-.layout-footer .logo{font-size: 1.4em; line-height: 3em; font-weight: bold}
+.layout-footer .logo{font-size: 1.6em; line-height: 1.5em; font-weight: bold; margin-bottom: .375em}
 
 
 /**********floater**********/
