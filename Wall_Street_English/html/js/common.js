@@ -46,7 +46,7 @@
 				};
 				e.preventDefault();
 			});
-			$(document).off('click.navig').on('click.navig', function (e) {
+			$(document).off('click.navig touchend.navig').on('click.navig touchend.navig', function (e) {
 				var _objs=$(triggerobj+','+activeObj+' li'+', .layout-navig .nav');
 				if (($(e.target).closest(_objs).is(_objs) || $(e.target).is(_objs)) == false) {
 					_activeObj.slideUp();
