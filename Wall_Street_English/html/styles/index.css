@@ -4,8 +4,9 @@
 
 .index-guide{color: #003359}
 
-.index-guide li{font-size: 3.2em; line-height: 2.5em; border-bottom: 0.0625em solid #cecece; padding: 0.625em 9.722%}
+.index-guide li{font-size: 3.2em; line-height: 2.5em; border-bottom: 0.0625em solid #cecece; padding: 0 9.722%}
 .index-guide li:hover{background-color: #f2f2f2}
+.index-guide li a {display: block; padding: .625em 0}
 
 .index-guide li .tit{float: left; white-space: nowrap}
 .index-guide li .tit .txt{padding-left: 12.06%}

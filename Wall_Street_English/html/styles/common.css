@@ -95,7 +95,7 @@ label input{vertical-align:middle; cursor:pointer}
 .layout-focus,
 .layout-navig,
 .layout-main,
-.layout-footer{min-width:640px}
+.layout-footer{min-width:720px}
 .container{padding:0 9.722%; margin:0 auto}
 
 
@@ -121,15 +121,16 @@ label input{vertical-align:middle; cursor:pointer}
 .layout-navig .container{width: auto; padding:0; }
 .layout-navig a{color: #fff; text-decoration: none}
 
-.layout-navig .nav{font-size: 3em; line-height: 1.6em; background-color: #001834; padding: 1.3em 9.722%; border-bottom: none}
-.layout-navig .nav a{color: #115e98}
+.layout-navig .nav{font-size: 3em; line-height: 1.6em; background-color: #001834; padding: 0 9.722%; border-bottom: none}
+.layout-navig .nav a{display: block; color: #115e98; padding: 1.3em 0}
 .layout-navig .nav .tit{float:left; white-space: nowrap}
 .layout-navig .nav .tit .txt{padding-left: 12.06%}
 .layout-navig .nav .tit .ico-back{height: 24px; width: 24px; background-position: -96px 0; margin-right: 24px}
 
 .layout-navig .navig{position: absolute; top: 0; left: 0; width: 100%; background-color: #003359; display: none; overflow: auto; z-index: 1000}
-.layout-navig .navig li{font-size: 3em; line-height: 1.6em; border-bottom: 0.0667em solid #4378a6; padding: 0.6333em 9.722%}
+.layout-navig .navig li{font-size: 3em; line-height: 1.6em; border-bottom: 0.0667em solid #4378a6; padding: 0 9.722%}
 .layout-navig .navig li:hover{background-color: #013a65}
+.layout-navig .navig li a {display: block; padding: 0.6333em 0}
 .layout-navig .navig li .tit{float:left; white-space: nowrap}
 .layout-navig .navig li .tit .txt{padding-left: 12.06%}
 
@@ -141,9 +142,9 @@ label input{vertical-align:middle; cursor:pointer}
 .layout-navig .navig li .tit .ico-teachvideo{background-position: -192px -48px}
 .layout-navig .navig li .tit .ico-activity{background-position: -240px -48px}
 
-.layout-navig .navig .back{background-color: #001834; padding-top: 1.3em; padding-bottom: 1.3em}
+.layout-navig .navig .back{background-color: #001834}
 .layout-navig .navig .back:hover{background-color: #001834}
-.layout-navig .navig .back a{color: #115e98}
+.layout-navig .navig .back a{ display:block; color: #115e98; padding-top: 1.3em; padding-bottom: 1.3em}
 .layout-navig .navig .back .tit .ico-back{width: 24px; height: 24px; background-position: -96px 0; margin-right: 24px}
 
 
