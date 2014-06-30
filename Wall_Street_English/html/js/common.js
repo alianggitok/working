@@ -54,20 +54,26 @@
 			});
 		},
 
-		checkboxInit:function(obj){
+		checkboxInit:function(obj,isSingle){
 			var _obj=$(obj);
 			var stateChecked='checkbox-checked';
 			_obj.off('click.checkbox').on('click.checkbox',function(){
 				if($(this).is('.'+stateChecked)){
 					$(this).removeClass(stateChecked);
 				}else{
-					$(this).addClass(stateChecked);
+					if(isSingle){
+						$(obj).removeClass(stateChecked);
+					};
+					$(this).addClass(stateChecked)
 				};
 			});
 			_obj.parent('label').off('click.checkbox').on('click.checkbox',function(){
 				if($(this).children(obj).is('.'+stateChecked)){
 					$(this).children(obj).removeClass(stateChecked);
 				}else{
+					if(isSingle){
+						$(obj).parent('label').children(obj).removeClass(stateChecked);
+					};
 					$(this).children(obj).addClass(stateChecked);
 				};
 			});
@@ -113,7 +119,7 @@ $(function(){
 
 	ui.vAlignMiddleFix('.ico');
 	ui.navigInit(navigTriggerObj,'.layout-navig .navig');
-	ui.checkboxInit('.checkbox');
+	ui.checkboxInit('.options .checkbox',true);
 	ui.tabbox('.tabbox-click','click');
 
 	//back to navigation
