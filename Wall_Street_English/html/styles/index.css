@@ -26,8 +26,8 @@
 .index-guide .consult .tit .ico{margin-right: 0}
 .index-guide .welcome{border-bottom: none; background-color: #64cfe9; box-shadow: 0 0 30px 0 #333 inset; line-height: 1.25em}
 .index-guide .welcome .tit .txt{padding-left: 0}
-.index-guide .consult a:hover,
-.index-guide .welcome a:hover{background-color: #64cfe9; box-shadow: 0 0 20px 0 #333 inset}
+.index-guide .consult:hover,
+.index-guide .welcome:hover{background-color: #64cfe9; box-shadow: 0 0 20px 0 #333 inset}
 
 
 /**********loginbox**********/

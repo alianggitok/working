@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+/**********classroom**********/
+
+
+.mainlist-classroom .ico-main{background-position: -256px -224px}
+
+.maindetail-classroom{padding-top: 0}
+.maindetail-classroom .items li{font-size: 3.6em; line-height: 1.5em; padding: .6666em 9.722%; border-bottom: .0556em solid #d5d5d5; cursor: pointer}
+.maindetail-classroom .items li:hover{background-color: #f2f2f2}
+.maindetail-classroom .items li.current{background-color: #64cfe9; color: #fff}
+.maindetail-classroom .items li .tit{float: left}
+.maindetail-classroom .items li .pointer{float: right}
+.maindetail-classroom .items li .pointer .ico-pointer{width: 24px; height: 24px; background-position: -120px -24px}
+
+.maindetail-classroom .detail h2{font-size:4.2em; line-height: 1.5em; color: #64cfe9; margin-top: .6em}
+.maindetail-classroom .detail hr{margin-top: 4.5em}
+.maindetail-classroom .detail .listenbar{margin-top: 4em; position: relative; height: 128px}
+.maindetail-classroom .detail .listenbar .ico-listen{position: absolute; width: 128px; height: 128px; background-position: -384px -224px; background-color:#fff}
+.maindetail-classroom .detail .listenbar .btn-listen{text-align: right; width: 100%; margin-top: 24px}
+.maindetail-classroom .detail .listenbar .btn-listen .ico{margin: 0 5.862% 0 3.1034%}
+
+

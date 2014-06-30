@@ -22,6 +22,8 @@ ol,ul,dl{list-style:none}
 
 table{border-collapse:collapse; border-spacing:0}
 
+hr{border: 1px solid #d5d5d5}
+
 a{text-decoration:none; color:#666}
 a:link{}
 a:visited{}
@@ -39,7 +41,6 @@ label input{vertical-align:middle; cursor:pointer}
 /*button*/
 .btn{display:inline-block; border:none; font-family: "微软雅黑", "Arial", "Helvetica", "sans-serif"; font-weight:normal; font-size: 3em; height: 2.6666em; line-height: 2.6666em; background:#f12c3e 0 0 no-repeat; color: #fff; cursor:pointer; text-align:center; vertical-align: middle; text-decoration:none; box-sizing:content-box; -moz-box-sizing:content-box; padding:0; margin:0; overflow:visible}
 .btn .ico{width: 24px; height: 24px; background-position: -120px -24px}
-.btn .patch{display:inline-block; font-size:0; width:0; line-height:0; overflow:hidden; vertical-align:middle; visibility:hidden}
 .btn:hover{background-color:#ff3333}
 
 /*input text*/
@@ -71,6 +72,10 @@ label input{vertical-align:middle; cursor:pointer}
 .hide{visibility:hidden}
 
 .ellipsis-singleline{text-overflow:ellipsis; white-space:nowrap; overflow:hidden}
+
+.colorRed{color: #f12c3e!important}
+.colorBlue{color:#64cfe9!important}
+.colorGray{color:#777!important}
 
 /*crumbs*/
 .nav-crumbs{padding:0 2px; border-bottom:1px solid #90b830; line-height:18px}
@@ -154,11 +159,15 @@ label input{vertical-align:middle; cursor:pointer}
 
 /*list*/
 .mainlist{padding: 6em 9.722%}
+.mainlist hr{margin-bottom: 4em; margin-right: 10em}
+.mainlist .title{font-size: 4.8em; line-height: 1.3em; color: #64cfe9; margin-bottom: .8333em}
+.mainlist .title .cn{display: block}
+.mainlist .title .en{font-size: .8333em; line-height: 1.3em; color: #666;}
 .mainlist .item{border: .2em solid #d5d5d5; margin-bottom: 7.5em; position: relative}
 .mainlist .ico-main{position: absolute; height: 128px; width: 128px; bottom: -24px; left: -24px; background-color: #fff}
-.mainlist .tit{padding: 3em}
-.mainlist .tit .cn{font-size: 4.8em; line-height: 1.3em; color: #64cfe9}
-.mainlist .tit .en{font-size: 4em; line-height: 1.5em}
+.mainlist .tit{font-size: 4.8em; line-height: 1.3em; color: #64cfe9; padding: .625em}
+.mainlist .tit .cn{display: block}
+.mainlist .tit .en{font-size: .8333em; line-height: 1.5em; color: #666}
 .mainlist .summary{font-size: 2.6em; line-height: 1.7em; margin-right: 17%; border-top: .0769em solid #d5d5d5; padding: 1.1538em}
 .mainlist .summary .trigger{color: #666}
 .mainlist .summary .txt{margin-top: .5769em; display: none}
@@ -168,11 +177,12 @@ label input{vertical-align:middle; cursor:pointer}
 
 /*detail*/
 .maindetail{padding: 4em 0}
+.maindetail hr{margin-bottom: 4em; margin-right: 10em}
 .maindetail .title{font-size: 3.2em; line-height: 1.5em; margin: 0 9.722%}
 .maindetail .detail{padding: 2.5em 9.722%}
 .maindetail .detail h3{font-size:3.6em; line-height: 1.5em; color: #64cfe9}
 .maindetail .detail h4{font-size:2.8em; line-height: 1.5em; color: #666; margin-top: .3571em}
-.maindetail .detail p{font-size:2.8em; line-height: 1.5em; color: #64cfe9}
+.maindetail .detail p{font-size:2.8em; line-height: 1.5em; color: #64cfe9; margin-top: .5em}
 .maindetail .options{margin-top: 2.5em; border-top: .2em solid #d5d5d5}
 .maindetail .options li{font-size: 4.6em; line-height: 1.3913em; padding: 0 9.722%; border-bottom: .0435em solid #d5d5d5}
 .maindetail .options li:hover{background-color: #f2f2f2}

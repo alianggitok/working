@@ -1,14 +1,13 @@
 @charset "utf-8";
 
-/**********leveltest**********/
+/**********teachvideo**********/
 
 
 .mainlist-teachvideo .ico-main{background-position: -128px -224px}
 
-.maindetail-teachvideo{}
 .maindetail-teachvideo .title{font-size: 4.8em; line-height: 1.5em; border-bottom: .0417em solid #d5d5d5; padding-bottom: .625em}
 .maindetail-teachvideo .title .cn{color: #64cfe9; display: block}
-.maindetail-teachvideo .title .en{font-size: .8333em; line-height: 1.4em; display: block}
+.maindetail-teachvideo .title .en{font-size: .8333em; line-height: 1.4em}
 
 .maindetail-teachvideo .detail .video{margin-top: 8em}
 

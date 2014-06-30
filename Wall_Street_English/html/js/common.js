@@ -1,9 +1,32 @@
 /********** functions **********/
 ;(function(obj){
 	var _window=$(window);
+	var browserAgent=navigator.userAgent;
+	var browser={
+		isIE6: function(){
+			return /msie 6/i.test(browserAgent);
+		},
+		isIE7: function(){
+			return /msie 7/i.test(browserAgent);
+		},
+		isIE9: function(){
+			return /msie 9/i.test(browserAgent);
+		}
+	};
 
 	ui={
-		//navig initialize
+		/*fix btn icon position*/
+		vAlignMiddleFix: function (obj) {
+			$(obj).each(function () {
+				var txt = $.trim($(this).parent().text());
+				var patch = '<span style="display:inline-block; font-size:0; width:0; overflow:hidden; vertical-align:middle; visibility:hidden">&nbsp;</span>';
+				if (browser.isIE9() && txt == '') {
+					$(this).before(patch);
+				};
+			});
+		},
+
+		/*navig initialize*/
 		navigInit:function(triggerobj,activeObj){
 			var _triggerobj=$(triggerobj), _activeObj=$(activeObj);
 			var _bodyChild=$('body').children(':not("header,footer,script,link")');
@@ -48,6 +71,34 @@
 					$(this).children(obj).addClass(stateChecked);
 				};
 			});
+		},
+
+		/*tabbox*/
+		tabbox: function (obj, motion) {
+			$(obj).each(function () {
+				var _obj = $(this);
+				var _tabObj = _obj.find('.tabs .tab');
+				var _contObj = _obj.find('.conts .cont');
+
+				_contObj.hide();
+				_contObj.first().show();
+				_tabObj.first().addClass('current').next().addClass('next');
+
+				_tabObj.on(motion, function () {
+					var n = $(this).index();
+					$(this).siblings().andSelf().removeClass('prev current next');
+					$(this).prev().addClass('prev');
+					$(this).addClass('current');
+					$(this).next().addClass('next');
+					_contObj.hide().eq(n).show();
+				});
+
+				if (motion == 'click') {
+					_tabObj.click(function (e) {
+						e.preventDefault();
+					});
+				};
+			});
 		}
 
 
@@ -60,8 +111,10 @@
 $(function(){
 	var navigTriggerObj='.layout-header .navig-trigger .ico';
 
+	ui.vAlignMiddleFix('.ico');
 	ui.navigInit(navigTriggerObj,'.layout-navig .navig');
 	ui.checkboxInit('.checkbox');
+	ui.tabbox('.tabbox-click','click');
 
 	//back to navigation
 	$('.layout-navig .nav .nav-backnavig').on('click',function(){
