@@ -95,7 +95,7 @@ label input{vertical-align:middle; cursor:pointer}
 .layout-focus,
 .layout-navig,
 .layout-main,
-.layout-footer{min-width:720px}
+.layout-footer{min-width:580px}
 .container{padding:0 9.722%; margin:0 auto}
 
 
