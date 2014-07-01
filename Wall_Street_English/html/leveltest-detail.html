@@ -94,14 +94,14 @@
 
 	<section class="layout-focus">
 		<div class="container clearfix">
-			<img src="images/focus.jpg" alt="">
+			<img src="images/focus-leveltest.jpg" alt="">
 		</div>
 	</section>
 
 	<section class="layout-main">
 		<div class="container clearfix">
 			<div class="maindetail maindetail-leveltest">
-				<h2 class="title title-guide">交际英语 <span>QUESTION 2/10</span></h2>
+				<h2 class="title title-guide"><span>商务英语</span> <span>QUESTION 1/10</span></h2>
 				<div class="detail"><h3 class="question">You are at an important dinner party and you are introduced to the CEO of WSI. What would you say?</h3></div>
 				<div class="options">
 					<ul>
@@ -111,8 +111,9 @@
 					</ul>
 				</div>
 				<div class="exec clearfix">
-					<button class="btn btn-prev"><i class="ico"></i>上一题</button>
-					<button class="btn btn-next">下一题<i class="ico"></i></button>
+					<button class="btn btn-prev" onClick="prev()"><i class="ico"></i>上一题</button>
+					<button class="btn btn-next" onClick="next()">下一题<i class="ico"></i></button>
+					<button class="btn btn-end" onClick="formSubmit()" style="display:none">完成<i class="ico"></i></button>
 				</div>
 			</div>
 		</div>
@@ -129,5 +130,160 @@
 
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/common.js"></script>
+	<script src="js/jquery.query.js"></script>
+	<script>
+	var type=1
+	var para=new Array();
+	var myAnswer=["0", "0", "0", "0", "0", "0", "0", "0", "0", "0"];
+	var current=0;
+	
+	
+		
+	function formSubmit(){
+		setMyAnswer();
+		self.location='leveltest-result.html?t='+type+'&p='+para+'&a='+myAnswer;
+		//console.log(para);
+		//console.log(myAnswer);
+	}
+	
+	function next(){
+		setMyAnswer();
+		if(current<9){
+			current++;
+			getQuestion(para[current]);	
+			if(current==9){
+				$(".exec .btn-next").hide();
+				$(".exec .btn-end").show();
+			}
+		}
+	}
+	
+	function prev(){
+		setMyAnswer();
+		if(current>0){
+			current--;
+			getQuestion(para[current]);
+			if(current<9){
+				$(".exec .btn-next").show();
+				$(".exec .btn-end").hide();
+			}
+		}
+	}
+	
+	function setMyAnswer(){
+		if($(".maindetail .options ul li span.checkbox-checked").attr("title")!=undefined){
+			myAnswer[current]=$(".maindetail .options ul li span.checkbox-checked").attr("title");
+		}
+	}
+	
+	function getQuestion(qNo){
+		$.getJSON("js/question.js",function(json){
+			var data=json.sw;
+			switch(type){
+				case 2:
+				data=json.sj;
+				break;
+				case 3:
+				data=json.sh;
+				break;
+			}
+			
+			$.each(data,function(i,item){
+				if(item.no==qNo){
+					$(".maindetail .question").text(item.q);
+					$(".maindetail .title span:eq(1)").text("QUESTION "+(current+1)+"/10")
+					$(".maindetail .options ul").empty();
+					var tNo=1;
+					$.each(item.a,function(j,answers){
+						if(myAnswer[current]==tNo){
+							$(".maindetail .options ul").append("<li><label><span class='ico checkbox checkbox-checked' title='"+tNo+"'></span>"+answers.t+"</label></li>")
+						}
+						else{
+							$(".maindetail .options ul").append("<li><label><span class='ico checkbox' title='"+tNo+"'></span>"+answers.t+"</label></li>")
+						}					
+						tNo++;
+					})
+					ui.checkboxInit('.checkbox',true);
+				}
+			})
+		})
+	}
+	function typeSetting(){
+		var title="商务英语";
+		switch(type){
+			case 2:
+				title="社交英语";
+				break;
+			case 3:
+				title="生活英语";
+				break;
+			}
+		$(".maindetail .title span:eq(0)").text(title);
+	}
+	
+	$(function(){
+		type=$.query.get('t');
+		typeSetting();
+		if(type==2){
+			para=[1,2,3,4,5,6,7,8,9,10];
+		}
+		else{
+			para=newRandomNumbersWithNoRepeat(1,20,10);//生成1到20范围内长度为10的数组
+			para.sort(function(a,b){return a>b?1:-1});  
+		}
+		//console.log(para)
+		getQuestion(para[current]);
+	})
+	
+	function newNumber(start,end){  
+    return Math.round(Math.random()*(end-start)+start); 
+}  
+
+function isHaveThisNumber(para,num){  
+    //拒绝无效的数组  
+    if(typeof(para) == "object")  
+    {  
+        if(para.length==0)  
+        {  
+            //console.log("数组为空");  
+            return false;  
+        }  
+    }  
+    for(var i=0;i<para.length;i++){  
+        if(para[i]==num){  
+            //console.log("与第【"+(i+1)+"】个元素重复，正在重新生成...");  
+            return true;//与目标数组有重复  
+        }  
+    }  
+    return false;  
+}  
+
+function newRandomNumbersWithNoRepeat(start,end,size){  
+    var para=new Array();//目标随机数组  
+    var rnum;//当前随机数  
+    var currentIndex=0;//当前随机数组的索引  
+    if(start>end||start<0||end<0||size<0){  
+        //console.log("无效参数");  
+        return;  
+    }  
+    if(end-start+1<size){//验证随机数个数是否超出随机数范围  
+        //console.log("随机数范围大于随机区间");  
+        return;  
+    }  
+    for(var i=0;i<size;i++){//生成 size 个不重复的随机数  
+        rnum=newNumber(start,end);//获取随机数  
+        if(isHaveThisNumber(para,rnum)){//是否已经存在  
+            while(isHaveThisNumber(para,rnum)){//获取新的随机数 直到不重复  
+                rnum=newNumber(start,end);//重新获取随机数  
+                //console.log("发现新的随机数："+rnum);  
+            }  
+        }  
+        para[currentIndex++]=rnum;//添加到现有数字集合中  
+    }  
+    return para;  
+}  
+
+	</script>
+
 </body>
 </html>

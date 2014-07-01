@@ -22,7 +22,7 @@ ol,ul,dl{list-style:none}
 
 table{border-collapse:collapse; border-spacing:0}
 
-hr{border: 1px solid #d5d5d5}
+hr{border-top: .2em solid #d5d5d5}
 
 a{text-decoration:none; color:#666}
 a:link{}

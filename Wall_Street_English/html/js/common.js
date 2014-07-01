@@ -57,17 +57,18 @@
 		checkboxInit:function(obj,isSingle){
 			var _obj=$(obj);
 			var stateChecked='checkbox-checked';
-			_obj.off('click.checkbox').on('click.checkbox',function(){
+			_obj.off('click.checkbox').on('click.checkbox',function(e){
 				if($(this).is('.'+stateChecked)){
 					$(this).removeClass(stateChecked);
 				}else{
 					if(isSingle){
 						$(obj).removeClass(stateChecked);
 					};
-					$(this).addClass(stateChecked)
+					$(this).addClass(stateChecked);
 				};
+				e.stopPropagation();
 			});
-			_obj.parent('label').off('click.checkbox').on('click.checkbox',function(){
+			_obj.parent('label').off('click.checkbox').on('click.checkbox',function(e){
 				if($(this).children(obj).is('.'+stateChecked)){
 					$(this).children(obj).removeClass(stateChecked);
 				}else{
@@ -76,6 +77,7 @@
 					};
 					$(this).children(obj).addClass(stateChecked);
 				};
+				e.stopPropagation();
 			});
 		},
 

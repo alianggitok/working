@@ -94,7 +94,7 @@
 
 	<section class="layout-focus">
 		<div class="container clearfix">
-			<img src="images/focus.jpg" alt="">
+			<img src="images/focus-leveltest.jpg" alt="">
 		</div>
 	</section>
 
@@ -104,6 +104,7 @@
 				<h2 class="title title-score">您的得分：<span>90</span></h2>
 				<div class="detail"><h3 class="comment">你的英语这么好，又有什么工作拿不下呢？Hold住全场的商务英语达人就是你！</h3></div>
 				<div class="list-results">
+					<hr>
 					<ul>
 						<li>
 							<div class="question">You are at an important dinner party and you are introduced to the CEO of WSI. What would you say？</div>
@@ -115,6 +116,7 @@
 								<h4>正确答案：</h4>
 								How do you do?
 							</div>
+							<hr>
 						</li>
 						<li>
 							<div class="question">You are at an important dinner party and you are introduced to the CEO of WSI. What would you say？</div>
@@ -163,7 +165,7 @@
 					</ul>
 				</div>
 				<div class="exec clearfix txt-right">
-					<button class="btn btn-back">返回<i class="ico"></i></button>
+					<button class="btn btn-back" onClick="goBack()">返回<i class="ico"></i></button>
 				</div>
 			</div>
 		</div>
@@ -180,5 +182,97 @@
 
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/common.js"></script>
+    <script src="js/jquery.query.js"></script>
+	<script type="text/javascript">
+		function goBack(){
+			window.location.href="leveltest-detail.html?t="+$.query.get('t');  	
+		}
+		
+		function questionList(type,para,myAnswer){
+			var score=0;
+			$(".maindetail .list-results ul").empty();
+			$.getJSON("js/question.js",function(json){
+				var data=json.sw;
+				switch(type){
+					case 2:
+					data=json.sj;
+					break;
+					case 3:
+					data=json.sh;
+					break;
+				}
+				$.each(para,function(i,p){
+					$.each(data,function(j,item){
+						if(p==item.no){
+							var mystr="";
+							var correctstr="";
+							$.each(item.a,function(k,answers){
+								if(k+1==myAnswer[i]){
+									mystr=answers.t;
+								}
+								if(k+1==item.r){
+									correctstr=answers.t;
+								}
+							});
+							if(mystr==correctstr){score+=10;}
+							$(".maindetail .list-results ul").append("<li><div class='question'>"+item.q+"</div><div class='answer'><h4>你的答案：</h4>"+mystr+"</div><div class='correct'><h4>正确答案：</h4>"+correctstr+"</div><hr></li>");
+						}
+					});
+				});
+				settingResult(type,score);
+			});
+		}
+		
+		function settingResult(type,score){
+			var r="";
+			switch(type){
+				case 1:
+				if(score<40){
+					r="很遗憾，以你目前的英语能力，在外企生存恐怕困难不小。别灰心，好好加油，天天向上！"
+				}
+				else if(score>=80){
+					r="你的英语这么好，又有什么工作拿不下呢？Hold住全场的商务英语达人就是你！"
+				}
+				else{
+					r="以你的英语能力，基本可以在外企立足了。但你的上升空间还很大，继续努力哦！";
+				}
+				break;
+				case 2:
+				if(score<40){
+					r="虽说人艰不拆，但是你的英语要满足日常社交的需求还有些吃力。快来华尔街英语充充电吧！"
+				}
+				else if(score>=80){
+					r="以你的英语水平，各种社交场合都难不倒你吧！外籍朋友们是不是都夸你社交小能手呢？"
+				}
+				else{
+					r="你的外籍朋友基本能够与你交流，但也会面临鸡同鸭讲的痛苦，你可以做的更好哟！";
+				}
+				break;
+				case 3:
+				if(score<40){
+					r="可能你就是那个在超市里看到英文标签就头晕的英语小白，为你心疼……和我们一起努力哟！"
+				}
+				else if(score>=80){
+					r="你的英语这么好小伙伴们知道吗？凭你的能力，出国游不带导游也能搞定啦！"
+				}
+				else{
+					r="基础的日常英语你还能应付，可是范围稍广些，就有些不明觉厉啦，继续加油吧亲！";
+				}
+				break;
+			}
+			
+			
+			$(".maindetail .title span").text(score);
+			$(".maindetail .detail .comment").text(r);
+
+		}
+
+    	$(function(){
+			type=$.query.get('t');
+			para=$.query.get('p').split(",");
+			myAnswer=$.query.get('a').split(",");			
+			questionList(type,para,myAnswer);
+		})
+    </script>
 </body>
 </html>

@@ -10,11 +10,13 @@
 .maindetail-leveltest .title-score {font-size: 3.6em; color: #333}
 .maindetail-leveltest .title-score span{color: #f12c3e}
 
-.maindetail-leveltest .detail .question{font-size: 4em; line-height: 1.2em; color: #64cfe9}
+.maindetail-leveltest .detail .question{font-size: 3.6em; line-height: 1.5em; color: #64cfe9}
 .maindetail-leveltest .detail .comment{font-size: 3.6em; line-height: 1.5em; color: #64cfe9}
 
 .maindetail-leveltest .list-results {padding: .625em 9.722%}
-.maindetail-leveltest .list-results li {font-size: 3.6em; line-height: 1.5em; padding:.9444em 0 ; border-top: .0556em solid #d5d5d5}
+.maindetail-leveltest .list-results hr{margin:0 10em 3.4em 0}
+.maindetail-leveltest .list-results li {font-size: 3.6em; line-height: 1.5em}
+.maindetail-leveltest .list-results li hr{border-width: .0556em; margin:.9444em 2.7778em .9444em 0}
 .maindetail-leveltest .list-results h4{font-size: 1em}
 .maindetail-leveltest .list-results .answer {margin-top: .8333em; color: #64cfe9}
 .maindetail-leveltest .list-results .correct {margin-top: .8333em; color: #f12c3e}
