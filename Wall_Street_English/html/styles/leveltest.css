@@ -2,6 +2,10 @@
 
 /**********leveltest**********/
 
+.layout-focus .container{position: relative}
+.layout-focus .leveltest-pointer{position:absolute; bottom: 4.3em; width: 100%; text-align: center}
+.layout-focus .leveltest-pointer .ico{width:2.3em; height:2.3em; border-radius: 50%; background: #fff; cursor: pointer; margin: 0 2.5%; overflow: hidden; line-height: 10em}
+.layout-focus .leveltest-pointer .current{background-color: #f12c3e}
 
 .mainlist-leveltest .ico-main{background-position: 0 -224px}
 

@@ -185,7 +185,7 @@ label input{vertical-align:middle; cursor:pointer}
 .maindetail .detail h4{font-size:2.8em; line-height: 1.5em; color: #666; margin-top: .3571em}
 .maindetail .detail p{font-size:2.8em; line-height: 1.5em; color: #64cfe9; margin-top: .5em}
 .maindetail .options{margin-top: 2.5em; border-top: .2em solid #d5d5d5}
-.maindetail .options li{font-size: 4.6em; line-height: 1.3913em; padding: 0 9.722%; border-bottom: .0435em solid #d5d5d5}
+.maindetail .options li{font-size: 3.6em; line-height: 1.3913em; padding: 0 9.722%; border-bottom: .0556em solid #d5d5d5}
 .maindetail .options li:hover{background-color: #f2f2f2}
 .maindetail .options label{cursor: pointer; display: block; padding: .625em 0; color: #64cfe9}
 .maindetail .exec{padding: 7em 9.722% 3em 9.722%; text-align: center}
