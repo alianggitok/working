@@ -117,9 +117,9 @@
 				<div class="detail"><h3 class="question">You are at an important dinner party and you are introduced to the CEO of WSI. What would you say?</h3></div>
 				<div class="options">
 					<ul>
-						<li><label><span class="ico checkbox checkbox-checked"></span>Hi!</label></li>
-						<li><label><span class="ico checkbox"></span>How do you do?</label></li>
-						<li><label><span class="ico checkbox"></span>Hey there!</label></li>
+						<li><label class="clearfix"><i class="ico checkbox checkbox-checked"></i><span class="txt">Hi!</span></label></li>
+						<li><label class="clearfix"><i class="ico checkbox"></i><span class="txt">How do you do?How do you do?How do you do?How do you do?How do you do?How do you do?How do you do?How do you do?How do you do?How do you do?How do you do?How do you do?</span></label></li>
+						<li><label class="clearfix"><i class="ico checkbox"></i><span class="txt">Hey there!</span></label></li>
 					</ul>
 				</div>
 				<div class="exec clearfix">
@@ -183,8 +183,8 @@
 	}
 	
 	function setMyAnswer(){
-		if($(".maindetail .options ul li span.checkbox-checked").attr("title")!=undefined){
-			myAnswer[current]=$(".maindetail .options ul li span.checkbox-checked").attr("title");
+		if($(".maindetail .options ul li i.checkbox-checked").attr("title")!=undefined){
+			myAnswer[current]=$(".maindetail .options ul li i.checkbox-checked").attr("title");
 		}
 	}
 	
@@ -204,14 +204,16 @@
 				if(item.no==qNo){
 					$(".maindetail .question").text(item.q);
 					$(".maindetail .title span:eq(1)").text("QUESTION "+(current+1)+"/10")
+					$(".leveltest-pointer span.ico").removeClass("current");
+					$(".leveltest-pointer span.ico:eq("+current+")").addClass("current");
 					$(".maindetail .options ul").empty();
 					var tNo=1;
 					$.each(item.a,function(j,answers){
 						if(myAnswer[current]==tNo){
-							$(".maindetail .options ul").append("<li><label><span class='ico checkbox checkbox-checked' title='"+tNo+"'></span>"+answers.t+"</label></li>")
+							$(".maindetail .options ul").append("<li><label><i class='ico checkbox checkbox-checked' title='"+tNo+"'></i><span class='txt'>"+answers.t+"</span></label></li>")
 						}
 						else{
-							$(".maindetail .options ul").append("<li><label><span class='ico checkbox' title='"+tNo+"'></span>"+answers.t+"</label></li>")
+							$(".maindetail .options ul").append("<li><label><i class='ico checkbox' title='"+tNo+"'></i><span class='txt'>"+answers.t+"</span></label></li>")
 						}					
 						tNo++;
 					})
@@ -248,52 +250,52 @@
 	})
 	
 	function newNumber(start,end){  
-    return Math.round(Math.random()*(end-start)+start); 
-}  
+    	return Math.round(Math.random()*(end-start)+start); 
+	}  
 
-function isHaveThisNumber(para,num){  
-    //拒绝无效的数组  
-    if(typeof(para) == "object")  
-    {  
-        if(para.length==0)  
-        {  
-            //console.log("数组为空");  
-            return false;  
-        }  
-    }  
-    for(var i=0;i<para.length;i++){  
-        if(para[i]==num){  
-            //console.log("与第【"+(i+1)+"】个元素重复，正在重新生成...");  
-            return true;//与目标数组有重复  
-        }  
-    }  
-    return false;  
-}  
+	function isHaveThisNumber(para,num){  
+		//拒绝无效的数组  
+		if(typeof(para) == "object")  
+		{  
+			if(para.length==0)  
+			{  
+				//console.log("数组为空");  
+				return false;  
+			}  
+		}  
+		for(var i=0;i<para.length;i++){  
+			if(para[i]==num){  
+				//console.log("与第【"+(i+1)+"】个元素重复，正在重新生成...");  
+				return true;//与目标数组有重复  
+			}  
+		}  
+		return false;  
+	}  
 
-function newRandomNumbersWithNoRepeat(start,end,size){  
-    var para=new Array();//目标随机数组  
-    var rnum;//当前随机数  
-    var currentIndex=0;//当前随机数组的索引  
-    if(start>end||start<0||end<0||size<0){  
-        //console.log("无效参数");  
-        return;  
-    }  
-    if(end-start+1<size){//验证随机数个数是否超出随机数范围  
-        //console.log("随机数范围大于随机区间");  
-        return;  
-    }  
-    for(var i=0;i<size;i++){//生成 size 个不重复的随机数  
-        rnum=newNumber(start,end);//获取随机数  
-        if(isHaveThisNumber(para,rnum)){//是否已经存在  
-            while(isHaveThisNumber(para,rnum)){//获取新的随机数 直到不重复  
-                rnum=newNumber(start,end);//重新获取随机数  
-                //console.log("发现新的随机数："+rnum);  
-            }  
-        }  
-        para[currentIndex++]=rnum;//添加到现有数字集合中  
-    }  
-    return para;  
-}  
+	function newRandomNumbersWithNoRepeat(start,end,size){  
+		var para=new Array();//目标随机数组  
+		var rnum;//当前随机数  
+		var currentIndex=0;//当前随机数组的索引  
+		if(start>end||start<0||end<0||size<0){  
+			//console.log("无效参数");  
+			return;  
+		}  
+		if(end-start+1<size){//验证随机数个数是否超出随机数范围  
+			//console.log("随机数范围大于随机区间");  
+			return;  
+		}  
+		for(var i=0;i<size;i++){//生成 size 个不重复的随机数  
+			rnum=newNumber(start,end);//获取随机数  
+			if(isHaveThisNumber(para,rnum)){//是否已经存在  
+				while(isHaveThisNumber(para,rnum)){//获取新的随机数 直到不重复  
+					rnum=newNumber(start,end);//重新获取随机数  
+					//console.log("发现新的随机数："+rnum);  
+				}  
+			}  
+			para[currentIndex++]=rnum;//添加到现有数字集合中  
+		}  
+		return para;  
+	}  
 
 	</script>
 
