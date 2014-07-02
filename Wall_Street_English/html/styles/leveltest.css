@@ -26,7 +26,7 @@
 .maindetail-leveltest .list-results .correct {margin-top: .8333em; color: #f12c3e}
 
 .maindetail-leveltest .options .checkbox{float:left; width: 64px}
-.maindetail-leveltest .options .txt{margin-left: 74px}
+.maindetail-leveltest .options .txt{margin-left: 74px; display:block}
 
 
 
