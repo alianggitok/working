@@ -24,6 +24,7 @@
 .maindetail-leveltest .list-results h4{font-size: 1em}
 .maindetail-leveltest .list-results .answer {margin-top: .8333em; color: #64cfe9}
 .maindetail-leveltest .list-results .correct {margin-top: .8333em; color: #f12c3e}
+.maindetail-leveltest .list-results .pass .correct{color: #64cfe9}
 
 .maindetail-leveltest .options .checkbox{float:left; width: 64px}
 .maindetail-leveltest .options .txt{margin-left: 74px; display:block}

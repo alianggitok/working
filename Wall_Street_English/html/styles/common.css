@@ -95,7 +95,7 @@ label input{vertical-align:middle; cursor:pointer}
 .layout-focus,
 .layout-navig,
 .layout-main,
-.layout-footer{min-width:580px}
+.layout-footer{min-width:720px}
 .container{padding:0 9.722%; margin:0 auto}
 
 
@@ -170,7 +170,7 @@ label input{vertical-align:middle; cursor:pointer}
 .mainlist .tit .cn{display: block}
 .mainlist .tit .en{font-size: .8333em; line-height: 1.5em; color: #666}
 .mainlist .summary{font-size: 2.6em; line-height: 1.7em; margin-right: 17%; border-top: .0769em solid #d5d5d5; padding: 1.1538em}
-.mainlist .summary .trigger{color: #666}
+.mainlist .summary .trigger{color: #666; text-decoration: none}
 .mainlist .summary .txt{margin-top: .5769em; display: none}
 .mainlist .exec{margin-top: 1.5em}
 .mainlist .exec .btn{display: block; width: 100%; text-align: right}
@@ -198,7 +198,7 @@ label input{vertical-align:middle; cursor:pointer}
 
 
 /**********footer**********/
-.layout-footer{border-top:.2em solid #013a65; color: #fff}
+.layout-footer{/*border-top:.2em solid #013a65;*/ color: #fff}
 .layout-footer .container{font-size:2em; line-height: 1.5em; padding-top:2em; padding-bottom: 2em; text-align: center}
 .layout-footer a{color: #fff}
 .layout-footer .logo{font-size: 1.6em; line-height: 1.5em; font-weight: bold; margin-bottom: .375em}
