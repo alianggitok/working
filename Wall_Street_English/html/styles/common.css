@@ -169,9 +169,9 @@ label input{vertical-align:middle; cursor:pointer}
 .mainlist .tit{font-size: 4.8em; line-height: 1.3em; color: #64cfe9; padding: .625em}
 .mainlist .tit .cn{display: block}
 .mainlist .tit .en{font-size: .8333em; line-height: 1.5em; color: #666}
-.mainlist .summary{font-size: 2.6em; line-height: 1.7em; margin-right: 17%; border-top: .0769em solid #d5d5d5; padding: 1.1538em}
+.mainlist .summary{font-size: 3.2em; line-height: 1.375em; margin-right: 17%; border-top: .0625em solid #d5d5d5; padding: .9375em}
 .mainlist .summary .trigger{color: #666; text-decoration: none}
-.mainlist .summary .txt{margin-top: .5769em; display: none}
+.mainlist .summary .txt{margin-top: .46875em; display: none}
 .mainlist .exec{margin-top: 1.5em}
 .mainlist .exec .btn{display: block; width: 100%; text-align: right}
 .mainlist .exec .btn .ico{margin: 0 5.862% 0 3.1034%}
