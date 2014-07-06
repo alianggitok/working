@@ -89,6 +89,7 @@ label input{vertical-align:middle; cursor:pointer}
 .page .num a.current{color:#693; font-weight:bold}
 
 /*audiojs*/
+.listenbar audio {width: 0; height: 0; overflow: hidden}
 .audiojs {height: 0; width: 0; overflow: hidden}
 .audiojs .scrubber {display: none}
 .audiojs .time {display: none}

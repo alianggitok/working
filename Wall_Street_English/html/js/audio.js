@@ -3,6 +3,7 @@ function audioInit() {
 		var as = audiojs.createAll();
 	});
 };
+audioInit();
 
 $(function () {
 	var listenbar = $('.listenbar'),
@@ -15,18 +16,27 @@ $(function () {
 	listenbar.each(function () {
 		listenbar = $(this);
 		listenbtn = listenbar.find('.btn-listen');
-		listenAudio = listenbar.find('audio');
+		resetAudio = null;
 
 		listenbtn.click(function () {
 			clearInterval(checkStatusTimer);
 			checkStatusTimer = null;
 			clearTimeout(checkStatusDelay);
 			checkStatusDelay = null;
+			listenAudio = listenbar.find('audio');
+			listenAudioJS = listenbar.find('.audiojs');
+			resetAudio = function () {
+				listenAudioJS.remove();
+				listenAudio.prependTo(listenbar);
+				audioInit();
+				listenbar.removeClass('listenbar-playing');
+			};
 
-			$('.audiojs').remove();
-			listenAudio.appendTo(listenbar);
-			audioInit();
-			listenbar.removeClass('listenbar-playing');
+			isPlaying = listenbar.find('.playing').is('.playing');
+			if (!isPlaying) {
+				resetAudio();
+			};
+
 			listenbar.find('.play-pause').click();
 
 			checkStatusDelay = setTimeout(function () {
@@ -38,7 +48,7 @@ $(function () {
 				} else {
 					listenbar.removeClass('listenbar-playing');
 				};
-			},300);
+			}, 300);
 			checkStatusTimer = setInterval(function () {
 				isPlaying = listenbar.find('.playing').is('.playing');
 				if (!isPlaying) {
