@@ -88,6 +88,11 @@ label input{vertical-align:middle; cursor:pointer}
 .page .num a{padding:0 2px}
 .page .num a.current{color:#693; font-weight:bold}
 
+/*audiojs*/
+.audiojs {height: 0; width: 0; overflow: hidden}
+.audiojs .scrubber {display: none}
+.audiojs .time {display: none}
+.audiojs .error-message {display: none}
 
 /**********layout**********/
 .layout-top,
@@ -173,7 +178,7 @@ label input{vertical-align:middle; cursor:pointer}
 .mainlist .summary .trigger{color: #666; text-decoration: none}
 .mainlist .summary .txt{margin-top: .46875em; display: none}
 .mainlist .exec{margin-top: 1.5em}
-.mainlist .exec .btn{display: block; width: 100%; text-align: right}
+.mainlist .exec .btn{display: block; width: 100%; text-align: right; color: #fff; text-decoration: none}
 .mainlist .exec .btn .ico{margin: 0 5.862% 0 3.1034%}
 
 /*detail*/

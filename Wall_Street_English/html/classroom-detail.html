@@ -121,6 +121,7 @@
 					<h2>Product presentation:</h2>
 					<div class="listenbar">
 						<i class="ico ico-listen"></i>
+						<audio src="http://www.wselearning.com/audio/travel/at the airport.mp3" preload="auto"></audio>
 						<button class="btn btn-listen">马上试听<i class="ico ico-pointer"></i></button>
 					</div>
 					<hr>
@@ -162,6 +163,37 @@
 
 
 	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/audiojs/audio.min.js"></script>
 	<script src="js/common.js"></script>
+		
+	<script>
+ 	audiojs.events.ready(function () {
+ 		var as = audiojs.createAll();
+ 	});
+
+ 	$(function () {
+ 		var listenbar = $('.listenbar'),
+ 	        listenbtn = null,
+ 	        listenAudio = null,
+ 	        checkStatusTimer = null,
+ 	        isPlaying = null;
+
+ 		listenbar.each(function () {
+ 			listenbar = $(this);
+ 			listenbtn = listenbar.find('.btn-listen');
+
+ 			listenbtn.click(function () {
+ 				listenbar.find('.play-pause').click();
+ 				isPlaying = listenbar.find('.playing').is('.playing');
+ 				console.log(isPlaying);
+ 				if (isPlaying) {
+					listenbar.addClass('listenbar-playing');
+ 				} else {
+ 					listenbar.removeClass('listenbar-playing');
+ 				};
+ 			});
+ 		});
+ 	});
+	</script>
 </body>
 </html>

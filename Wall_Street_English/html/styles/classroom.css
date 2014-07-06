@@ -20,5 +20,6 @@
 .maindetail-classroom .detail .listenbar .ico-listen{position: absolute; width: 128px; height: 128px; background-position: -384px -224px; background-color:#fff; left: -24px}
 .maindetail-classroom .detail .listenbar .btn-listen{text-align: right; width: 100%; margin-top: 24px}
 .maindetail-classroom .detail .listenbar .btn-listen .ico{margin: 0 5.862% 0 3.1034%}
+.maindetail-classroom .detail .listenbar-playing .btn-listen .ico{background-position: -144px 0}
 
 

@@ -148,15 +148,32 @@
 	var para=new Array();
 	var myAnswer=["0", "0", "0", "0", "0", "0", "0", "0", "0", "0"];
 	var current=0;
+	var unSelectedStr="";
 	
-	
+	function checkAnswer(){
+		var result=true;
+		unSelectedStr="";
+		$.each(myAnswer,function(i,item){
+			if(item==0){
+				result=false;
+				if(unSelectedStr==""){unSelectedStr += (i+1);current=i;}
+				else{unSelectedStr += ","+(i+1);}
+			}
+		});
+		return result;
+	}
 		
 	function formSubmit(){
 		setMyAnswer();
-		self.location='leveltest-result.html?t='+type+'&p='+para+'&a='+myAnswer;
-		//console.log(para);
-		//console.log(myAnswer);
+		if(checkAnswer()){
+			self.location='leveltest-result.html?t='+type+'&p='+para+'&a='+myAnswer;
+		}
+		else{
+			alert("第"+unSelectedStr+"题未做！");
+			getQuestion(para[current]);
+		}
 	}
+	
 	
 	function next(){
 		setMyAnswer();
@@ -189,6 +206,16 @@
 	}
 	
 	function getQuestion(qNo){
+		if(current<9){
+			$(".exec .btn-next").show();
+			$(".exec .btn-end").hide();
+		}
+		else{
+			$(".exec .btn-next").hide();
+			$(".exec .btn-end").show();
+		}
+
+	
 		$.getJSON("js/question.js",function(json){
 			var data=json.sw;
 			switch(type){
@@ -220,8 +247,10 @@
 					ui.checkboxInit('.checkbox',true);
 				}
 			})
+			
 		})
 	}
+	
 	function typeSetting(){
 		var title="商务英语";
 		switch(type){
@@ -245,7 +274,6 @@
 			para=newRandomNumbersWithNoRepeat(1,20,10);//生成1到20范围内长度为10的数组
 			para.sort(function(a,b){return a>b?1:-1});  
 		}
-		//console.log(para)
 		getQuestion(para[current]);
 	})
 	

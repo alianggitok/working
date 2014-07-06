@@ -116,25 +116,25 @@
 
 
 /*********** exec ***********/
-$(function(){
-	var navigTriggerObj='.layout-header .navig-trigger .ico';
+$(function () {
+	var navigTriggerObj = '.layout-header .navig-trigger .ico';
 
 	ui.vAlignMiddleFix('.ico');
-	ui.navigInit(navigTriggerObj,'.layout-navig .navig');
-	ui.checkboxInit('.options .checkbox',true);
-	ui.tabbox('.tabbox-click','click');
+	ui.navigInit(navigTriggerObj, '.layout-navig .navig');
+	ui.checkboxInit('.options .checkbox', true);
+	ui.tabbox('.tabbox-click', 'click');
 
 	//back to navigation
-	$('.layout-navig .nav .nav-backnavig').on('click',function(){
+	$('.layout-navig .nav .nav-backnavig').on('click', function () {
 		$(navigTriggerObj).click();
 	});
 
 	//list summary fold
-	$('.mainlist .summary .trigger').on('click',function(e){
-		var _activeObj=$(this).next('');
-		if(_activeObj.is(':visible')){
+	$('.mainlist .summary .trigger').on('click', function (e) {
+		var _activeObj = $(this).next('');
+		if (_activeObj.is(':visible')) {
 			_activeObj.slideUp();
-		}else{
+		} else {
 			_activeObj.slideDown();
 		};
 		e.preventDefault();

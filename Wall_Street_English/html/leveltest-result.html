@@ -218,8 +218,17 @@
 									correctstr=answers.t;
 								}
 							});
-							if(mystr==correctstr){score+=10;}
-							$(".maindetail .list-results ul").append("<li><div class='question'>"+item.q+"</div><div class='answer'><h4>你的答案：</h4>"+mystr+"</div><div class='correct'><h4>正确答案：</h4>"+correctstr+"</div><hr></li>");
+							
+							var answerStr="<li><div class='question'>"+item.q+"</div><div class='answer'><h4>你的答案：</h4>"+mystr+"</div>";
+							if(mystr==correctstr){
+								score+=10;
+								answerStr+="<div class='answer'>";
+							}
+							else{
+								answerStr+="<div class='correct'>";
+							}
+							answerStr+="<h4>正确答案：</h4>"+correctstr+"</div><hr></li>";
+							$(".maindetail .list-results ul").append(answerStr);
 						}
 					});
 				});
