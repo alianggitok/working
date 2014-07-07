@@ -9,7 +9,7 @@ canvas,object,embed,progress,audio,video,track,map,area,figure,figcaption,
 table,caption,tbody,tfoot,thead,tr,th,td,
 span,a,b,strong,em,mark,blockquote,code,del,abbr,dfn,big,small,time,i,acronym,address,cite,ins,kbd,q,samp,sub,sup,tt,var{margin:0; padding:0; border:none; font: inherit}
 
-body{font-size:62.5%; line-height: 1.5em; letter-spacing:0; font-family:"微软雅黑", "Arial", "Helvetica", "sans-serif"; background:#003359; color:#777; cursor:default; vertical-align:baseline}
+body{font-size:62.5%; line-height: 1.5em; letter-spacing:0; font-family:"微软雅黑", "Arial", "Helvetica", "sans-serif"; background:#003359; color:#777; colorcursor:default; vertical-align:baseline}
 
 :hover{transition-duration:.3s; transition-timing-function:ease; transition-property:color, border-color, background-color}
 
@@ -76,6 +76,7 @@ label input{vertical-align:middle; cursor:pointer}
 .colorRed{color: #f12c3e!important}
 .colorBlue{color:#64cfe9!important}
 .colorGray{color:#777!important}
+.colorGreen{color:#67ae51!important}
 
 /*crumbs*/
 .nav-crumbs{padding:0 2px; border-bottom:1px solid #90b830; line-height:18px}

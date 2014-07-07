@@ -1,25 +1,25 @@
 /********** functions **********/
 ;(function(global){
-	var _window=$(window);
-	var browserAgent=navigator.userAgent;
-	var browser={
-		isIE6: function(){
-			return /msie 6/i.test(browserAgent);
-		},
-		isIE7: function(){
-			return /msie 7/i.test(browserAgent);
-		},
-		isIE9: function(){
-			return /msie 9/i.test(browserAgent);
-		}
-	};
+	var _window=$(window),
+		browserAgent=navigator.userAgent,
+		browser={
+			isIE6: function(){
+				return /msie 6/i.test(browserAgent);
+			},
+			isIE7: function(){
+				return /msie 7/i.test(browserAgent);
+			},
+			isIE9: function(){
+				return /msie 9/i.test(browserAgent);
+			}
+		};
 
 	global.ui={
 		/*fix btn icon position*/
 		vAlignMiddleFix: function (obj) {
 			$(obj).each(function () {
-				var txt = $.trim($(this).parent().text());
-				var patch = '<span style="display:inline-block; font-size:0; width:0; overflow:hidden; vertical-align:middle; visibility:hidden">&nbsp;</span>';
+				var txt = $.trim($(this).parent().text()),
+					patch = '<span style="display:inline-block; font-size:0; width:0; overflow:hidden; vertical-align:middle; visibility:hidden">&nbsp;</span>';
 				if (browser.isIE9() && txt == '') {
 					$(this).before(patch);
 				};
@@ -28,16 +28,19 @@
 
 		/*navig initialize*/
 		navigInit:function(triggerobj,activeObj){
-			var _triggerobj=$(triggerobj), _activeObj=$(activeObj);
-			var _bodyChild=$('body').children(':not("header,footer,script,link")');
-			//var minHeight=_activeObj.height();
-			//var height=0;
-			//for (i=0;i<_bodyChild.length;i++){
-			//	height+=_bodyChild.eq(i).outerHeight();
-			//};
-			//if(height>minHeight){
-			//	_activeObj.height(height);
-			//};
+			var _triggerobj=$(triggerobj),
+				_activeObj=$(activeObj),
+				_bodyChild=$('body').children(':not("header,footer,script,link")');
+			/*
+			var minHeight=_activeObj.height();
+			var height=0;
+			for (i=0;i<_bodyChild.length;i++){
+				height+=_bodyChild.eq(i).outerHeight();
+			};
+			if(height>minHeight){
+				_activeObj.height(height);
+			};
+			*/
 			_triggerobj.off('click.navig').on('click.navig',function(e){
 				if(_activeObj.is(':visible')){
 					_activeObj.slideUp();
@@ -55,8 +58,8 @@
 		},
 
 		checkboxInit:function(obj,isSingle){
-			var _obj=$(obj);
-			var stateChecked='checkbox-checked';
+			var _obj=$(obj),
+				stateChecked='checkbox-checked';
 			_obj.off('click.checkbox').on('click.checkbox',function(e){
 				if($(this).is('.'+stateChecked)){
 					$(this).removeClass(stateChecked);
@@ -84,9 +87,9 @@
 		/*tabbox*/
 		tabbox: function (obj, motion) {
 			$(obj).each(function () {
-				var _obj = $(this);
-				var _tabObj = _obj.find('.tabs .tab');
-				var _contObj = _obj.find('.conts .cont');
+				var _obj = $(this),
+					_tabObj = _obj.find('.tabs .tab'),
+					_contObj = _obj.find('.conts .cont');
 
 				_contObj.hide();
 				_contObj.first().show();
