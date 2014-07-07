@@ -148,35 +148,34 @@
 	var para=new Array();
 	var myAnswer=["0", "0", "0", "0", "0", "0", "0", "0", "0", "0"];
 	var current=0;
-	var unSelectedStr="";
 	
-	function checkAnswer(){
-		var result=true;
-		unSelectedStr="";
-		$.each(myAnswer,function(i,item){
-			if(item==0){
-				result=false;
-				if(unSelectedStr==""){unSelectedStr += (i+1);current=i;}
-				else{unSelectedStr += ","+(i+1);}
-			}
-		});
-		return result;
-	}
-		
 	function formSubmit(){
 		setMyAnswer();
-		if(checkAnswer()){
-			self.location='leveltest-result.html?t='+type+'&p='+para+'&a='+myAnswer;
+		if(!checkCurrentAnswer()){
+			alert("您还对本题进行作答！");
+			return;
 		}
-		else{
-			alert("第"+unSelectedStr+"题未做！");
-			getQuestion(para[current]);
-		}
+		self.location='leveltest-result.html?t='+type+'&p='+para+'&a='+myAnswer;
 	}
+	
+	function checkCurrentAnswer(){
+		var result=true;
+		if(myAnswer[current]==0){
+			result=false;
+		}
+		return result;
+	}
+	
 	
 	
 	function next(){
 		setMyAnswer();
+
+		if(!checkCurrentAnswer()){
+			alert("您还对本题进行作答！");
+			return;
+		}
+		
 		if(current<9){
 			current++;
 			getQuestion(para[current]);	
@@ -189,6 +188,7 @@
 	
 	function prev(){
 		setMyAnswer();
+
 		if(current>0){
 			current--;
 			getQuestion(para[current]);
