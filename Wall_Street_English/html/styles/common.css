@@ -209,7 +209,8 @@ label input{vertical-align:middle; cursor:pointer}
 .layout-footer{/*border-top:.2em solid #013a65;*/ color: #fff}
 .layout-footer .container{font-size:2em; line-height: 1.5em; padding-top:2em; padding-bottom: 2em; text-align: center}
 .layout-footer a{color: #fff}
-.layout-footer .logo{font-size: 1.6em; line-height: 1.5em; font-weight: bold; margin-bottom: .375em}
+.layout-footer .logo {margin-bottom: 1.3em}
+.layout-footer .logo .ico{width: 169px; height: 28px; background-position: 0 -493px}
 
 
 /**********floater**********/

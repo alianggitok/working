@@ -81,7 +81,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="#" class="clearfix">
+				<a href="index.html" class="clearfix">
 					<div class="tit">
 						<i class="ico ico-activity"></i>
 						<span class="txt">特别活动</span>
@@ -113,13 +113,10 @@
 	<section class="layout-main">
 		<div class="container clearfix">
 			<div class="maindetail maindetail-leveltest">
-				<h2 class="title title-guide"><span>商务英语</span> <span>QUESTION 1/10</span></h2>
-				<div class="detail"><h3 class="question">You are at an important dinner party and you are introduced to the CEO of WSI. What would you say?</h3></div>
+				<h2 class="title title-guide"><span></span> <span>QUESTION 1/10</span></h2>
+				<div class="detail"><h3 class="question"></h3></div>
 				<div class="options">
 					<ul>
-						<li><label class="clearfix"><i class="ico checkbox checkbox-checked"></i><span class="txt">Hi!</span></label></li>
-						<li><label class="clearfix"><i class="ico checkbox"></i><span class="txt">How do you do?How do you do?How do you do?How do you do?How do you do?How do you do?How do you do?How do you do?How do you do?How do you do?How do you do?How do you do?</span></label></li>
-						<li><label class="clearfix"><i class="ico checkbox"></i><span class="txt">Hey there!</span></label></li>
 					</ul>
 				</div>
 				<div class="exec clearfix">
@@ -133,7 +130,7 @@
 
 	<footer class="layout-footer">
 		<div class="container clearfix">
-			<p class="logo">PEARSON</p>
+			<p class="logo"><i class="ico"></i></p>
 			<p class="copyright">Copyright &copy; 2011 Gamma Master China Limited.</p>
 			<p class="license"><a href="#">沪ICP备09041169号-3</a></p>
 		</div>
@@ -152,7 +149,7 @@
 	function formSubmit(){
 		setMyAnswer();
 		if(!checkCurrentAnswer()){
-			alert("您还对本题进行作答！");
+			alert("您还未对本题进行作答！");
 			return;
 		}
 		self.location='leveltest-result.html?t='+type+'&p='+para+'&a='+myAnswer;
@@ -172,7 +169,7 @@
 		setMyAnswer();
 
 		if(!checkCurrentAnswer()){
-			alert("您还对本题进行作答！");
+			alert("您还未对本题进行作答！");
 			return;
 		}
 		

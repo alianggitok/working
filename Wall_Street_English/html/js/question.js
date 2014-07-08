@@ -32,7 +32,7 @@
 	{"no":"6","q":"You meet your boss at the coffee machine.","a":[{"t":"It’s a very great honour to meet you."},{"t":"What the hell are you doing here"},{"t":"Good morning, Mr. Peters."}],"r":"3"},
 	{"no":"7","q":"You want to end an email to a colleague.","a":[{"t":"Regards,"},{"t":"Bye bye!"},{"t":"Answer me!!!"}],"r":"1"},
 	{"no":"8","q":"You leave a message for your supervisor.","a":[{"t":"You leave a message for your supervisor."},{"t":"I would like to discuss the new figures. I am available all day at extension 123."},{"t":"Why not return my call when you get back from your 3 hour lunch break?"}],"r":"2"},
-	{"no":"9","q":"A client comes to your office.","a":[{"t":"Sit!"},{"t":"There’s a chair."},{"t":"There’s a chair."}],"r":"3"},
+	{"no":"9","q":"A client comes to your office.","a":[{"t":"Sit!"},{"t":"There’s a chair."},{"t":"Please take a seat"}],"r":"3"},
 	{"no":"10","q":"You want to start the meeting.","a":[{"t":"I suggest we start the meeting."},{"t":"Start!"},{"t":"Talk now!"}],"r":"1"}
 	]
 	
@@ -52,7 +52,7 @@
 	{"no":"12","q":"Sorry you didn't find me at home. ... out to do some shopping.","a":[{"t":"I've been going"},{"t":"I'll be going"},{"t":"I've gone"},{"t":"I'd gone"}],"r":"4"},
 	{"no":"13","q":"The worst holiday ... was when we went camping.","a":[{"t":"I ever made"},{"t":"I've ever been to"},{"t":"I've ever had"},{"t":"I had ever"}],"r":"3"},
 	{"no":"14","q":"How long ... in New York, then?","a":[{"t":"have you been lived"},{"t":"have you been living"},{"t":"do you live"},{"t":"are you living"}],"r":"2"},
-	{"no":"15","q":"With this lovely weather there ... to be millions of people on the beach.","a":[{"t":"will certain"},{"t":"are certainly"},{"t":"are certainly"},{"t":"are"}],"r":"3"},
+	{"no":"15","q":"With this lovely weather there ... to be millions of people on the beach.","a":[{"t":"will certain"},{"t":"are certainly"},{"t":"are certain"},{"t":"are"}],"r":"3"},
 	{"no":"16","q":"Are you sure we've never met? You ... someone I used to know.","a":[{"t":"remind me of"},{"t":"remember to me"},{"t":"remember me"},{"t":"remind me"}],"r":"1"},
 	{"no":"17","q":"I know what that word means! I looked ... in my dictionary.","a":[{"t":"it up"},{"t":"to it"},{"t":"down"},{"t":"for it"}],"r":"1"},
 	{"no":"18","q":"No sooner had I opened my front door ... that something was wrong","a":[{"t":"had I realized"},{"t":"did I realize"},{"t":"than I realized"},{"t":"and I realized"}],"r":"3"},
