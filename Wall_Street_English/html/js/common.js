@@ -31,7 +31,7 @@
 			var _triggerobj=$(triggerobj),
 				_activeObj=$(activeObj),
 				_bodyChild=$('body').children(':not("header,footer,script,link")');
-			/*
+
 			var minHeight=_activeObj.height();
 			var height=0;
 			for (i=0;i<_bodyChild.length;i++){
@@ -40,7 +40,7 @@
 			if(height>minHeight){
 				_activeObj.height(height);
 			};
-			*/
+
 			_triggerobj.off('click.navig').on('click.navig',function(e){
 				if(_activeObj.is(':visible')){
 					_activeObj.slideUp();

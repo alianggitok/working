@@ -2,6 +2,9 @@
 
 /**********index**********/
 
+.layout-focus .container{height: 434px}
+
+
 .index-guide{color: #003359}
 
 .index-guide li{font-size: 3.2em; line-height: 2.5em; border-bottom: 0.0625em solid #cecece; padding: 0 9.722%}

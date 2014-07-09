@@ -158,7 +158,7 @@ label input{vertical-align:middle; cursor:pointer}
 
 /**********focus**********/
 .layout-focus{ color: #fff}
-.layout-focus .container{width: auto; overflow: hidden; text-align: center; padding: 0}
+.layout-focus .container{width: auto; overflow: hidden; text-align: center; padding: 0; height: 414px}
 
 
 /**********main**********/
