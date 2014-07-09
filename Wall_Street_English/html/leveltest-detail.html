@@ -200,6 +200,9 @@
 		if($(".maindetail .options ul li i.checkbox-checked").attr("title")!=undefined){
 			myAnswer[current]=$(".maindetail .options ul li i.checkbox-checked").attr("title");
 		}
+		else{
+			myAnswer[current]="0";
+		}
 	}
 	
 	function getQuestion(qNo){
@@ -210,6 +213,13 @@
 		else{
 			$(".exec .btn-next").hide();
 			$(".exec .btn-end").show();
+		}
+		
+		if(current==0){
+			$(".exec .btn-prev").hide();
+		}
+		else{
+			$(".exec .btn-prev").show();
 		}
 
 	
