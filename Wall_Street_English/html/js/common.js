@@ -124,6 +124,9 @@ $(function () {
 
 	ui.vAlignMiddleFix('.ico');
 	ui.navigInit(navigTriggerObj, '.layout-navig .navig');
+	window.onload=function(){
+		ui.navigInit(navigTriggerObj, '.layout-navig .navig');
+	};
 	ui.checkboxInit('.options .checkbox', true);
 	ui.tabbox('.tabbox-click', 'click');
 
@@ -144,3 +147,4 @@ $(function () {
 	});
 
 });
+
