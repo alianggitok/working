@@ -10,7 +10,7 @@ table,caption,tbody,tfoot,thead,tr,th,td,
 span,a,b,strong,em,mark,blockquote,code,del,abbr,dfn,big,small,time,i,acronym,address,cite,ins,kbd,q,samp,sub,sup,tt,var{margin:0; padding:0; border:none; font: inherit}
 
 html{height:100%}
-body{font-size:62.5%; line-height: 1.5em; letter-spacing:0; font-family:"微软雅黑", "Arial", "Helvetica", "sans-serif"; background:#f3f3f3; color:#8c8680; cursor:default; vertical-align:baseline; height:100%; position:relative}
+body{font-size:62.5%; line-height: 1.5em; letter-spacing:0; font-family:"微软雅黑", "Arial", "Helvetica", "sans-serif"; background:#f3f3f3; color:#8c8680; cursor:default; vertical-align:baseline; height:100%}
 
 :hover{transition-duration:.3s; transition-timing-function:ease; transition-property:color, border-color, background-color}
 
