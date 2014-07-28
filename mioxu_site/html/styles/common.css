@@ -12,6 +12,8 @@ span,a,b,strong,em,mark,blockquote,code,del,abbr,dfn,big,small,time,i,acronym,ad
 html{height:100%}
 body{font-size:62.5%; line-height: 1.5em; letter-spacing:0; font-family:"微软雅黑", "Arial", "Helvetica", "sans-serif"; background:#f3f3f3; color:#8c8680; cursor:default; vertical-align:baseline; height:100%}
 
+.layout-header *,
+.layout-main *{transition-duration:.3s; transition-timing-function:ease; transition-property:all}
 :hover{transition-duration:.3s; transition-timing-function:ease; transition-property:color, border-color, background-color}
 
 h1{font-size:3.2em}
@@ -95,7 +97,7 @@ label input{vertical-align:middle; cursor:pointer}
 
 /**********header**********/
 .layout-header{background: #fff; width:250px; float:left; height:100%}
-.layout-header .container{height:100%; overflow:auto}
+.layout-header .container{height:100%; overflow:auto; position: relative}
 .layout-header .logo{padding:4.1428em; font-size:1.4em}
 .layout-header .navig{padding:0 4.1428em; font-size:1.4em; font-family:Arial}
 .layout-header .navig li{margin-top:1.5714em}
@@ -116,7 +118,7 @@ label input{vertical-align:middle; cursor:pointer}
 
 
 /**********footer**********/
-.layout-footer{position:absolute; width:250px; bottom:0; left:0; text-align:center}
+.layout-footer{position:absolute; width: 100%; bottom:0; left:0; text-align:center; clear: both}
 .layout-footer .container{padding:0 .8333em 4.8333em .8333em; font-size:1.2em}
 .layout-footer .links{font-size:0}
 .layout-footer .links .ico{width:32px; height:32px; margin-right:10px}
@@ -127,15 +129,18 @@ label input{vertical-align:middle; cursor:pointer}
 
 
 /**********responsive**********/
+.response-height-lte .layout-footer{position: static; margin-top:80px}
+
 @media screen and (max-width:640px){
 	.layout-header{float:none; height:auto; width:auto}
 	.layout-header .logo{float:left; padding:2em 2.2em}
 	.layout-header .logo img{height:100px}
-	.layout-header .navig{padding:.7143em 2em; float:right; text-align:right}
+	.layout-header .navig{padding:.7143em 2em; text-align:right}
 	.layout-header .navig li{margin-top:1.2857em}
 	
 	.layout-main{margin-left:0; height:auto}
 	
 	.layout-footer{position:static; width:auto; background:#fff}
 	.layout-footer .container{padding:2.3333em 2em}
+	.response-height-lte .layout-footer{position: static; margin-top:0}
 }
