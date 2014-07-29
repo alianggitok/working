@@ -9,12 +9,11 @@ canvas,object,embed,progress,audio,video,track,map,area,figure,figcaption,
 table,caption,tbody,tfoot,thead,tr,th,td,
 span,a,b,strong,em,mark,blockquote,code,del,abbr,dfn,big,small,time,i,acronym,address,cite,ins,kbd,q,samp,sub,sup,tt,var{margin:0; padding:0; border:none; font: inherit}
 
-html{height:100%}
+html{height:100%; overflow: hidden}
 body{font-size:62.5%; line-height: 1.5em; letter-spacing:0; font-family:"微软雅黑", "Arial", "Helvetica", "sans-serif"; background:#f3f3f3; color:#8c8680; cursor:default; vertical-align:baseline; height:100%}
 
-.layout-header *,
-.layout-main *{transition-duration:.3s; transition-timing-function:ease; transition-property:all}
-:hover{transition-duration:.3s; transition-timing-function:ease; transition-property:color, border-color, background-color}
+.layout-header div,
+.layout-main div{transition-duration:.3s; transition-timing-function:ease; transition-property:all}
 
 h1{font-size:3.2em}
 h2{font-size:2.4em}
@@ -27,10 +26,10 @@ table{border-collapse:collapse; border-spacing:0}
 
 hr{border-top: .2em solid #8c8680}
 
-a{text-decoration:none; color:#666}
+a{text-decoration:none; color:#9d9791}
 a:link{}
 a:visited{}
-a:hover{text-decoration:underline; color:#000}
+a:hover{text-decoration:underline; color:#8c8680; transition-duration:.3s; transition-timing-function:ease; transition-property:color, border-color, background-color}
 a:active{}
 
 img{vertical-align:top; border:none; -ms-interpolation-mode:bicubic;}
@@ -42,7 +41,7 @@ label input{vertical-align:middle; cursor:pointer}
 .ico{display:inline-block; border:none; background:url(../images/icons.png) transparent 0 0 no-repeat; overflow:hidden; vertical-align:middle; text-align:center; width:12px; height:12px}
 
 /*button*/
-.btn{display:inline-block; border:none; font-family: "微软雅黑", "Arial", "Helvetica", "sans-serif"; font-weight:normal; font-size: 3em; height: 2.6666em; line-height: 2.6666em; background:#f12c3e 0 0 no-repeat; color: #fff; cursor:pointer; text-align:center; vertical-align: middle; text-decoration:none; box-sizing:content-box; -moz-box-sizing:content-box; padding:0; margin:0; overflow:visible}
+.btn{display:inline-block; border:none; font-family: "微软雅黑", "Arial", "Helvetica", "sans-serif"; font-weight:normal; background:0 0 no-repeat; color: #fff; cursor:pointer; text-align:center; vertical-align: middle; text-decoration:none; box-sizing:content-box; -moz-box-sizing:content-box; padding:0; margin:0; overflow:visible}
 .btn .ico{width: 24px; height: 24px; background-position: -120px -24px}
 .btn:hover{background-color:#f33}
 
@@ -87,6 +86,10 @@ label input{vertical-align:middle; cursor:pointer}
 .page .num a{padding:0 2px}
 .page .num a.current{color:#693; font-weight:bold}
 
+/*goto top*/
+.btn-gototop{position: absolute; top: 0; right: 0; margin: 0 10px 10px 0}
+.btn-gototop .ico {width: 32px; height: 32px; background-position: -160px 0}
+
 
 /**********layout**********/
 .layout-header,
@@ -108,18 +111,32 @@ label input{vertical-align:middle; cursor:pointer}
 
 /**********main**********/
 .layout-main{background:#f3f3f3; margin-left:250px; height:100%}
-.layout-main .container{height:100%; overflow:auto}
+.layout-main .container{height:100%; overflow:auto; position: relative}
 
-.contents-about{text-align:center; margin:7% 20%}
+.contents{margin:7% 20%}
+.contents .content {font-size:1.2em; line-height:1.5em}
+.contents .content p{margin-bottom:.8333em}
+
+.contents-about{text-align:center;}
 .contents-about .content{font-size:1.8em; line-height:1.9444em}
 .contents-about .content p{margin-bottom:.6667em}
 .contents-about .content hr{display:block; width:50%; margin:1.9444em auto; border-width:.1em}
 .contents-about .content .face{margin-bottom:1.9444em}
 
+.contents-portfolio{margin:7% auto; max-width: 660px; padding:0 48px}
+.contents-portfolio .content {margin-top: 3.3333em}
+.contents-portfolio .content img{width: 100%; max-width: 660px}
+.contents-portfolio .title{font-size: 1.6em; line-height: 2em}
+.contents-portfolio .nav{float: right; margin-left: 16px; font-size: 0}
+.contents-portfolio .nav .btn .ico{width: 32px; height: 32px}
+.contents-portfolio .nav .btn-prev .ico{background-position:-96px 0}
+.contents-portfolio .nav .btn-next {margin-left: 6px}
+.contents-portfolio .nav .btn-next .ico{background-position:-128px 0}
+
 
 /**********footer**********/
-.layout-footer{position:absolute; width: 100%; bottom:0; left:0; text-align:center; clear: both}
-.layout-footer .container{padding:0 .8333em 4.8333em .8333em; font-size:1.2em}
+.layout-footer{position:absolute; width:100%; bottom:0; left:0; text-align:center}
+.layout-footer .container{padding:0 .8333em 4.8333em .8333em; font-size:1.2em; height: auto}
 .layout-footer .links{font-size:0}
 .layout-footer .links .ico{width:32px; height:32px; margin-right:10px}
 .layout-footer .links .ico-instagram{background-position:0 0}
@@ -129,18 +146,24 @@ label input{vertical-align:middle; cursor:pointer}
 
 
 /**********responsive**********/
-.response-height-lte .layout-footer{position: static; margin-top:80px}
 
-@media screen and (max-width:640px){
-	.layout-header{float:none; height:auto; width:auto}
-	.layout-header .logo{float:left; padding:2em 2.2em}
-	.layout-header .logo img{height:100px}
-	.layout-header .navig{padding:.7143em 2em; text-align:right}
-	.layout-header .navig li{margin-top:1.2857em}
-	
-	.layout-main{margin-left:0; height:auto}
-	
-	.layout-footer{position:static; width:auto; background:#fff}
-	.layout-footer .container{padding:2.3333em 2em}
-	.response-height-lte .layout-footer{position: static; margin-top:0}
-}
+/*width*/
+.rsp-lte-w640{overflow: auto}
+.rsp-lte-w640 .layout-header{float:none; height:auto; width:auto}
+.rsp-lte-w640 .layout-header .container {height:auto}
+.rsp-lte-w640 .layout-header .logo{float:left; padding:2em 2.2em}
+.rsp-lte-w640 .layout-header .logo img{height:100px}
+.rsp-lte-w640 .layout-header .navig{padding:.7143em 2em; text-align:right}
+.rsp-lte-w640 .layout-header .navig li{margin-top:1.2857em}
+
+.rsp-lte-w640 .layout-main{margin-left:0; height:auto}
+.rsp-lte-w640 .layout-main .container{height:auto}
+.rsp-lte-w640 .contents-portfolio {padding:0 32px}
+
+.rsp-lte-w640 .layout-footer{position:static; width:auto; background:#fff; margin-top:0!important}
+.rsp-lte-w640 .layout-footer .container{padding:2.3333em 2em}
+
+/*height*/
+.rsp-lte-h580 .layout-footer{position:static; width:auto; margin-top:80px}
+
+
