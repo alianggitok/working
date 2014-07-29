@@ -87,7 +87,7 @@ label input{vertical-align:middle; cursor:pointer}
 .page .num a.current{color:#693; font-weight:bold}
 
 /*goto top*/
-.btn-gototop{position: absolute; top: 0; right: 0; margin: 0 10px 10px 0}
+.btn-gototop{position: absolute; top: 0; right: 0; margin: 0 12px 12px 0}
 .btn-gototop .ico {width: 32px; height: 32px; background-position: -160px 0}
 
 

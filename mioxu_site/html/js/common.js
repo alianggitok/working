@@ -20,7 +20,8 @@
 		_headerCont=_header.children('.container'),
 		_main=$('.layout-main'),
 		_mainCont=_main.children('.container'),
-		_footer=$('.layout-footer');
+		_footer=$('.layout-footer'),
+		_gotoTop=$('<a class="btn btn-gototop" title="到顶部" href="#"><i class="ico"></i></a>');
 
 
 	global.ui={
@@ -36,13 +37,23 @@
 		},
 
 		gototop:function(obj,ref){
+			var delay=null,
+				top=0;
 			function position(){
-				$(obj).css({
-					'top':0+'px'
-				});
+				top=$(ref).scrollTop()+$(ref).outerHeight()-$(obj).outerHeight()-parseInt($(obj).css('margin-bottom'));
+				$(obj).animate({
+					'top':top+'px'
+				},'fast');
 			};
-			$(ref).off('resize.gototop').on('resize.gototop',function(){
-				position();
+			position();
+			$(ref).off('.gototop').on({
+				'scroll.gototop':
+				function(){
+					clearTimeout(delay);
+					delay=setTimeout(function(){
+						position();
+					},300);
+				}
 			});
 			$(obj).off('click.gototop').on('click.gototop',function(e){
 				$(ref===window?'html,body':ref).animate({'scrollTop':'0px'},300);
@@ -58,10 +69,12 @@
 				if($(window).width()<=triggerWidth){
 					_footer.appendTo('body');
 					$('html').addClass('rsp-lte-w640');
+					_gotoTop.appendTo('body');
 					ui.gototop('.btn-gototop',window);
 				}else{
 					_footer.appendTo(_headerCont);
 					$('html').removeClass('rsp-lte-w640');
+					_gotoTop.appendTo('.layout-main .container');
 					ui.gototop('.btn-gototop','.layout-main .container');
 				};
 				if($(window).height()<=triggerHeight){
@@ -77,7 +90,7 @@
 				delay=setTimeout(function(){
 					exec();
 					_footer.stop(false,true).fadeIn('fast');
-				},100);
+				},150);
 			});
 		}
 
