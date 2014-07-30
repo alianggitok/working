@@ -21,7 +21,8 @@
 		_main=$('.layout-main'),
 		_mainCont=_main.children('.container'),
 		_footer=$('.layout-footer'),
-		_gotoTop=$('<a class="btn btn-gototop" title="到顶部" href="#"><i class="ico"></i></a>');
+		_gotoTop=$('<a class="btn btn-gototop" title="到顶部" href="#"><i class="ico"></i></a>'),
+		effectDuration=150;
 
 
 	global.ui={
@@ -36,31 +37,38 @@
 			});
 		},
 
+		/*goto top button effect*/
 		gototop:function(obj,ref){
 			var delay=null,
 				top=0;
 			function position(){
-				top=$(ref).scrollTop()+$(ref).outerHeight()-$(obj).outerHeight()-parseInt($(obj).css('margin-bottom'));
-				$(obj).animate({
-					'top':top+'px'
-				},'fast');
+				$(obj).hide();
+				clearTimeout(delay);
+				delay=setTimeout(function(){
+					top=$(ref).scrollTop()+$(ref).outerHeight()-$(obj).outerHeight()-parseInt($(obj).css('margin-bottom'));
+					$(obj).css({
+						'top':top+'px'
+					}).stop(false,true).fadeIn('fast');
+				},effectDuration);
 			};
 			position();
 			$(ref).off('.gototop').on({
 				'scroll.gototop':
 				function(){
-					clearTimeout(delay);
-					delay=setTimeout(function(){
-						position();
-					},300);
+					position();
+				},
+				'resize.gototop':
+				function(){
+					position();
 				}
 			});
 			$(obj).off('click.gototop').on('click.gototop',function(e){
-				$(ref===window?'html,body':ref).animate({'scrollTop':'0px'},300);
+				$(ref===window?'html,body':ref).animate({'scrollTop':'0px'},effectDuration);
 				e.preventDefault();
 			});
 		},
 
+		/*responsive action*/
 		response:function(){
 			var triggerWidth=640,
 				triggerHeight=580,
@@ -85,12 +93,12 @@
 			}
 			exec();
 			$(window).off('resize.response').on('resize.response',function(){
-				_footer.stop(false,true).fadeOut('fast');
+				_footer.hide();
 				clearTimeout(delay);
 				delay=setTimeout(function(){
 					exec();
-					_footer.stop(false,true).fadeIn('fast');
-				},150);
+					_footer.stop(false,true).fadeIn(effectDuration);
+				},effectDuration);
 			});
 		}
 
