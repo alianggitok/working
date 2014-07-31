@@ -93,11 +93,13 @@
 			}
 			exec();
 			$(window).off('resize.response').on('resize.response',function(){
-				_footer.hide();
+				if($(window).height()<=triggerHeight&&$(window).width()>triggerWidth){
+					_footer.css('visibility','hidden');
+				};
 				clearTimeout(delay);
 				delay=setTimeout(function(){
 					exec();
-					_footer.stop(false,true).fadeIn(effectDuration);
+					_footer.css('visibility','visible');
 				},effectDuration);
 			});
 		}
