@@ -94,12 +94,12 @@
 			exec();
 			$(window).off('resize.response').on('resize.response',function(){
 				if($(window).height()<=triggerHeight&&$(window).width()>triggerWidth){
-					_footer.css('visibility','hidden');
+					_footer.hide();
 				};
 				clearTimeout(delay);
 				delay=setTimeout(function(){
 					exec();
-					_footer.css('visibility','visible');
+					_footer.stop(false,true).fadeIn(effectDuration);
 				},effectDuration);
 			});
 		}
