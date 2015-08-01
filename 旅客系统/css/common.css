@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+.ui-modal-confirm .center.aligned{text-align: center}
+
+.ui.labels{margin-bottom:-0.5em}
+.ui.labels .ui.label{font-weight: normal}
+.ui.labels .ui.pointing.bottom.label{margin-bottom:0.5em}
+
+.ui.form .fields .field.right.aligned{text-align:right}
