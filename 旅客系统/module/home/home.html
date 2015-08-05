@@ -1,0 +1,79 @@
+<div class="ui basic segment padded">
+
+	<h3 class="ui dividing header"><i class="home icon"></i>首页</h3>
+	
+	<div class="ui stackable two column grid">
+		<div class="row">
+			<div class="column">
+				<div class="ui top attached segment blue"><h4>图表航班信息1</h4></div>
+				<div class="ui bottom attached segment"><img class="ui image" src="img/temp-chat-01.jpg"></div>
+			</div>
+			<div class="column">
+				<div class="ui top attached segment blue"><h4>图表航班信息1</h4></div>
+				<div class="ui bottom attached segment"><img class="ui image" src="img/temp-chat-02.jpg"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="column">
+				<div class="ui top attached segment blue"><h4>图表航班信息1</h4></div>
+				<div class="ui bottom attached segment"><img class="ui image" src="img/temp-chat-02.jpg"></div>
+			</div>
+			<div class="column">
+				<div class="ui top attached segment blue"><h4>图表航班信息1</h4></div>
+				<div class="ui bottom attached segment"><img class="ui image" src="img/temp-chat-01.jpg"></div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div id="dialog-demo" class="ui modal">
+		<div class="header">
+			title
+		</div>
+		<div class="content">
+			<form class="ui small form">
+				<div class="ui grid fields">
+					<div class="stackable doubling four column row">
+						<div class="column">
+							<div class="field">
+								<label>字段</label>
+								<input type="text" name="" placeholder="">
+							</div>
+						</div>
+						<div class="column">
+							<div class="field">
+								<label>字段</label>
+								<input type="text" name="" placeholder="">
+							</div>
+						</div>
+						<div class="column">
+							<div class="field">
+								<label>字段</label>
+								<select class="ui compact dropdown">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+								</select>
+							</div>
+						</div>
+						<div class="column">
+							<div class="field">
+								<label>字段</label>
+								<input type="text" name="" placeholder="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="actions">
+			<div class="ui button deny">Cancel</div>
+			<div class="ui green button approve">Send</div>
+		</div>
+	</div>
+	
+	<script>
+		app.ui.dialog('#dialog-demo');
+	</script>
+
+</div>

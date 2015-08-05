@@ -4,19 +4,26 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalabel=no">
 	<title>旅客系统</title>
 	<link rel="stylesheet" href="js/lib/semantic-ui/semantic.css">
 	<link rel="stylesheet" href="css/common.css">
 </head>
 
-<body>
-	
+<body class="dimmable dimmed">
+
+<div id="pageBuffer" class="ui page active dimmer">
+	<div class="ui text visible loader">页面载入中……</div>
+</div>
+
 <!--navigation-->
-<nav id="navigLeftSide" class="ui left sidebar inverted vertical accordion menu"><!--icon labeled-->
+<nav id="leftSide" class="ui left sidebar inverted vertical accordion menu"><!--icon labeled-->
+<!--
 	<div class="item">
 		<span class="ui inverted header">SAPIS 旅客安全信息系统</span>
 	</div>
+-->
+<!--
 	<a href="#" class="item"><i class="icon home"></i>首页</a>
 	<div class="item active">
 		<i class="icon table"></i>
@@ -27,273 +34,29 @@
 			<a href="#" class="item">sub item</a>
 		</div>
 	</div>
-	<div class="item">
-		<i class="icon protect"></i>
-		<div class="title">布控管理</div>
-		<div class="menu content">
-			<a href="#" class="item">sub item</a>
-			<a href="#" class="item">sub item</a>
-			<a href="#" class="item">sub item</a>
-		</div>
-	</div>
 	<a href="#" class="item"><i class="icon area chart"></i>统计报表</a>
-	<a href="#" class="item"><i class="icon random"></i>布控流转</a>
-	<a href="#" class="item"><i class="icon settings"></i>系统维护</a>
+-->
 </nav>
 
-<nav id="navigTop" class="ui top pointing fixed menu">
-	<a id="btn-sidebarTrigger" class="item popuped" data-content="收展边栏"><i class="outdent icon"></i></a>
-	<div class="header item">航班信息查询</div>
-<!--
-	<div class="item active">
-		<div class="ui secondary small breadcrumb">
-			<div class="section">信息查询</div>
-			<div class="divider"> / </div>
-			<div class="section">subitem</div>
-			<div class="divider"> / </div>
-			<div class="active section">somthing</div>
-		</div>
-	</div>
--->
+<nav id="top" class="ui top fixed menu">
+	<a id="leftSideTrigger" class="item ui-popup" data-content="收展边栏"><i class="outdent icon"></i></a>
+	<div class="header item">SAPIS 旅客安全信息系统</div>
 	<div class="right menu">
 		<div class="item"><i class="icon user"></i>用户名</div>
-		<a id="btn-logout" class="item popuped" data-content="退出系统"><i class="icon sign out"></i>退出</a>
+		<a id="btn-logout" class="item ui-popup" data-content="退出系统"><i class="icon sign out"></i>退出</a>
 	</div>
-	
+
 </nav>
 
+
 <!--main view-->
-<section id="mainView" class="pusher"><!--ui fitted attached segment-->
-	<div class="ui basic segment">
-	
-		<!--<div id="crumbTop" class="ui attached secondary segment small breadcrumb">
-			<div class="section">信息查询</div>
-			<div class="divider"> / </div>
-			<div class="section">subitem</div>
-			<div class="divider"> / </div>
-			<div class="active section">somthing</div>
-		</div>-->
-		
-		<div id="tabs" class="ui large labels ui-tabs">
-			<b>可选的定制查询：</b>
-			<a href="#" class="ui label blue bottom pointing">默认</a>
-			<a href="#" class="ui label">姓名、证件号码</a>
-			<a href="#" class="ui label">航班日期段</a>
-			<a href="#" class="ui label">航班号</a>
-			<a href="#" class="ui label">姓名、证件号码</a>
-			<a href="#" class="ui label">航班日期段</a>
-		</div>
-		
-		<div id="form-search" class="ui secondary segment">
-<!--
-			<form class="ui small form">
-				<div class="four fields">
-					<div class="field">
-						<lable>字段</lable>
-						<input type="text" name="" placeholder="">
-					</div>
-					<div class="field">
-						<lable>字段</lable>
-						<select class="ui compact dropdown">
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-						</select>
-					</div>
-					<div class="field">
-						<lable>字段</lable>
-						<input type="text" name="" placeholder="">
-					</div>
-					<div class="field right aligned">
-						<lable>&nbsp;</lable>
-						<div><button class="ui primary button" type="submit">搜索</button></div>
-					</div>
-				</div>
-			</form>
--->
-			<form class="ui small form">
-				<div class="three fields">
-					<div class="field">
-						<lable>字段</lable>
-						<input type="text" name="" placeholder="">
-					</div>
-					<div class="field">
-						<lable>字段</lable>
-						<select class="ui compact dropdown">
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-						</select>
-					</div>
-					<div class="field">
-						<lable>字段</lable>
-						<input type="text" name="" placeholder="">
-					</div>
-				</div>
-				<div class="three fields">
-					<div class="field">
-						<lable>字段</lable>
-						<input type="text" name="" placeholder="">
-					</div>
-					<div class="field">
-						<lable>字段</lable>
-						<select class="ui compact dropdown">
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-						</select>
-					</div>
-					<div class="field">
-						<lable>字段</lable>
-						<input type="text" name="" placeholder="">
-					</div>
-				</div>
-				<div class="fields">
-					<div class="sixteen wide field right aligned">
-						<div><button class="ui primary button" type="submit"><i class="search icon"></i>搜索</button></div>
-					</div>
-				</div>
-			</form>
-
-
-		</div>
-
-		<div id="datagrid">
-			<div class="ui top attached segment blue"><h3>Datagrid 标题</h3></div>
-			<table class="ui attached celled striped selectable unstackable small table">
-				<!-- sortable > sorted ascending descending -->
-				<thead>
-					<tr>
-						<th class="collapsing"></th>
-						<th>标题1</th>
-						<th>标题2</th>
-						<th>标题3</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
-						<td>cell</td>
-						<td>cell1</td>
-						<td>cell</td>
-					</tr>
-					<tr>
-						<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
-						<td>cell</td>
-						<td>cell1</td>
-						<td>cell</td>
-					</tr>
-					<tr>
-						<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
-						<td>cell</td>
-						<td>cell1</td>
-						<td>cell</td>
-					</tr>
-					<tr class="active">
-						<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
-						<td>cell</td>
-						<td>cell1</td>
-						<td>cell</td>
-					</tr>
-					<tr>
-						<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
-						<td>cell</td>
-						<td>cell1</td>
-						<td>cell</td>
-					</tr>
-					<tr>
-						<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
-						<td>cell</td>
-						<td>cell1</td>
-						<td>cell</td>
-					</tr>
-					<tr>
-						<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
-						<td>cell</td>
-						<td>cell1</td>
-						<td>cell</td>
-					</tr>
-					<tr>
-						<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
-						<td>cell</td>
-						<td>cell1</td>
-						<td>cell</td>
-					</tr>
-					<tr>
-						<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
-						<td>cell</td>
-						<td>cell1</td>
-						<td>cell</td>
-					</tr>
-					<tr>
-						<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
-						<td>cell</td>
-						<td>cell1</td>
-						<td>cell</td>
-					</tr>
-					<tr>
-						<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
-						<td>cell</td>
-						<td>cell1</td>
-						<td>cell</td>
-					</tr>
-					<tr>
-						<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
-						<td>cell</td>
-						<td>cell1</td>
-						<td>cell</td>
-					</tr>
-					<tr>
-						<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
-						<td>cell</td>
-						<td>cell1</td>
-						<td>cell</td>
-					</tr>
-					<tr>
-						<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
-						<td>cell</td>
-						<td>cell1</td>
-						<td>cell</td>
-					</tr>
-
-				</tbody>
-			</table>
-			
-			<div class="ui bottom attached secondary segment clearing">
-				<span>每</span>
-				<select class="ui compact dropdown">
-					<option value="20">20</option>
-					<option value="30">30</option>
-					<option value="50">50</option>
-				</select>
-				<span>条一页，</span>
-				<span>共3000条分100页</span>
-				<div class="ui right floated pagination small menu">
-					<a class="icon item disabled" href="#">
-						<i class="left chevron icon"></i>
-					</a>
-					<span class="item disabled">...</span>
-					<a class="item active" href="#">4</a>
-					<a class="item" href="#">5</a>
-					<a class="item" href="#">6</a>
-					<a class="item" href="#">7</a>
-					<span class="item disabled">...</span>
-					<a class="icon item" href="#">
-						<i class="right chevron icon"></i>
-					</a>
-				</div>
-			</div>
-			
-		</div>
-
-	</div>
+<section id="main" class="pusher"><!--ui fitted attached segment-->
+	<!--page placeholder-->
+	<div id="pageCont"></div>
 </section>
 
-	
-<script src="js/lib/jquery-1.11.2.min.js"></script>
-<script src="js/lib/jquery.dataTables/js/jquery.dataTables.js"></script>
-<script src="js/lib/semantic-ui/semantic.min.js"></script>
-<script src="js/ui.js"></script>
+<script src="js/lib/requirejs/require.min.js"></script>
+<script src="js/config.js"></script>
 
 </body>
 

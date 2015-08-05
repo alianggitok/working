@@ -1,9 +1,16 @@
 @charset "utf-8";
 
-.ui-modal-confirm .center.aligned{text-align: center}
+:focus{outline: none}
+
+.ui.modal .center.aligned{text-align: center}
 
 .ui.labels{margin-bottom:-0.5em}
 .ui.labels .ui.label{font-weight: normal}
 .ui.labels .ui.pointing.bottom.label{margin-bottom:0.5em}
 
 .ui.form .fields .field.right.aligned{text-align:right}
+.ui.form .ui.grid.fields{margin-top:0; margin-bottom:0}
+.ui.form .ui.grid.fields .column{padding-top: 0!important; padding-bottom: 0!important}
+.ui.form .ui.grid.fields .field{margin-bottom:1em}
+
+.ui-stuff-margintop{margin-top:1em}
