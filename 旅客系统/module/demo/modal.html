@@ -1,0 +1,76 @@
+<div id="btn-dialog" class="ui blue button">dialog</div>
+<div id="btn-alert" class="ui red button">alert</div>
+<div id="btn-confirm" class="ui green button">confirm</div>
+<div id="btn-msg" class="ui yellow button">message</div>
+
+
+<!--dialog-->
+<div id="dialog-demo" class="ui modal ui-dialog">
+	<i class="close icon ui-dialog-close"></i>
+	<div class="header">
+		Dialog Title
+	</div>
+	<div class="content">
+		<form class="ui form">
+			<div class="ui grid fields">
+				<div class="stackable doubling two column row">
+					<div class="column">
+						<div class="field">
+							<label>字段</label>
+							<input type="text" name="" placeholder="">
+						</div>
+					</div>
+					<div class="column">
+						<div class="field">
+							<label>字段</label>
+							<input type="text" name="" placeholder="">
+						</div>
+					</div>
+					<div class="column">
+						<div class="field">
+							<label>字段</label>
+							<select class="ui compact dropdown">
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+							</select>
+						</div>
+					</div>
+					<div class="column">
+						<div class="field">
+							<label>字段</label>
+							<input type="text" name="" placeholder="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="actions">
+		<div class="ui button deny">Cancel</div>
+		<div class="ui green button approve">Send</div>
+	</div>
+</div>
+
+<script>
+	$('#btn-dialog').click(function(){
+		app.ui.dialog('#dialog-demo');
+	});
+
+	$('#btn-alert').click(function(){
+		app.ui.alert({
+			msg:'alert text.'
+		});
+	});
+
+	$('#btn-confirm').click(function(){
+		app.ui.confirm({
+			msg:'confirm text?'
+		});
+	});
+
+	$('#btn-msg').click(function(){
+		app.ui.message({});
+	})
+
+</script>

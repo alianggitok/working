@@ -1,14 +1,15 @@
 ;(function($,app,window){
 
 	var elems={
-		leftSide:'#leftSide',
-		top:'#top',
-		leftSideTrigger:'#leftSideTrigger',
-		main:'#main',
-		btnLogout:'#btn-logout',
-		pageBuffer:'#pageBuffer',
-		pageCont:'#pageCont',
-	};
+			leftSide:'#leftSide',
+			top:'#top',
+			leftSideTrigger:'#leftSideTrigger',
+			main:'#main',
+			btnLogout:'#btn-logout',
+			pageBuffer:'#pageBuffer',
+			module:'#module'
+		 },
+		 animateDuration=app.settings.animateDuration
 	
 	app.cookie=function(data){
 		//usage: app.cookie({key:value});
@@ -30,10 +31,10 @@
 			cache:false,
 			dataType:'json',
 			type: 'POST',
-			timeout:app.settings.timeout,
+			timeout:app.settings.resourceTimeout,
 			buffer:true,
 			bufferContext:'body',
-			bufferMsg:'处理中……',
+			bufferMsg:'处理中',
 			beforeSend:function(){
 				if(opts.buffer){
 					buffer=app.ui.buffer.show({
@@ -112,7 +113,7 @@
 				app.ui.confirm({
 					title:'',
 					msg:'是否退出系统？',
-					icon:'huge help circle icon',
+					icon:'huge help circle',
 					style:{
 						basic:'basic small',
 						header:'center aligned',
@@ -142,13 +143,13 @@
 				$(elems.pageBuffer).dimmer({
 					closable:false,
 					duration:{
-						hide:app.settings.duration
+						hide:animateDuration
 					},
 					onHide:function(){
 						window.setTimeout(function(){
 							$(elems.pageBuffer).remove();
 							app.ui.draw();
-						},app.settings.duration);
+						},animateDuration);
 					}
 				});
 				$(elems.pageBuffer).dimmer('hide');
@@ -160,66 +161,71 @@
 			if(width>960){
 				console.log('response: medium');
 				$(elems.leftSide).addClass('large').removeClass('small labeled icon');
-				$('.ui.table').removeClass('small');
+				$('.ui.table,.ui.form').removeClass('very compact small');
 				$(elems.top).find('.header').html(app.info.fullTitle);
-			}else if(width<=960&&width>=680){
+			}else if(width<=960&&width>680){
 				console.log('response: small');
 				$(elems.leftSide).addClass('small').removeClass('large labeled icon');
-				$('.ui.table').addClass('small');
+				$('.ui.table,.ui.form').addClass('small').remove('very compact');
 				$(elems.top).find('.header').html(app.info.title);
-			}else if(width<680){
+			}else if(width<=680){
 				console.log('response: tiny');
 				$(elems.leftSide).addClass('labeled icon').removeClass('small large');
-				$('.ui.table').addClass('small');
+				$('.ui.table,.ui.form').addClass('very compact small');
 				$(elems.top).find('.header').html(app.info.sortTitle);
 			}
 			app.ui.sidebar(elems.leftSide);
+//			app.ui.draw();
 		},
 		draw:function(leftSideVisibled){
+			console.warn('draw');
 			var bodyWidth=$('body').outerWidth(),
 				 visibled=(leftSideVisibled!==undefined)?leftSideVisibled:$(elems.leftSide).sidebar('is visible'),
 				 leftSideWidth=visibled?$(elems.leftSide).outerWidth():0;
-//			console.log(visibled,leftSideWidth,topWidth);
 			
 			$(elems.top).stop(false,true).animate({
 				'width':bodyWidth-leftSideWidth+'px',
-			},0,function(){
+			},animateDuration,function(){
+				$(elems.main).stop(false,true).animate({
+					'padding-top':$(elems.top).outerHeight()+'px'
+				},animateDuration);
+			});
+			$(elems.main).stop(false,true).animate({
+				'margin-right':leftSideWidth+'px'
+			},animateDuration,function(){
 				if(visibled){
 					$(elems.top).removeClass('inverted');
 				}else{
 					$(elems.top).addClass('inverted');
 				}
-				$(elems.main).stop(false,true).animate({
-					'padding-top':$(elems.top).outerHeight()+'px',
-					'margin-right':leftSideWidth+'px'
-				},app.settings.duration);
 			});
 			
 		},
 		buffer:{
 			show:function(opts){
 				var dfts={
+						html:''+
+						 '<div class="ui dimmer">'+
+						 '	<div class="ui text loader"></div>'+
+						 '</div>',
 						context:'body',
-						msg:'处理中……',
+						msg:'处理中',
 						size:'medium',//mini,small,medium,large
 						inverted:false,//反色
 						closable:false,//点击留白关闭
-						duration:app.settings.duration,//动画持续时间
+						duration:animateDuration,//动画持续时间
 						opacity:0.7//透明
 					};
 					opts=$.extend(dfts,opts);
-				var html=''+
-					 '<div class="ui page dimmer">'+
-					 '	<div class="ui text visible loader">'+opts.msg+'</div>'+
-					 '</div>',
-					 obj=$(html),
+				
+				var obj=$(opts.html),
 					 loader=obj.find('.ui.loader');
 
 				if(opts.inverted){
 					obj.addClass('inverted');
 				}
-				loader.addClass(opts.size);
-				
+				loader.addClass(opts.size).html(opts.msg);
+
 				$(opts.context).append(obj);
 				
 				obj.dimmer({
@@ -229,14 +235,6 @@
 						hide:opts.duration
 					},
 					opacity:opts.opacity,
-					onChange:function(){
-//						var paddingTop=parseInt($(opts.context).css('padding-top'),10);
-						obj.css({
-//							'margin-top':paddingTop+'px',
-//							'height':$(window).height()-paddingTop+'px'
-							'height':$(window).height()+'px'
-						});
-					},
 					onHide:function(){
 						window.setTimeout(function(){
 							obj.remove();
@@ -270,8 +268,8 @@
 				if(childLen){
 					html+=''+
 						'<div class="item">'+
-						'	'+iconHtml+
-						'	<div class="title">'+data[i].text+'</div>'+
+//						'	'+iconHtml+
+						'	<div class="title">'+iconHtml+data[i].text+'</div>'+
 						'	<div class="menu content">';
 					build(0,data[i].children);
 					html+=''+
@@ -295,8 +293,7 @@
 				var href=$(this).attr('href'),
 					 id=$(this).attr('data-id'),
 					 activeNavigItem=$(this);
-				console.warn('loading href:',href);
-				
+
 				if(!href||href==='#'){
 					return;
 				}
@@ -305,25 +302,20 @@
 					currentNavigID:id
 				});
 				
-				$('.'+app.settings.dimmerName.modals).remove();
-				$('.'+app.settings.dimmerName.dialogs).remove();
-				$(window).scrollTop(0);
-				
-				app.ajax({
-					dataType:'html',
-					type:'GET',
+				app.ui.loadPage({
+					obj:elems.module,
+					href:href,
 					bufferContext:elems.main,
-					url:href
-				},function(html){
-					var parents=activeNavigItem.parents('.item');
-					$(elems.pageCont).html(html);
-					navigItem.removeClass('active');
-					activeNavigItem.addClass('active');
-					parents.addClass('active');
-					navigItem.children('.title,.content').removeClass('active');
-					parents.children('.title,.content').addClass('active');
-					app.ui.init();
+					success:function(){
+						var parents=activeNavigItem.parents('.item');
+						navigItem.removeClass('active');
+						activeNavigItem.addClass('active');
+						parents.addClass('active');
+						navigItem.children('.title,.content').removeClass('active');
+						parents.children('.title,.content').addClass('active');
+					}
 				});
+				
 			});
 			
 			console.warn('currentNavigID in cookie:',currentNavigID);
@@ -333,7 +325,32 @@
 				currentNavigItem.click();
 			}
 			
+		},
+		loadPage:function(opts){
+			var dfts={
+				obj:elems.module,
+				href:'/',
+				bufferContext:'body',
+				success:function(){}
+			};
+			opts=$.extend(dfts,opts);
 			
+			$('.ui.dimmer.modals').remove();
+
+			$(window).scrollTop(0);
+			$(opts.obj).empty();
+
+			app.ajax({
+				dataType:'html',
+				type:'GET',
+				bufferContext:opts.bufferContext,
+				url:opts.href
+			},function(html){
+				console.warn('loading href:',opts.href);
+				$(opts.obj).html(html);
+				opts.success();
+				app.ui.init();
+			});
 		},
 		sidebar:function(obj,opts){
 			var dfts={
@@ -341,11 +358,11 @@
 				transition:'push',
 				dimPage:false,
 				closable:false,
-				duration:app.settings.duration,
+				duration:animateDuration,
 				selector:{
 					pusher:elems.main
 				},
-				onShow:function(){
+				onVisible:function(){
 					$(elems.leftSideTrigger).find('.icon').removeClass('indent').addClass('outdent');
 					app.ui.draw(true);
 				},
@@ -369,7 +386,7 @@
 		modal:function(opts){
 			var obj=null;
 			var dfts={
-				icon:'help icon',//图标，基于semantic ui
+				icon:'help',//图标，基于semantic ui
 				title:'title',//标题
 				msg:'msg',//提示内容
 				style:{//样式，基于semantic ui
@@ -380,20 +397,20 @@
 					buttons:''//inverted
 				},
 				buttons:[],//按钮，基于semantic ui
-				allowMultiple:true,//是否同时打开多个
+				allowMultiple:false,//是否同时打开多个
 				context:'body',//上下文
 				closeBtn:false,//是否显示关闭按钮
 				closable:false,//点击遮罩区关闭
 				transition:'scale',//呈现动画
 				blurring:true,//遮罩模糊
-				duration:app.settings.duration,
+				duration:animateDuration,
 				selector:{
 					approve:'.actions .approve',
 					deny:'.actions .deny',
 					close:'.actions .close,.ui-dialog-close'
 				},
 				dimmerSettings:{
-					dimmerName:app.settings.dimmerName.modals
+					opacity:0.7
 				},
 				onHidden:function(){
 					if(!opts.allowMultiple){
@@ -403,12 +420,9 @@
 				},
 				html:''+
 					'<div class="ui coupled modal">'+
-					'	<div class="header">'+
-					'		'+opts.title+
-					'	</div>'+
-					'	<div class="content">'+
-					'		'+opts.msg+
-					'	</div>'+
+					'	<i class="close icon ui-dialog-close"></i>'+
+					'	<div class="header"></div>'+
+					'	<div class="content"></div>'+
 					'	<div class="actions"></div>'+
 					'</div>'
 			};
@@ -417,16 +431,21 @@
 			obj=$(opts.html);
 			
 			if(opts.icon){
-				obj.children('.header').prepend('<i class="'+opts.icon+'"></i>');
+				obj.children('.header').prepend('<i class="'+opts.icon+' icon"></i>');
 			}
-			if(opts.closeBtn){
-				obj.prepend('<i class="close icon ui-dialog-close"></i>');
+			
+			if(!opts.blurring){
+				$(opts.context).removeClass('blurring');
+			}
+			
+			if(!opts.closeBtn){
+				obj.find('.ui-dialog-close').hide();
 			}
 
 			obj.addClass(opts.style.basic);
-			obj.find('.header').addClass(opts.style.header);
-			obj.find('.content').addClass(opts.style.content);
-			obj.find('.actions').addClass(opts.style.actions);
+			obj.children('.header').first().addClass(opts.style.header).append(opts.title);
+			obj.children('.content').first().addClass(opts.style.content).append(opts.msg);
+			obj.children('.actions').first().addClass(opts.style.actions);
 			for(var i=0,len=opts.buttons.length; i<len; i+=1){
 				obj.find('.actions').append($(opts.buttons[i]).addClass(opts.style.buttons));
 			}
@@ -440,7 +459,8 @@
 			var dfts={
 				title:'确认',
 				msg:'是否？',
-				icon:'help icon',
+				icon:'help',
+				allowMultiple:false,
 				style:{
 					basic:'small',//basic,size
 					header:'left aligned',
@@ -467,7 +487,8 @@
 			var dfts={
 				title:'提示',
 				msg:'提示！',
-				icon:'info icon',
+				icon:'info',
+				allowMultiple:false,
 				style:{
 					basic:'small',//basic,size
 					header:'left aligned',
@@ -488,19 +509,10 @@
 			obj=app.ui.modal(opts);
 			obj.modal('show');
 		},
-		msg:function(opts){
-			var obj=null;
-			var dfts={
-				msg:'消息。'
-			};
-			opts=$.extend(dfts,opts);
-			
-			
-		},
 		dialog:function(obj,opts){
 			var dfts={
 				style:{//样式，基于semantic ui
-					basic:'fullscreen',//small,large,fullscreen
+					basic:'small',//small,large,fullscreen
 					header:'left aligned',
 					content:'left aligned',
 					actions:'right aligned',
@@ -508,17 +520,17 @@
 				allowMultiple:true,//是否同时打开多个
 				context:'body',//上下文
 				closeBtn:true,//是否显示关闭按钮
-				closable:true,//点击遮罩区关闭
+				closable:false,//点击遮罩区关闭
 				transition:'scale',//呈现动画
 				blurring:false,//遮罩模糊
-				duration:app.settings.duration,
+				duration:animateDuration,
 				selector:{
 					approve:'.actions .approve',
 					deny:'.actions .deny',
 					close:'.actions .close,.ui-dialog-close'
 				},
 				dimmerSettings:{
-					dimmerName:app.settings.dimmerName.dialogs
+					opacity:0.6
 				},
 				onHidden:function(){
 					if(!opts.allowMultiple){
@@ -532,20 +544,64 @@
 				}
 			};
 			opts=$.extend(dfts,opts);
+			
+			if(!opts.blurring){
+				$(opts.context).removeClass('blurring');
+			}
 
-			if(opts.closeBtn){
-				$(obj).prepend('<i class="close icon ui-dialog-close"></i>');
+			if(!opts.closeBtn){
+				obj.find('.ui-dialog-close').hide();
 			}
 
 			$(obj).addClass(opts.style.basic);
-			$(obj).find('.header').addClass(opts.style.header);
-			$(obj).find('.content').addClass(opts.style.content);
-			$(obj).find('.actions').addClass(opts.style.actions);
-			
+			$(obj).children('.header').first().addClass(opts.style.header);
+			$(obj).children('.content').first().addClass(opts.style.content);
+			$(obj).children('.actions').first().addClass(opts.style.actions);
+
 			$(obj).modal(opts);
 			$(obj).modal('show');
 
 			return $(obj);
+		},
+		message:function(opts){
+			var dfts={
+				type:'info',//success,info,warning,error
+				size:'small',
+				msg:'消息',
+				closeBtn:true,
+				icon:'smile',//warning,idea,announcement,comment,info,checkmark,remove,ban,frown,meh,smile
+				html:''+
+					'<div class="ui icon hidden message">'+
+					'	<i class="close icon ui-message-close"></i>'+
+					'	<div class="content"></div>'+
+					'</div>',
+				context:elems.module
+			};
+			opts=$.extend(dfts,opts);
+			
+			var obj=$(opts.html).addClass(opts.type),
+				 closeBtnObj=obj.find('.ui-message-close');
+			
+			if(opts.closeBtn){
+				closeBtnObj.on('click',function(){
+					obj.transition('fade up',function(){
+						obj.remove();
+						app.ui.draw();
+					});
+				});
+			}else{
+				closeBtnObj.hide();
+			}
+			if(opts.icon){
+				obj.prepend('<i class="'+opts.icon+' icon"></i>');
+			}
+			obj.find('.content').html(opts.msg);
+			
+			$(opts.context).prepend(obj);
+			obj.transition('fade down',function(){
+				app.ui.draw();
+			});
+
 		},
 		datagrid:function(obj,opts){
 			var dfts={
@@ -564,6 +620,12 @@
 			$.extend($.fn.dataTableExt.oStdClasses,dfts.classes);
 			
 			$(obj).DataTable(opts);
+		},
+		alarmPlayer:{
+			play:function(){
+			},
+			stop:function(){
+			}
 		}
 	};
 	

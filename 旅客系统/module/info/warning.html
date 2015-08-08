@@ -1,0 +1,437 @@
+<div class="ui dividing header"><i class="search icon"></i>预警查询</div>
+
+<div id="tabs" class="ui large labels ui-tabs">
+	<b>可选的定制查询：</b>
+	<a href="#" class="ui label blue bottom pointing">默认</a>
+	<a href="#" class="ui label">姓名、证件号码</a>
+	<a href="#" class="ui label">办案人员</a>
+	<a href="#" class="ui label">布控类型</a>
+</div>
+
+<div id="form-search" class="ui secondary segment clearing">
+	<form class="ui small form">
+		<div class="ui grid fields">
+			<div class="stackable doubling four column row">
+				<div class="column">
+					<div class="field">
+						<label>字段</label>
+						<input type="text" name="" placeholder="">
+					</div>
+				</div>
+				<div class="column">
+					<div class="field">
+						<label>字段</label>
+						<input type="text" name="" placeholder="">
+					</div>
+				</div>
+				<div class="column">
+					<div class="field">
+						<label>字段</label>
+						<select class="ui compact dropdown">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+						</select>
+					</div>
+				</div>
+				<div class="column">
+					<div class="field">
+						<label>字段</label>
+						<input type="text" name="" placeholder="">
+					</div>
+				</div>
+			</div>
+		</div>
+		<button class="ui primary right floated button clearing" type="submit">搜索</button>
+	</form>
+</div>
+
+<div class="ui horizontal divider"><i class="arrow down grey icon"></i></div>
+
+<div id="datagrid">
+<!--		<div class="ui top attached blue segment"><h3>Datagrid 标题</h3></div>-->
+	<table class="ui top attached blue segment celled striped selectable unstackable table">
+		<!-- sortable > sorted ascending descending -->
+		<thead>
+			<tr>
+				<th class="collapsing"></th>
+				<th class="collapsing">行号</th>
+				<th>姓名</th>
+				<th>航班号</th>
+				<th>起飞航站</th>
+				<th>到达航站</th>
+				<th>起飞/到达时间</th>
+				<th>预警时间</th>
+				<th>布控时间</th>
+				<th>类别</th>
+				<th>布控类型</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
+				<td>1</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+			</tr>
+			<tr>
+				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
+				<td>2</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+			</tr>
+			<tr>
+				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
+				<td>3</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+			</tr>
+			<tr class="active">
+				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
+				<td>4</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+			</tr>
+			<tr>
+				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
+				<td>5</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+			</tr>
+			<tr>
+				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
+				<td>6</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+			</tr>
+			<tr>
+				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
+				<td>7</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+			</tr>
+			<tr>
+				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
+				<td>8</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+			</tr>
+			<tr>
+				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
+				<td>9</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+			</tr>
+			<tr>
+				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
+				<td>10</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+			</tr>
+			<tr>
+				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
+				<td>1</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+			</tr>
+			<tr>
+				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
+				<td>2</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+			</tr>
+			<tr>
+				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
+				<td>3</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+			</tr>
+			<tr>
+				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
+				<td>4</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+			</tr>
+			<tr>
+				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
+				<td>5</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+			</tr>
+			<tr>
+				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
+				<td>6</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+			</tr>
+			<tr>
+				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
+				<td>7</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+			</tr>
+			<tr>
+				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
+				<td>8</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+			</tr>
+			<tr>
+				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
+				<td>9</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+			</tr>
+			<tr>
+				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
+				<td>10</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+				<td>cell1</td>
+				<td>cell</td>
+				<td>cell</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="ui bottom attached secondary segment clearing">
+		<span>每</span>
+		<select class="ui compact dropdown">
+			<option value="20">20</option>
+			<option value="30">30</option>
+			<option value="50">50</option>
+		</select>
+		<span>条一页，</span>
+		<span>共3000条分100页</span>
+		<div class="ui right floated small pagination menu">
+			<a class="icon item disabled" href="#">
+				<i class="left chevron icon"></i>
+			</a>
+			<span class="item disabled">...</span>
+			<a class="item active" href="#">4</a>
+			<a class="item" href="#">5</a>
+			<a class="item" href="#">6</a>
+			<a class="item" href="#">7</a>
+			<span class="item disabled">...</span>
+			<a class="icon item" href="#">
+				<i class="right chevron icon"></i>
+			</a>
+		</div>
+	</div>
+
+</div>
+
+<!--dialogs-->
+<div id="detail-person" class="ui coupled modal ui-dialog">
+	<i class="close icon ui-dialog-close"></i>
+	<div class="header">
+		<i class="alarm icon"></i>布控人员详细信息
+	</div>
+	<div class="content">
+		<table class="ui celled unstackable table">
+			<tbody>
+				<tr>
+					<td class="right aligned collapsing"><b>姓名：</b></td>
+					<td>2</td>
+					<td class="right aligned collapsing"><b>曾用名：</b></td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td class="right aligned collapsing"><b>性别：</b></td>
+					<td>2</td>
+					<td class="right aligned collapsing"><b>民族：</b></td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td class="right aligned collapsing"><b>证件号码：</b></td>
+					<td>2</td>
+					<td class="right aligned collapsing"><b>出生日期：</b></td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td class="right aligned collapsing"><b>口音：</b></td>
+					<td>2</td>
+					<td class="right aligned collapsing"><b>身高：</b></td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td class="right aligned collapsing"><b>体貌特征：</b></td>
+					<td>2</td>
+					<td class="right aligned collapsing"><b>户籍地区划：</b></td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td class="right aligned collapsing"><b>户籍地详址：</b></td>
+					<td>2</td>
+					<td class="right aligned collapsing"><b>布控原因：</b></td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td class="right aligned collapsing"><b>布控类型：</b></td>
+					<td>2</td>
+					<td class="right aligned collapsing"><b>联系单位：</b></td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td class="right aligned collapsing"><b>联系人1：</b></td>
+					<td>2</td>
+					<td class="right aligned collapsing"><b>联系人1座机/手机：</b></td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td class="right aligned collapsing"><b>联系人2：</b></td>
+					<td>2</td>
+					<td class="right aligned collapsing"><b>联系人2座机/手机：</b></td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td class="right aligned collapsing"><b>布控开始时间：</b></td>
+					<td>2</td>
+					<td class="right aligned collapsing"><b>布控结束时间：</b></td>
+					<td>2</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="actions">
+		<div class="ui button deny">关闭</div>
+	</div>
+</div>
+

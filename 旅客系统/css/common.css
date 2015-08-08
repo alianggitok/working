@@ -1,13 +1,24 @@
 @charset "utf-8";
 
+.pushable{overflow-x: auto}
+.pushable > .pusher{min-width: 500px}
 :focus{outline: none}
 
 .ui.modal .center.aligned{text-align: center}
 
+/*左侧菜单修正*/
+.ui.vertical.menu .item >.title >.icon {width: 1.18em; float: right; margin: 0em 0em 0em 0.5em;}
+.ui.labeled.icon.menu .item >.title >.icon:not(.dropdown) {height: 1em; display: block; font-size: 1.42857143em !important; margin: 0em 0.5rem 0em 0em !important;}
+.ui.vertical.icon.menu .item >.title > .icon:not(.dropdown) {display: block; margin: 0em auto; float: none;}
+.ui.vertical.labeled.icon.menu .item >.title >.icon:not(.dropdown) {margin: 0em auto 0.5rem !important;}
+
+/* .ui.labels 修正 */
 .ui.labels{margin-bottom:-0.5em}
 .ui.labels .ui.label{font-weight: normal}
+.ui.labels .ui.label:last-child{margin-right:0}
 .ui.labels .ui.pointing.bottom.label{margin-bottom:0.5em}
 
+/* .ui.form.grid 修正 */
 .ui.form .fields .field.right.aligned{text-align:right}
 .ui.form .ui.grid.fields{margin-top:0; margin-bottom:0}
 .ui.form .ui.grid.fields .column{padding-top: 0!important; padding-bottom: 0!important}
