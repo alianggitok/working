@@ -140,19 +140,11 @@
 			
 			//first load page
 			if($(elems.pageBuffer).length){
-				$(elems.pageBuffer).dimmer({
-					closable:false,
-					duration:{
-						hide:animateDuration
-					},
-					onHide:function(){
-						window.setTimeout(function(){
-							$(elems.pageBuffer).remove();
-							app.ui.draw();
-						},animateDuration);
-					}
+				$(elems.pageBuffer).transition('fade out',function(){
+					$(elems.pageBuffer).remove();
+					$('body').removeClass('dimmed');
+					app.ui.draw();
 				});
-				$(elems.pageBuffer).dimmer('hide');
 			}
 			
 		},
