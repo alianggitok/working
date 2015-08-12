@@ -1,7 +1,9 @@
-<div id="btn-dialog" class="ui blue button">dialog</div>
+
 <div id="btn-alert" class="ui red button">alert</div>
+<div id="btn-alert-transparent" class="ui orange button">transparent alert</div>
 <div id="btn-confirm" class="ui green button">confirm</div>
-<div id="btn-msg" class="ui yellow button">message</div>
+<div id="btn-dialog" class="ui blue button">dialog</div>
+<div id="btn-msg" class="ui pink button">message</div>
 
 
 <!--dialog-->
@@ -60,6 +62,20 @@
 	$('#btn-alert').click(function(){
 		app.ui.alert({
 			msg:'alert text.'
+		});
+	});
+	
+	$('#btn-alert-transparent').click(function(){
+		app.ui.alert({
+			title:'',
+			msg:'这个提示框是透明的。',
+			icon:'huge info',
+			style:{
+				basic:'basic small',
+				header:'center aligned',
+				content:'center aligned',
+				buttons:'inverted'
+			}
 		});
 	});
 

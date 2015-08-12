@@ -1,12 +1,6 @@
-<div class="ui dividing header"><i class="search icon"></i>布控查询</div>
 
-<div class="ui tabular menu">
-	<div class="item active">布控旅客查询</div>
-	<div class="item">布控航班查询</div>
-</div>
-
-<div id="tabs" class="ui large labels ui-tabs">
-	<b>可选的定制查询：</b>
+<div id="labels-search" class="ui large labels ui-tabs">
+	<b>可选查询：</b>
 	<a href="#" class="ui label blue bottom pointing">默认</a>
 	<a href="#" class="ui label">姓名、证件号码</a>
 	<a href="#" class="ui label">办案人员</a>
@@ -59,7 +53,7 @@
 		<!-- sortable > sorted ascending descending -->
 		<thead>
 			<tr>
-				<th class="collapsing"></th>
+				<th class="collapsing"><div class="ui fitted checkbox"><input type="checkbox"></div></th>
 				<th class="collapsing">行号</th>
 				<th>对象姓名</th>
 				<th>性别</th>
@@ -300,6 +294,7 @@
 
 </div>
 
+
 <!--dialogs-->
 <div id="detail-person" class="ui coupled modal ui-dialog">
 	<i class="close icon ui-dialog-close"></i>
@@ -377,3 +372,5 @@
 	</div>
 </div>
 
+
+<script src="module/info/deploy-passenger.js"></script>

@@ -4,13 +4,29 @@
 .pushable > .pusher{min-width: 500px}
 :focus{outline: none}
 
+#header{text-align: right}
+#header .header{float:left; margin-right: 1em}
+#header .intro{font-size:0.6em; color: #666; font-weight: normal}
+
+#topNavig{margin-top:-0.5em}
+#contents{margin-top:1.5em}
+
+#alarm{display: none}
+
 .ui.modal .center.aligned{text-align: center}
 
 /*左侧菜单修正*/
+/*
 .ui.vertical.menu .item >.title >.icon {width: 1.18em; float: right; margin: 0em 0em 0em 0.5em;}
 .ui.labeled.icon.menu .item >.title >.icon:not(.dropdown) {height: 1em; display: block; font-size: 1.42857143em !important; margin: 0em 0.5rem 0em 0em !important;}
 .ui.vertical.icon.menu .item >.title > .icon:not(.dropdown) {display: block; margin: 0em auto; float: none;}
 .ui.vertical.labeled.icon.menu .item >.title >.icon:not(.dropdown) {margin: 0em auto 0.5rem !important;}
+*/
+#leftSide .menu{padding-bottom:0.5em}
+#leftSide .menu > .item{padding-top:0.8em; padding-bottom: 0.8em}
+#leftSide .menu > .item > i.icon{display: none}
+#leftSide .item::before{top:0; bottom:auto}
+
 
 /* .ui.labels 修正 */
 .ui.labels{margin-bottom:-0.5em}

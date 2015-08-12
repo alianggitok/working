@@ -7,35 +7,35 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalabel=no">
 	<title>旅客系统</title>
 	<link rel="stylesheet" href="js/lib/semantic-ui/semantic.css">
+	<link rel="stylesheet" href="js/lib/jquery.datetimepicker/jquery.datetimepicker.css">
 	<link rel="stylesheet" href="css/common.css">
+	
 </head>
 
-<body class="dimmable dimmed"><!--dimmable dimmed-->
+<body class="dimmable dimmed">
 
+	<!--page buffer-->
 	<div id="pageBuffer" class="ui page active dimmer">
 		<div class="ui text visible loader">页面载入中</div>
 	</div>
 
 	<!--navigation-->
-	<nav id="leftSide" class="ui left sidebar inverted vertical accordion menu"><!--icon labeled-->
+	<nav id="leftSide" class="ui left sidebar inverted vertical menu"><!--icon labeled-->
 	<!--
 		<div class="item">
 			<span class="ui inverted header">SAPIS 旅客安全信息系统</span>
 		</div>
 	-->
-	<!--
-		<a href="#" class="item"><i class="icon home"></i>首页</a>
-		<div class="item active">
-			<i class="icon table"></i>
-			<div class="title">信息查询</div>
-			<div class="menu content">
-				<a href="#" class="item active">sub item</a>
-				<a href="#" class="item">sub item</a>
-				<a href="#" class="item">sub item</a>
-			</div>
-		</div>
-		<a href="#" class="item"><i class="icon area chart"></i>统计报表</a>
-	-->
+<!--
+	<a href="#" class="item" data-id=""><i class="icon home"></i>首页</a>
+	<a href="#" class="item"><i class="icon home"></i>首页</a>
+	<div class="menu">
+		<a href="#" class="item" data-id=""><i class="icon home"></i>items1</a>
+		<a href="#" class="item" data-id=""><i class="icon home"></i>items2</a>
+		<a href="#" class="item" data-id=""><i class="icon home"></i>items3</a>
+	</div>
+-->
+	
 	</nav>
 
 	<nav id="top" class="ui top fixed menu">
@@ -50,8 +50,23 @@
 	<!--main view-->
 	<section id="main" class="pusher"><!--ui fitted attached segment-->
 		<!--module placeholder-->
-		<div id="module" class="ui basic segment padded"></div>
+		<div id="module" class="ui basic segment padded">
+			<div id="header" class="ui dividing header">
+				<div class="header">&nbsp;</div>
+				<div class="intro red">&nbsp;</div>
+			</div>
+			<div id="topNavig" class="ui blue secondary pointing menu"><!--tabular-->
+				<!--
+				<a class="item" href="module/info/deploy-passenger.html">布控旅客查询</a>
+				<a class="item active" href="module/info/deploy-flight.html">布控航班查询</a>
+				-->
+			</div>
+			<div id="contents"></div>
+		</div>
 	</section>
+	
+	<!--sound player-->
+	<audio id="alarm" src="sound/alerm01.mp3" controls loop></audio>
 
 	<script src="js/lib/requirejs/require.min.js"></script>
 	<script src="js/config.js"></script>
