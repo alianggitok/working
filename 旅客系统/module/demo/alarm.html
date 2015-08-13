@@ -1,0 +1,42 @@
+<button id="btn-alarm" class="ui labeled icon button">
+  <i class="pause icon"></i>
+  <span class="text">Pause</span>
+</button>
+
+
+
+<script>
+	$(function(){
+		var player=$(app.elems.alarm).get(0),
+			 btn=$('#btn-alarm'),
+			 getStatus=function(){
+				 return btn.find('.icon').is('.play');
+			 }
+		
+		function btnStyle(){
+			if(getStatus()){
+				btn.find('.icon').removeClass('play').addClass('pause');
+				btn.find('.text').text('Pausing');
+			}else{
+				btn.find('.icon').removeClass('pause').addClass('play');
+				btn.find('.text').text('Playing');
+			}
+		}
+
+		$('#btn-alarm').click(function(){
+			
+			if(getStatus()){
+				player.pause();
+			}else{
+				player.play();
+			}
+			
+			btnStyle();
+
+		})
+
+	})
+	
+	
+</script>
+

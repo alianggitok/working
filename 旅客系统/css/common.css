@@ -41,3 +41,7 @@
 .ui.form .ui.grid.fields .field{margin-bottom:1em}
 
 .ui-stuff-margintop{margin-top:1em}
+
+/* .ui.table */
+.ui.table tr.selected{}
+

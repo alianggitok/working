@@ -1,4 +1,4 @@
-;(function(){
+;(function($,app,window){
 	
 	app.module={
 		init:function(){
@@ -11,4 +11,4 @@
 		app.module.init();
 	});
 	
-})();
+})(jQuery,app,window);

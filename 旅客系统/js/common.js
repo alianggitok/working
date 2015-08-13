@@ -39,7 +39,6 @@
 			}
 		}
 	};
-
 	
 	app.ajax=function(opts,callback){//ajax数据交互方法
 		var buffer=null;
@@ -103,6 +102,9 @@
 
 	app.ui={
 		init:function(){
+			
+			console.log('initialize');
+			
 			//components
 			$('.ui.accordion').accordion();
 			$('.ui.dropdown').dropdown();
@@ -114,66 +116,18 @@
 				}
 			});
 			$('.ui.checkbox').checkbox();
+			
 			$('.ui-datapicker').datetimepicker({
+				lang:'zh',
 				timepicker:false,
 				format:'Y/m/d',
-				timepickerScrollbar:false
+				closeOnDateSelect:true,
+				closeOnWithoutClick:true,
+				defaultSelect:false,
+				mask:false,
+				scrollInput:false,
+				scrollMonth:false
 			});
-			
-			//visibility
-			$('body').visibility({
-				once:true,
-				continuous:false,
-				checkOnRefresh:true,
-				onRefresh:function(){
-					app.ui.response();
-					app.ui.draw();
-				}
-			});
-			$('body').visibility('refresh');
-			$(elems.leftSide).sidebar('show');
-			
-			//logout
-			$(elems.btnLogout).off('click.logout').on('click.logout',function(){
-				app.ui.confirm({
-					title:'',
-					msg:'是否退出系统？',
-					icon:'huge help circle',
-					style:{
-						basic:'basic small',
-						header:'center aligned',
-						content:'center aligned',
-						actions:'center aligned',
-						buttons:'inverted'
-					},
-					onApprove:function(){
-						app.cookie.removeAll();
-						alert('退出！');
-					}
-				});
-			});
-			
-			//left side trigger
-			$(elems.leftSideTrigger).off('click.leftsidetrigger').on('click.leftsidetrigger',function(){
-				$(elems.leftSide).sidebar('toggle');
-			});
-			
-			//navig build
-			if(!$(elems.leftSide).find('.item').length){
-				app.ui.navigBuild(app.settings.menuItems);
-			}
-			
-//			app.ui.datagrid('.ui.table');
-			
-			//first load page
-			if($(elems.pageBuffer).length){
-				$(elems.pageBuffer).transition('fade out',function(){
-					$(elems.pageBuffer).remove();
-					$('body').removeClass('dimmed');
-					app.ui.draw();
-				});
-			}
-			
 			
 		},
 		response:function(){
@@ -181,17 +135,17 @@
 			if(width>960){
 				console.log('response: medium');
 				$(elems.leftSide).addClass('large').removeClass('small labeled icon');
-				$('.ui.table,.ui.form').removeClass('very compact small');
+				$('.ui.table').removeClass('very compact small');
 				$(elems.top).find('.header').html(app.info.fullTitle);
 			}else if(width<=960&&width>680){
 				console.log('response: small');
 				$(elems.leftSide).addClass('small').removeClass('large labeled icon');
-				$('.ui.table,.ui.form').addClass('small').remove('very compact');
+				$('.ui.table').addClass('small').remove('very compact');
 				$(elems.top).find('.header').html(app.info.title);
 			}else if(width<=680){
 				console.log('response: tiny');
 				$(elems.leftSide).addClass('labeled icon').removeClass('small large');
-				$('.ui.table,.ui.form').addClass('very compact small');
+				$('.ui.table').addClass('very compact small');
 				$(elems.top).find('.header').html(app.info.sortTitle);
 			}
 			app.ui.sidebar(elems.leftSide);
@@ -253,13 +207,7 @@
 						show:opts.duration,
 						hide:opts.duration
 					},
-					opacity:opts.opacity,
-					onHide:function(){
-						window.setTimeout(function(){
-							obj.remove();
-							app.ui.draw();
-						},opts.duration);
-					}
+					opacity:opts.opacity
 				});
 				obj.dimmer('show');
 				
@@ -268,6 +216,11 @@
 			},
 			hide:function(obj){
 				$(obj).dimmer('hide');
+				var duration=$(obj).dimmer('get duration');
+				window.setTimeout(function(){
+					obj.remove();
+					app.ui.draw();
+				},duration);
 			}
 		},
 		navigBuild:function(data){
@@ -423,10 +376,14 @@
 			};
 			opts=$.extend(dfts,opts);
 			
-			$('.ui.dimmer.modals').remove();
-
 			$(window).scrollTop(0);
 			$(opts.obj).empty();
+			//destory dimmers
+			$('.ui.dimmer.modals').remove();
+			//destory datetimepicker
+			$('.ui-datapicker').datetimepicker('destroy');
+			$(window).off('resize.xdsoft');
+			$('.xdsoft_datetimepicker').remove();
 
 			app.ajax({
 				dataType:'html',
@@ -498,13 +455,15 @@
 					close:'.actions .close,.ui-dialog-close'
 				},
 				dimmerSettings:{
-					opacity:0.7
+					opacity:0.7,
+					onChange:function(){
+						app.ui.draw();
+					}
 				},
 				onHidden:function(){
 					if(!opts.allowMultiple){
 						obj.remove();
 					}
-					app.ui.draw();
 				},
 				html:''+
 					'<div class="ui coupled modal">'+
@@ -618,13 +577,15 @@
 					close:'.actions .close,.ui-dialog-close'
 				},
 				dimmerSettings:{
-					opacity:0.6
+					opacity:0.6,
+					onChange:function(){
+						app.ui.draw();
+					}
 				},
 				onHidden:function(){
 					if(!opts.allowMultiple){
 						$(obj).remove();
 					}
-					app.ui.draw();
 				},
 				onApprove:function(){
 				},
@@ -710,9 +671,64 @@
 			$(obj).DataTable(opts);
 		}
 	};
+
 	
+	
+	//dom ready
 	$(function(){
 		app.ui.init();
+		
+		//visibility
+		$('body').visibility({
+			once:true,
+			continuous:false,
+			checkOnRefresh:true,
+			onRefresh:function(){
+				app.ui.response();
+				app.ui.draw();
+			}
+		});
+		$('body').visibility('refresh');
+
+		$(elems.leftSide).sidebar('show');
+
+		//logout
+		$(elems.btnLogout).off('click.logout').on('click.logout',function(){
+			app.ui.confirm({
+				title:'',
+				msg:'是否退出系统？',
+				icon:'huge help circle',
+				style:{
+					basic:'basic small',
+					header:'center aligned',
+					content:'center aligned',
+					actions:'center aligned',
+					buttons:'inverted'
+				},
+				onApprove:function(){
+					app.cookie.removeAll();
+					alert('退出！');
+				}
+			});
+		});
+
+		//left side trigger
+		$(elems.leftSideTrigger).off('click.leftsidetrigger').on('click.leftsidetrigger',function(){
+			$(elems.leftSide).sidebar('toggle');
+		});
+
+		//navig build
+		app.ui.navigBuild(app.settings.menuItems);
+
+		//app.ui.datagrid('.ui.table');
+
+		//first load page
+		$(elems.pageBuffer).transition('fade out',function(){
+			$(elems.pageBuffer).remove();
+			$('body').removeClass('dimmed');
+			app.ui.draw();
+		});
+		
 	});
 
 	
