@@ -9,31 +9,34 @@
 	$(function(){
 		var player=$(app.elems.alarm).get(0),
 			 btn=$('#btn-alarm'),
-			 getStatus=function(){
-				 return btn.find('.icon').is('.play');
-			 }
+			 isPlaying=function(){
+				 return !player.paused;
+			 };
 		
 		function btnStyle(){
-			if(getStatus()){
+			if(isPlaying()){
 				btn.find('.icon').removeClass('play').addClass('pause');
-				btn.find('.text').text('Pausing');
+				btn.find('.text').text('Playing');
 			}else{
 				btn.find('.icon').removeClass('pause').addClass('play');
-				btn.find('.text').text('Playing');
+				btn.find('.text').text('Stopped');
 			}
 		}
+		btnStyle();
 
 		$('#btn-alarm').click(function(){
 			
-			if(getStatus()){
+			if(isPlaying()){
 				player.pause();
+				player.load()
 			}else{
+				player.volume=1;
 				player.play();
 			}
 			
 			btnStyle();
 
-		})
+		});
 
 	})
 	

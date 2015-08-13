@@ -227,7 +227,6 @@
 			var obj=$(elems.leftSide),
 				 items=null,
 				 tempItems=null,
-				 html='',
 				 tempHtml='',
 				 tempData=null,
 				 currentItem=null,
@@ -237,7 +236,7 @@
 				tempData=data.splice(0,1)[0];
 //				console.log(tempData);
 				tempHtml+='<a class="item" href="'+tempData.href+'" data-intro="'+tempData.intro+'" data-icon="'+tempData.icon+'" data-pid="'+tempData.pid+'" data-id="'+tempData.id+'"><i class="icon '+tempData.icon+'"></i>'+tempData.text+'</a>';
-			};
+			}
 			
 			tempItems=$(tempHtml);
 			//first
@@ -250,8 +249,7 @@
 					var pid=items.eq(i).attr('data-id'),
 						 matchItems=tempItems.filter('[data-pid='+pid+']'),
 						 matchItemsLen=matchItems.length,
-						 itemsWrapper=$('<div class="menu"></div>'),
-						 html='';
+						 itemsWrapper=$('<div class="menu"></div>');
 					if(matchItemsLen){
 						matchItems.appendTo(itemsWrapper);
 //						console.log(itemsWrapper);
@@ -292,11 +290,10 @@
 				}
 				$(elems.header).find('.intro').html('&nbsp;'+intro);
 				
-				;(function tabsBuild(){
+				(function tabsBuild(){
 					var pid=activeItem.attr('data-id'),
 						 matchItems=tempItems.filter('[data-pid='+pid+']'),
-						 matchItemsLen=matchItems.length,
-						 html='';
+						 matchItemsLen=matchItems.length;
 					console.log('tabs:',matchItemsLen);
 					if(matchItemsLen){
 						matchItems.find('.icon').hide();
