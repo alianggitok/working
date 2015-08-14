@@ -1,11 +1,11 @@
 ;(function($,app,window){
 	
-	window.setTimeout(function(){
-		app.ui.dialog('#detail',{
-			style:{
-				basic:'fullscreen'
-			}
-		});
+	var trs=$('#datagrid').find('tbody tr');
+	trs.on('dblclick',function(){
+		app.ui.dialog('#detail');
+		trs.removeClass('active');
+		$(this).addClass('active');
+
 	});
 	
 })(jQuery,app,window);

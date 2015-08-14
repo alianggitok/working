@@ -1,89 +1,15 @@
 
-<div id="labels-search" class="ui large labels ui-tabs">
-	<b>可选查询：</b>
-	<a href="#" class="ui label blue bottom pointing">姓名、证件号码</a>
-	<a href="#" class="ui label">全字段</a>
-</div>
-
 <div id="form-search" class="ui secondary segment clearing">
 	<form class="ui small form">
 		<div class="ui grid fields">
-			<div class="stackable doubling three column row">
-				<div class="column">
-					<div class="field">
-						<label>姓名</label>
-						<input type="text" name="" placeholder="">
-					</div>
-				</div>
-				<div class="column">
-					<div class="field">
-						<label>证件号</label>
-						<input type="text" name="" placeholder="">
-					</div>
-				</div>
-			</div>
-			<div class="ui divider"></div>
 			<div class="column row">
-				<div class="right aligned column">
-					<span class="ui primary button"><i class="search icon"></i>搜索</span>
-				</div>
-			</div>
-		</div>
-	</form>
-	<form class="ui small form">
-		<div class="ui grid fields">
-			<div class="stackable doubling three column row">
-				<div class="column">
-					<div class="field">
-						<label>姓名</label>
-						<input type="text" name="" placeholder="">
-					</div>
-				</div>
-				<div class="column">
-					<div class="field">
-						<label>性别</label>
-						<select class="ui compact dropdown">
-							<option value="">未知</option>
-							<option>男</option>
-							<option>女</option>
-						</select>
-					</div>
-				</div>
-				<div class="column">
-					<div class="field">
-						<label>证件号</label>
-						<input type="text" name="" placeholder="">
-					</div>
-				</div>
-			</div>
-			<div class="doubling three column row">
 				<div class="column">
 					<div class="field">
 						<label>布控类型</label>
-						<select class="ui compact dropdown">
-							<option value="">未选</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-						</select>
-					</div>
-				</div>
-				<div class="column">
-					<div class="field">
-						<label>布控时间</label>
-						<div class="ui icon input">
-							<input class="ui-datapicker" type="text">
-							<i class="calendar icon"></i>
-						</div>
-					</div>
-				</div>
-				<div class="column">
-					<div class="field">
-						<label>联系人</label>
 						<input type="text" name="" placeholder="">
 					</div>
 				</div>
 			</div>
-			<div class="ui divider"></div>
 			<div class="column row">
 				<div class="right aligned column">
 					<span class="ui primary button"><i class="search icon"></i>搜索</span>
@@ -91,34 +17,32 @@
 			</div>
 		</div>
 	</form>
-
 </div>
 
 <div class="ui horizontal divider"><i class="arrow down grey icon"></i></div>
 
-<div id="datagrid">
+<div id="datagrid" class="ui-datagrid">
 <!--		<div class="ui top attached blue segment"><h3>Datagrid 标题</h3></div>-->
+
+	<div class="handlebar right aligned">
+		<span id="btn-add" class="ui teal tiny button"><i class="plus icon"></i>添加</span>
+	</div>
+
 	<table class="ui top attached blue segment celled striped selectable unstackable table">
 		<!-- sortable > sorted ascending descending -->
 		<thead>
 			<tr>
 				<th class="collapsing"><div class="ui fitted checkbox"><input type="checkbox"></div></th>
 				<th class="collapsing">行号</th>
-				<th>对象姓名</th>
-				<th>性别</th>
-				<th>证件号码</th>
 				<th>布控类型</th>
-				<th>联系人</th>
-				<th>布控时间</th>
+				<th>创建人</th>
+				<th>创建时间</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
 				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
 				<td>1</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
 				<td>cell1</td>
 				<td>cell</td>
 				<td>cell</td>
@@ -129,16 +53,10 @@
 				<td>cell1</td>
 				<td>cell</td>
 				<td>cell</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
 			</tr>
 			<tr>
 				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
 				<td>3</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
 				<td>cell1</td>
 				<td>cell</td>
 				<td>cell</td>
@@ -149,16 +67,10 @@
 				<td>cell1</td>
 				<td>cell</td>
 				<td>cell</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
 			</tr>
 			<tr>
 				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
 				<td>5</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
 				<td>cell1</td>
 				<td>cell</td>
 				<td>cell</td>
@@ -169,16 +81,10 @@
 				<td>cell1</td>
 				<td>cell</td>
 				<td>cell</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
 			</tr>
 			<tr>
 				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
 				<td>7</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
 				<td>cell1</td>
 				<td>cell</td>
 				<td>cell</td>
@@ -189,9 +95,6 @@
 				<td>cell1</td>
 				<td>cell</td>
 				<td>cell</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
 			</tr>
 			<tr>
 				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
@@ -199,116 +102,10 @@
 				<td>cell1</td>
 				<td>cell</td>
 				<td>cell</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
 			</tr>
 			<tr>
 				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
 				<td>10</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
-			</tr>
-			<tr>
-				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
-				<td>1</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
-			</tr>
-			<tr>
-				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
-				<td>2</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
-			</tr>
-			<tr>
-				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
-				<td>3</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
-			</tr>
-			<tr>
-				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
-				<td>4</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
-			</tr>
-			<tr>
-				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
-				<td>5</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
-			</tr>
-			<tr>
-				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
-				<td>6</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
-			</tr>
-			<tr>
-				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
-				<td>7</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
-			</tr>
-			<tr>
-				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
-				<td>8</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
-			</tr>
-			<tr>
-				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
-				<td>9</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
-			</tr>
-			<tr>
-				<td><div class="ui fitted checkbox"><input type="checkbox"></div></td>
-				<td>10</td>
-				<td>cell1</td>
-				<td>cell</td>
-				<td>cell</td>
 				<td>cell1</td>
 				<td>cell</td>
 				<td>cell</td>
@@ -421,5 +218,3 @@
 	</div>
 </div>
 
-
-<script src="module/info/control-passenger.js"></script>

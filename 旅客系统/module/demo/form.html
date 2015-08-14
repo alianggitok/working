@@ -6,42 +6,41 @@
 			<div class="stackable doubling two column row">
 				<div class="column">
 					<div class="field">
-						<label>下拉单选</label>
-						<select class="ui compact dropdown">
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
+						<label>类型</label>
+						<select class="ui compact dropdown" name="type">
+							<option value="">not selected</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
 						</select>
 					</div>
 				</div>
 				<div class="column">
 					<div class="field">
-						<label>字段</label>
-						<input type="text" name="" placeholder="">
+						<label>名字</label>
+						<input type="text" name="name" placeholder="">
 					</div>
 				</div>
 				<div class="column">
 					<div class="field">
-						<label>字段</label>
-						<input type="text" name="" placeholder="">
+						<label>e-mail</label>
+						<input type="text" name="e-mail" placeholder="">
 					</div>
 				</div>
 				<div class="column">
 					<div class="field">
 						<label>时间</label>
 						<div class="ui icon input">
-							<input class="ui-datapicker" type="text">
+							<input class="ui-datapicker" name="date" type="text">
 							<i class="calendar icon"></i>
 						</div>
 					</div>
 				</div>
-
 			</div>
 			<div class="column row">
 				<div class="column">
 					<div class="field">
-						<label>多行文本</label>
-						<textarea type="text" name="" placeholder=""></textarea>
+						<label>备注</label>
+						<textarea type="text" name="remark" placeholder=""></textarea>
 					</div>
 				</div>
 			</div>
@@ -52,4 +51,6 @@
 
 
 </div>
+
+<script src="module/demo/form.js"></script>
 

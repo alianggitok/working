@@ -42,6 +42,9 @@
 
 .ui-stuff-margintop{margin-top:1em}
 
+/* .datagrid*/
+.ui-datagrid .handlebar.right.aligned{text-align: right}
+
 /* .ui.table */
 .ui.table tr.selected{}
 

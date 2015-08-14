@@ -30,34 +30,6 @@ app.settings={
 	animationDuration:300,
 	resourceTimeout:80000,
 	menuItems:[
-//		{id:1,type:'side',name:'',text:'首页',icon:'home',href:'module/home/home.html',target:'',children:[]},
-//		{id:2,type:'side',name:'',text:'信息查询',icon:'table',href:'',target:'',children:[
-//			{id:21,type:'side',name:'',text:'旅客查询',icon:'search',href:'module/info/passenger.html',target:''},
-//			{id:22,type:'side',name:'',text:'航班查询',icon:'search',href:'module/info/flight.html',target:''},
-//			{id:23,type:'side',name:'',text:'布控查询',icon:'search',href:'module/info/deploy-passenger.html',target:'',children:[
-//				{id:231,type:'tab',name:'',text:'布控旅客查询',icon:'search',href:'module/info/deploy-passenger.html',target:''},
-//				{id:232,type:'tab',name:'',text:'布控航班查询',icon:'search',href:'module/info/deploy-flight.html',target:''}
-//			]},
-//			{id:24,type:'side',name:'',text:'预警查询',icon:'search',href:'module/info/warning.html',target:''}
-//		]},
-//		{id:3,type:'side',name:'',text:'流程管理',icon:'random',href:'',target:'',children:[
-//			{id:31,type:'side',name:'',text:'布控管理',icon:'',href:'module/flow/deploy.html',target:''},
-//			{id:32,type:'side',name:'',text:'预警后处理',icon:'',href:'module/flow/warning.html',target:''}
-//		]},
-//		{id:4,type:'side',name:'',text:'统计报表',icon:'area chart',href:'',target:'',children:[
-//			{id:41,type:'side',name:'',text:'旅客统计',icon:'',href:'',target:''},
-//			{id:42,type:'side',name:'',text:'航班统计',icon:'',href:'',target:''},
-//			{id:42,type:'side',name:'',text:'户籍统计',icon:'',href:'',target:''},
-//			{id:42,type:'side',name:'',text:'预警统计',icon:'',href:'',target:''}
-//		]},
-//		{id:5,type:'side',name:'',text:'系统运维',icon:'settings',href:'',target:'',children:[
-//			{id:51,type:'side',name:'',text:'系统报告',icon:'',href:'',target:''}
-//		]},
-//		{id:6,type:'side',name:'',text:'页面演示',icon:'file',href:'',target:'',children:[
-//			{id:61,type:'side',name:'',text:'搜索查询列表',icon:'',href:'module/demo/search.html',target:''},
-//			{id:62,type:'side',name:'',text:'表单',icon:'',href:'module/demo/form.html',target:''},
-//			{id:63,type:'side',name:'',text:'弹层、提示、确认',icon:'',href:'module/demo/modal.html',target:''}
-//		]}
 		{id:1,pid:0,name:'',text:'首页',icon:'home',href:'module/home/home.html',target:'',intro:''},
 		
 		{id:2,pid:0,name:'',text:'信息查询',icon:'table',href:'#',target:'',intro:''},
@@ -69,16 +41,19 @@ app.settings={
 		{id:24,pid:2,name:'',text:'预警查询',icon:'warning sign',href:'module/info/warning.html',target:'',intro:'查询预警的详细信息'},
 		
 		{id:3,pid:0,name:'',text:'流程管理',icon:'random',href:'#',target:'',intro:''},
-		{id:31,pid:3,name:'',text:'布控管理',icon:'protect',href:'module/flow/passenger-single.html',target:'',intro:''},
-		{id:231,pid:31,name:'',text:'旅客单条布控',icon:'search',href:'module/flow/passenger-single.html',target:'',intro:''},
-		{id:232,pid:31,name:'',text:'旅客批量布控',icon:'search',href:'module/flow/passenger-batch.html',target:'',intro:''},
-		{id:233,pid:31,name:'',text:'航班布控',icon:'search',href:'module/flow/flight.html',target:'',intro:''},
-		{id:234,pid:31,name:'',text:'布控类型',icon:'search',href:'',target:'',intro:''},
-		{id:235,pid:31,name:'',text:'追逃布控',icon:'search',href:'',target:'',intro:''},
-		{id:32,pid:3,name:'',text:'预警后处理',icon:'warning sign',href:'module/flow/warning.html',target:'',intro:'对布控对象的处理情况的反馈'},
+		{id:31,pid:3,name:'',text:'布控管理',icon:'protect',href:'module/flow/control/passenger-single.html',target:'',intro:''},
+		{id:231,pid:31,name:'',text:'旅客单条布控',icon:'search',href:'module/flow/control/passenger-single.html',target:'',intro:''},
+		{id:232,pid:31,name:'',text:'旅客批量布控',icon:'search',href:'module/flow/control/passenger-batch.html',target:'',intro:''},
+		{id:233,pid:31,name:'',text:'航班布控',icon:'search',href:'module/flow/control/flight.html',target:'',intro:''},
+		{id:234,pid:31,name:'',text:'布控类型',icon:'search',href:'module/flow/control/types.html',target:'',intro:''},
+		{id:235,pid:31,name:'',text:'追逃布控',icon:'search',href:'module/flow/control/track.html',target:'',intro:''},
+		{id:32,pid:3,name:'',text:'预警后处理',icon:'warning sign',href:'module/flow/warning/warning.html',target:'',intro:''},
+		{id:321,pid:32,name:'',text:'预警反馈',icon:'warning sign',href:'module/flow/warning/warning.html',target:'',intro:''},
 		
 		{id:4,pid:0,name:'',text:'统计报表',icon:'area chart',href:'#',target:'',intro:''},
-		{id:41,pid:4,name:'',text:'旅客统计',icon:'file text',href:'module/statistic/passenger.html',target:'',intro:''},
+		{id:41,pid:4,name:'',text:'旅客统计',icon:'file text',href:'module/statistic/passenger-chart.html',target:'',intro:''},
+		{id:411,pid:41,name:'',text:'图表',icon:'file text',href:'module/statistic/passenger-chart.html',target:'',intro:''},
+		{id:412,pid:41,name:'',text:'报表',icon:'file text',href:'module/statistic/passenger-statement.html',target:'',intro:''},
 		{id:42,pid:4,name:'',text:'航班统计',icon:'file text',href:'',target:'',intro:''},
 		{id:42,pid:4,name:'',text:'户籍统计',icon:'file text',href:'',target:'',intro:''},
 		{id:42,pid:4,name:'',text:'预警统计',icon:'file text',href:'',target:'',intro:''},

@@ -11,7 +11,9 @@
 			main:'#main',
 			header:'#header',
 			topNavig:'#topNavig',
-			contents:'#contents'
+			contents:'#contents',
+			searchLabel:'#labels-search',
+			searchForm:'#form-search'
 		 };
 	
 	var elems=app.elems,
@@ -129,6 +131,19 @@
 				scrollMonth:false
 			});
 			
+			var forms=$(elems.searchForm).find('.form'),
+				 labels=$(elems.searchLabel).find('.label');
+			forms.hide();
+			forms.eq(0).show();
+			$(elems.searchLabel).find('.label').off('click').on('click',function(){
+				var n=$(this).index('.label'),
+					 activeClass='blue bottom pointing';
+				forms.hide();
+				forms.eq(n).show();
+				labels.removeClass(activeClass);
+				labels.eq(n).addClass(activeClass);
+			});
+
 		},
 		response:function(){
 			var width=$(window).width();
@@ -140,12 +155,12 @@
 			}else if(width<=960&&width>680){
 				console.log('response: small');
 				$(elems.leftSide).addClass('small').removeClass('large labeled icon');
-				$('.ui.table').addClass('small').remove('very compact');
+				$('.ui.table').addClass('small').removeClass('very compact');
 				$(elems.top).find('.header').html(app.info.title);
 			}else if(width<=680){
 				console.log('response: tiny');
 				$(elems.leftSide).addClass('labeled icon').removeClass('small large');
-				$('.ui.table').addClass('very compact small');
+				$('.ui.table').addClass('very compact');
 				$(elems.top).find('.header').html(app.info.sortTitle);
 			}
 			app.ui.sidebar(elems.leftSide);
