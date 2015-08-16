@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>打开</title>
+</head>
+
+<body class="page-chat">
+
+<a href="javascript:openModalWindow('1.html','_liaoliaoWindow',800,600)" class="openliaoliao">打开</a>
+
+<!--已封装到官网的 jquery-ua-common.js 中，调用方法：uaxpUI.openModalWindow(url,width,height) -->
+<script>
+function openModalWindow(url,windowName,width,height){
+	if(typeof(url)==='undefined'){
+		alert('请给定url');
+		return false;
+	};
+	windowName=typeof(windowName)==='undefined'?'_blank':windowName;
+	width=typeof(width)==='undefined'?'600':width;
+	height=typeof(height)==='undefined'?'400':height;
+	var left=(window.screen.width-width)/2,
+		top=(window.screen.height-height-64)/2,
+		param=''+
+			'width='+width+','+
+			'height='+height+','+
+			'left='+left+','+
+			'top='+top+','+
+			'menubar=no,'+
+			'location=no,'+
+			'toolbar=no,'+
+			'resizable=yes,'+
+			'status=no';
+	var currentWindow=window.open(url, windowName, param);
+	currentWindow.focus();
+	try{
+		currentWindow.outerwidth;
+	}catch(err){
+		/*console.log('error: '+err.Message+', \n所使用的浏览器无法在本地获取窗体的 outerWidth 属性！\n试着换个浏览器。');*/
+		return false;
+	};
+	currentWindow.resizeTo(width,height);
+	var x=(window.screen.width-currentWindow.outerwidth)/2,
+		y=(window.screen.height-currentWindow.outerheight)/2;
+	currentWindow.moveTo(x,y);
+};
+</script>
+
+</body>
+</html>

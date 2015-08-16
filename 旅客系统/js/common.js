@@ -19,6 +19,34 @@
 	var elems=app.elems,
 		 animateDuration=app.settings.animateDuration;
 	
+	app.checkRE=function(){
+		var userAgent=window.navigator.userAgent,
+			 regexp=/chrome\/[\d\.]+/ig,
+			 isMatch=regexp.test(userAgent),
+			 matchedInfo=null,
+			 version=null;
+
+		console.warn('check client:',isMatch);
+		if(isMatch){
+			matchedInfo=userAgent.match(regexp)[0];
+			version=matchedInfo.match(/\d+/ig)[0];
+			if(version<40){
+//				app.ui.alert({
+//					title:'运行环境检测',
+//					msg:'您当前使用的版本号较低，请更换较新版本的浏览器！'
+//				});
+				alert('当前浏览器版本较低，请更换较新的版本，推荐版本号：40+。');
+			}
+		}else{
+//			app.ui.alert({
+//				title:'运行环境检测',
+//				msg:'您当前使用的浏览器不是 Chrome，将无法正常使用，请更换浏览器！'
+//			});
+			alert(app.info.name+' 无法在当前浏览器上正常运行，请更换为 Chrome 浏览器！');
+		}
+
+	};
+
 	app.cookie={
 		setting:{
 			path:app.path.root
@@ -688,6 +716,8 @@
 	
 	//dom ready
 	$(function(){
+		app.checkRE();
+
 		app.ui.init();
 		
 		//visibility

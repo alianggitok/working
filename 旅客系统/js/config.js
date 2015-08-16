@@ -6,7 +6,7 @@
 var app={};
 
 app.info={
-	name:'blacklist',
+	name:'SAPIS',
 	title:'旅客安全信息系统',
 	fullTitle:'SAPIS 旅客安全信息系统',
 	sortTitle:'SAPIS',

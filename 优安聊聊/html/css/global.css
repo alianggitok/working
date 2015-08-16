@@ -1,0 +1,502 @@
+@charset "utf-8";
+
+/**********global**********/
+*{margin:0; padding:0;}
+::-moz-selection {background:#666;color:#fff;text-shadow:none;}
+::selection {background:#666;color:#fff;text-shadow:none;}
+:hover,
+:hover *{transition-duration:.3s; transition-timing-function:ease; transition-property:none}
+
+html{overflow:hidden}
+body{overflow:hidden; font-size:12px; line-height:18px; letter-spacing:0; font-family:"微软雅黑", "Arial", "Helvetica", "sans-serif"; background:#e4e4e4; color:#000; cursor:default; vertical-align:baseline; min-width:660px}
+
+ol,ul,dl{list-style:none}
+input,label,select,option,textarea,button,fieldset,legend {font-family:"微软雅黑", "Arial", "Helvetica", "sans-serif";}
+
+em{font-style:normal}
+
+a{text-decoration:none; color:#555}
+a:link{}
+a:visited{}
+a:hover{text-decoration:underline; color:#90b830; transition-property:color, border-color, background-color}
+a:active{}
+
+h1,h2,h3,h4,h5,h6 {font-size:100%}
+
+img{vertical-align:top; border:none; -ms-interpolation-mode:bicubic;}
+
+table{border-collapse:collapse; width:100%; border-spacing:0}
+
+textarea{resize:none; line-height:16px}
+
+.disabled,
+.disabled input,
+.disabled a{color:#aaa!important; cursor:not-allowed!important}
+
+.txt_left{text-align:left}
+.txt_right{text-align:right}
+.txt_center{text-align:center}
+
+iframe{border:none; padding:0; margin:0}
+
+/*icon*/
+.ico{display:inline-block; border:none; background:url(../images/icons.png) transparent 0 0 no-repeat; overflow:hidden; vertical-align:middle; text-align:center; width:12px; height:12px; }
+
+/*button*/
+.btn{display:inline-block; border:none; background:transparent 0 0 no-repeat; overflow:visible; cursor:pointer; text-align:center; text-decoration:none; font-weight:normal; font-size:12px; box-sizing:content-box; -moz-box-sizing:content-box; padding:0; margin:0}
+.btn:hover{text-decoration:none; transition-property:border-color,color}
+.btn_green {color:#fff;border:1px solid #507a2b; padding:0 10px; line-height:20px;
+	background:#639632;
+	background:-ms-linear-gradient(top, #77aa41, #5c8e32);
+	background:-moz-linear-gradient(top, #77aa41, #5c8e32);
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0, #77aa41), color-stop(1, #5c8e32));
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77aa41', endColorstr='#5c8e32', GradientType='0');
+}
+.btn_green:hover {color:#fff;
+	background:-ms-linear-gradient(top, #5c8e32, #77aa41);
+	background:-moz-linear-gradient(top, #5c8e32, #77aa41);
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0, #5c8e32), color-stop(1, #77aa41));
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5c8e32', endColorstr='#77aa41', GradientType='0');
+}
+.btn_gray {color:#333;border:1px solid #bbb; padding:0 10px; line-height:20px;
+	background:#999999;
+	background:-ms-linear-gradient(top, #f2f2f2, #e2e2e2);
+	background:-moz-linear-gradient(top, #f2f2f2, #e2e2e2);
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0, #f2f2f2), color-stop(1, #e2e2e2));
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2f2f2', endColorstr='#e2e2e2', GradientType='0');
+}
+.btn_gray:hover {color:#666;
+	background:-ms-linear-gradient(top, #e2e2e2, #f2f2f2);
+	background:-moz-linear-gradient(top, #e2e2e2, #f2f2f2);
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0, #e2e2e2), color-stop(1, #f2f2f2));
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e2e2e2', endColorstr='#f2f2f2', GradientType='0');
+}
+
+/*input text*/
+.ua-text{padding:0 3px; height:24px; line-height:24px; border:1px solid #ccc; border-right-color:#e1e1e1; border-bottom-color:#e1e1e1; color:#999; display:inline-block; vertical-align:middle; overflow:hidden; box-shadow:inset 2px 2px 8px 0 #eee; background:#fff; box-sizing:content-box; -moz-box-sizing:content-box}
+.ua-text input{border:none; height:24px; line-height:24px; margin:0; width:100%; background:transparent; vertical-align:top}
+
+/*textarea*/
+.ua-textarea{padding:3px; height:90px; border:1px solid #ccc; border-right-color:#e1e1e1; border-bottom-color:#e1e1e1; color:#999; display:inline-block; overflow:hidden; box-shadow:inset 2px 2px 8px 0 #eee; line-height:18px; background-color:#fff}
+.ua-textarea .wrap{display:inline-block; width:100%; height:100%; overflow:auto}
+.ua-textarea textarea{border:none; line-height:18px; margin:0; padding:0; width:100%; height:100%; background:transparent}
+
+/*date input*/
+.ua-date{position:relative}
+.ua-date .ua-text{padding-right:20px; cursor:pointer}
+.ua-date .ico{position:absolute; top:1px; right:1px; background-position:-120px -56px; height:20px; width:20px}
+
+
+/*select*/
+.ua-select{display:inline-block; zoom:1; *display:inline; position:relative; border:1px solid #ccc; border-right-color:#e1e1e1; border-bottom-color:#e1e1e1; white-space:nowrap; vertical-align:middle; width:120px; background:#fff; height:30px; line-height:30px; text-align:left; z-index:200}
+.ua-select .current{position:absolute; top:0; left:0; cursor:pointer; overflow:hidden; padding:0 3px; z-index:100; background:#fff}
+.ua-select .current .txt{text-overflow:ellipsis; white-space:nowrap; overflow:hidden; float:left}
+.ua-select:hover{border-color:#90b830}
+.ua-select:hover .current .txt{color:#90b830; transition-property:color}
+.ua-select .pointer{position:absolute; top:0; right:0; width:20px; z-index:101; cursor:pointer; background:#fff; text-align:left}
+.ua-select .pointer .ico{background-position:-12px 0; width:12px; height:12px; vertical-align:top}
+.ua-select:hover .pointer .ico{background-position:-24px 0}
+.ua-select .items{position:absolute; left:-1px; z-index:99; line-height:28px; border:1px solid #693; display:none; background:#fff; max-height:112px; overflow:auto}
+.ua-select .items li{float:none; padding:0 3px; cursor:default; border-bottom:1px dotted #ccc}
+.ua-select .items li.hover{background-color:#90b830; color:#fff; transition-property:color,background-color}
+.ua-select .items .last{border:none}
+.ua-select .items .selected{background-color:#F8F6EF; color:#000}
+.ua-select .items .default{display:none}
+.ua-select .ua-select-result{display:none}
+.ua-select.active{border-color:#693!important}
+.ua-select.active .current{border-bottom:1px dotted #ccc}
+.ua-select.active .pointer .ico{background-position:-48px 0}
+
+/*tabbox*/
+.ua-tabbox{}
+.ua-tabbox .tabs{height:30px; line-height:30px}
+.ua-tabbox .tabs .tab{float:left; margin-right:1px; cursor:pointer}
+.ua-tabbox .tabs .tab a{display:inline-block; background:#e7e7e7; padding:0 30px}
+.ua-tabbox .tabs .tab.current a{background:#90b830; color:#fff}
+.ua-tabbox .tabs .tab:hover a{background:#693; color:#fff; transition-property:color, background-color}
+
+ /*options*/
+.ua-opts label{padding:0 9px; cursor:pointer; line-height:18px}
+.ua-opts label input{vertical-align:middle}
+
+/*form*/
+.ua-form{}
+
+/*fix*/
+.mt6{margin-top:6px}
+
+.bold{font-weight:bold!important}
+.nowrap{white-space:nowrap!important}
+.noborder{border:none!important}
+
+.onmove{cursor:move}
+
+.none{display:none!important}
+.hide{visibility:hidden!important}
+
+.clearPaddingLeft{padding-left:0!important}
+.clearPaddingRight{padding-right:0!important}
+
+.clearfix:after {clear:both; content:" "; display:block; height:0; visibility:hidden; font-size:0}
+.clearfix{zoom:1}
+
+.w50{width:50px}
+.w100{width:100px}
+.w150{width:150px}
+.w200{width:200px}
+.w300{width:300px}
+
+.filtergray{
+	-webkit-filter: grayscale(1);
+	-moz-filter: grayscale(1);
+	-ms-filter: grayscale(1);
+	-o-filter: grayscale(1);
+	filter: grayscale(1);
+	filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
+	filter: gray;
+	color:gray;
+
+}
+
+.chk_indeterminate{-webkit-appearance:none; width:13px; height:13px; background:url(../images/chk_indeterminate.gif) 0 0 no-repeat}
+
+.scrolllayer{overflow:auto}
+
+.noselect{
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.onmove{cursor:move}
+
+/*crumbs*/
+.nav-crumbs{padding:0 2px; border-bottom:1px solid #90b830; line-height:18px}
+.nav-crumbs .crumbs{float:left}
+.nav-crumbs .count{float:right}
+.nav-crumbs .count span{color:#90b830}
+
+/*multi button list*/
+.multibtn-list{position:absolute; border:1px solid #ddd; background:#f2f2f2; white-space:nowrap; font-size:12px; color:#333; display:none}
+.multibtn-list li{padding:3px 6px; line-height:18px}
+.multibtn-list li:hover{background-color:#fffddd}
+.multibtn-list li .ico{margin-right:3px; width:16px; height:16px; visibility:hidden}
+.multibtn-list .selected{background-color:#fff}
+.multibtn-list .selected .ico{visibility:visible; background-position:-64px -24px}
+
+/*page*/
+.page{}
+.page ul{float:right}
+.page li{float:left; margin-left:10px; line-height:26px}
+.page .num a{display:inline-block; margin-left:4px; border:1px solid #ccc; padding:0 8px; height:24px; line-height:24px; text-decoration:none}
+.page .num a:hover{border-color:#90b830; color:#90b830}
+.page .num a.current{color:#fff; background-color:#693; border-color:#693}
+.page .num .ellipsis{display:inline-block; margin-left:3px; height:26px}
+.page .num .btn{min-width:0; color:#666}
+.page .num .btn:hover{color:#90b830}
+.page .num .btn .ico{width:12px; height:12px}
+.page .num .btn_prev{padding-left:4px}
+.page .num .btn_prev .ico{background-position:-36px -12px; margin-right:3px}
+.page .num .btn_prev:hover .ico{background-position:-48px -12px; margin-right:3px}
+.page .num .btn_next{padding-right:4px}
+.page .num .btn_next .ico{background-position:-60px -12px; margin-left:3px}
+.page .num .btn_next:hover .ico{background-position:-72px -12px; margin-left:3px}
+.page .goto span{float:left}
+.page .goto .ua-text{height:24px; margin:0 3px; padding:0}
+.page .goto .ua-text input{line-height:24px; width:30px; text-align:center}
+.page .goto .btn{height:24px; line-height:24px; text-align:center; padding:0 5px; min-width:0; margin-left:4px}
+
+.page-mini{}
+.page-mini .btn{border:1px solid #ccc; line-height:18px; background:#fff; margin-left:3px; padding:0 3px}
+.page-mini .btn:hover{border-color:#8a3}
+.page-mini .btn .ico{width:12px; height:12px}
+.page-mini .btn_prev,
+.page-mini .btn_next{width:18px; height:18px; padding:0}
+.page-mini .btn_prev .ico{background-position:-48px 0}
+.page-mini .btn_next .ico{background-position:-12px 0}
+.page-mini .num{margin-left:3px}
+.page-mini .num .current{color:#8a3}
+
+/*loading*/
+.pageloader,
+.pageloader-masker,
+.pageloader-box{position:absolute; padding:0; margin:0; border:none; top:0; left:0}
+.pageloader{z-index:2000; width:100%; height:100%}
+.pageloader-masker{z-index:2002; background:#000; width:100%; height:100%}
+.pageloader iframe{z-index:2001}
+.pageloader-box{z-index:2003}
+.pageloader-info{border:3px solid #693; background:#ffc; padding:9px 12px; box-shadow:3px 3px 0 0 rgba(0,0,0,0.18)}
+.pageloader-info .content{margin-top:3px}
+
+/*sysinfo*/
+.sysinfo{display:none; border:3px solid red; background:#ffc; padding:3px 6px; position:absolute; z-index:2000; top:0; left:0; width:150px; box-shadow:3px 3px 0 0 rgba(0,0,0,0.18)}
+.sysinfo .title .tit{font-weight:bold; color:#666}
+.sysinfo .title .date{color:#aaa}
+.sysinfo .content{margin-top: 3px; color:red}
+
+
+/**********layout**********/
+.layout-top,.layout-header,.layout-navig,.layout-main,.layout-footer{}
+.container{position:relative; margin:0 auto}
+
+
+/**********header**********/
+.layout-header{border-bottom:1px solid #693}
+.layout-header .container{height:58px; position:relative; border-bottom:1px solid #90b830; color:#fff; background:#693}
+.layout-header .title{position:absolute; top:7px; left:20px; height:44px}
+.layout-header .title .logo{float:left; border-right:1px solid #588730; padding-right:12px}
+.layout-header .title .logo .ico{background-position:0 100%; width:147px; height:44px}
+.layout-header .title h2{float:left; font-size:16px; height:44px; line-height:44px; border-left:1px solid #6da33b; padding-left:12px; text-shadow:1px 1px 1px #777; font-weight:normal}
+.layout-header .slogan{}
+.layout-header .windowtool{position:absolute; top:0; right:0}
+.layout-header .windowtool li{float:left}
+.layout-header .windowtool li .btn{width:32px; height:32px; line-height:32px}
+.layout-header .windowtool li .btn .ico{width:16px; height:16px;}
+.layout-header .windowtool li .btn_max .ico{background-position:0 -24px}
+.layout-header .windowtool li .btn_close .ico{background-position:-16px -24px}
+.layout-header .windowtool li.first{border-left:none}
+.layout-header .windowtool li.last{border-right:none}
+
+
+/**********main**********/
+.layout-main{padding:6px}
+.layout-main .container{min-height:400px}
+
+/**********left**********/
+.layout-left{position:absolute; width:240px; height:100%; overflow:auto}
+.contactbody{width:100%; height:100%}
+.contactbody .selfstate{border:1px solid #ccc; border-bottom:none}
+.contactbody .selfstate .wrap{padding:4px; border:1px solid #fff}
+.contactbody .selfstate .face{float:left; width:34px; height:34px; overflow:hidden; margin:3px 6px 0 3px}
+.contactbody .selfstate .name{line-height:16px}
+.contactbody .selfstate .exec li{float:left; margin-right:10px; line-height:24px}
+.contactbody .selfstate .exec .btn .ico{width:20px; height:20px; line-height:20px; margin-right:3px}
+.contactbody .selfstate .exec .btn_chathistory .ico{background-position:-100px -56px}
+.contactbody .selfstate .exec .btn_userstatus .ico{width:12px; height:12px}
+.contactbody .selfstate .exec .btn_userstatus .ico-online{background-position:-72px 0}
+.contactbody .selfstate .exec .close{float:right}
+.contactbody .contactlist .tabs{border:1px solid #ccc; border-top:none; border-bottom:none}
+.contactbody .contactlist .tabs .tab{float:left; height:28px; line-height:28px; width:50%; text-align:center; position:relative}
+.contactbody .contactlist .tabs .tab a{display:block; width:100%; border-top:1px solid #ccc; text-decoration:none; text-overflow:ellipsis; white-space:nowrap; overflow:hidden}
+.contactbody .contactlist .tabs .current a{color:#693; background:#fff; border-top-width:2px; border-top-color:#693; position:absolute; left:0}
+.contactbody .contactlist .conts{height:100%; overflow:auto; background:#fff; border:1px solid #ccc; min-height:60px}
+.contactbody .contactlist .conts .cont{padding:6px 0}
+.contactbody .contactlist .list li{padding:6px 6px 6px 9px; height:34px; line-height:34px}
+.contactbody .contactlist .list .face{float:left; width:34px; height:34px; line-height:34px; overflow:hidden; margin-right:6px; vertical-align:middle}
+.contactbody .contactlist .list .name{float:left; width:120px; text-overflow:ellipsis; white-space:nowrap; overflow:hidden}
+.contactbody .contactlist .list .ico-count{float:left; width:24px; height:24px; text-align:center; line-height:16px; background-position:-24px -96px; font-size:12px; font-family:Arial, Helvetica, sans-serif; margin-top:6px; font-style:normal}
+.contactbody .contactlist .list .exec{float:right; display:none}
+.contactbody .contactlist .list .btn_del .ico{background-position:-24px 0; vertical-align:top; margin-top:11px}
+.contactbody .contactlist .list li:hover{background:#f4ffcc}
+.contactbody .contactlist .list li.current{background:#d7fcc1}
+.contactbody .contactlist .list li:hover .exec{display:inline-block}
+.contactbody .contactlist .list .offline a{color:#c2c2c2; text-decoration:none}
+.contactbody .contactlist .list .offline:hover{background:#eee}
+.contactbody .chatstate{height:28px; line-height:28px; border:1px solid #ccc; border-top:none; text-align:center}
+.contactbody .chatstate p{float:left; width:49%}
+.contactbody .chatstate span{display:block; line-height:16px; margin-top:6px}
+.contactbody .chatstate .chating span{border-right:1px solid #ccc}
+.contactbody .chatstate .waiting span{border-left:1px solid #fff}
+
+
+/**********constant**********/
+.layout-constant{padding:0 216px 0 246px; height:100%}
+
+.chatbody{height:100%; position:relative}
+.chatbody .oppositestate{border:1px solid #ccc; border-bottom:none}
+.chatbody .oppositestate .wrap{padding:4px; border:1px solid #fff}
+.chatbody .oppositestate .face{float:left; width:34px; height:34px; overflow:hidden; margin:3px 6px 3px 3px}
+.chatbody .oppositestate .name{line-height:16px}
+.chatbody .oppositestate .exec li{float:left; margin-right:10px; line-height:24px}
+.chatbody .oppositestate .exec .btn .ico{margin-right:3px}
+.chatbody .oppositestate .exec .btn_userstatus .ico{width:12px; height:12px}
+.chatbody .oppositestate .exec .btn_userstatus .ico-online{background-position:-72px 0}
+.chatbody .oppositestate .exec .close{float:right}
+.chatbody .oppositestate .btn_transfer .ico{width:24px; height:24px; line-height:24px; background-position:0 -96px}
+.chatbody .oppositestate .transferlist{position:absolute; border:1px solid #ccc; background:#fff; padding:3px 3px 3px 6px; box-shadow:1px 1px 3px rgba(0,0,0,0.2); line-height:20px; z-index:500; max-width:300px; display:none}
+.chatbody .oppositestate .transferlist .scrolllayer{max-height:200px; overflow:auto}
+.chatbody .oppositestate .transferlist dl{padding-top:3px; white-space:nowrap; margin-right:20px; width:100%}
+.chatbody .oppositestate .transferlist dt .ico{margin-right:3px; background-position:-12px 0}
+.chatbody .oppositestate .transferlist .fold dt .ico{background-position:-12px 0}
+.chatbody .oppositestate .transferlist .unfold dt .ico{background-position:0 0}
+.chatbody .oppositestate .transferlist li{float:none; margin:0; padding:3px; margin-left:12px; line-height:20px; color:#999; height:20px}
+.chatbody .oppositestate .transferlist a{text-overflow:ellipsis; white-space:nowrap; overflow:hidden}
+.chatbody .oppositestate .transferlist .face-mini{float:left; width:20px; height:20px; line-height:20px; overflow:hidden; margin-right:6px; vertical-align:middle}
+.chatbody .oppositestate .transferlist .name{display:inline-block; line-height:20px}
+.chatbody .oppositestate .transferlist .info{display:inline-block}
+
+.chatbody .chatlist{border:1px solid #ccc; border-bottom:none; overflow:auto; min-height:100px; background:#fffcf4; position:relative}
+.chatbody .chatlist .list{padding:12px}
+.chatbody .chatlist .list li{margin-bottom:21px; font-size:13px; line-height:21px; position:relative}
+.chatbody .chatlist .list .face{position:absolute; width:34px; height:34px; margin-top:3px; margin-bottom:6px}
+.chatbody .chatlist .list .wrapper{float:left; border:1px solid #bce87e; background-color:#e7f7cb; padding:6px 9px; border-radius:5px; position:relative; margin-left:43px}
+.chatbody .chatlist .list .ico-pointer{position:absolute; width:7px; height:13px; background-position:-40px -24px; margin-top:9px; left:-7px}
+.chatbody .chatlist .list .who{color:#555l; font-weight:bold}
+.chatbody .chatlist .list .who .date{padding-left:6px; font-weight:normal; font-size:12px}
+.chatbody .chatlist .list .what{word-wrap:break-word; word-break:break-all}
+.chatbody .chatlist .list .opposite{margin-right:30px}
+.chatbody .chatlist .list .opposite .face{left:0}
+.chatbody .chatlist .list .opposite .who{color:#693}
+.chatbody .chatlist .list .self{color:#666; text-align:right; margin-left:30px}
+.chatbody .chatlist .list .self .face{right:0}
+.chatbody .chatlist .list .self .ico-pointer{background-position:-32px -24px; left:auto; right:-7px}
+.chatbody .chatlist .list .self .wrapper{float:right; border-color:#ddd; background-color:#f2f2f2; margin-right:43px; margin-left:0}
+.chatbody .chatlist .list .self .what{text-align:left}
+.chatbody .chatlist .list .systips{clear:both}
+.chatbody .chatlist .list .systips .wrapper{display:inline-block; border:1px solid #ffda68; background-color:#fffccc; margin-left:0}
+.chatbody .chatlist .list .systips .ico-tips{width:16px; height:16px; background-position:-48px -24px; margin-right:3px}
+.chatbody .chatlist .list .systips a{color:#36c}
+
+.chatbody .chatform{border:1px solid #ccc; border-top:none; background:#fffcf4}
+.chatbody .chatform .toolbar{background:#e4e4e4; border:1px solid #ccc; border-left:none; border-right:none; line-height:22px}
+.chatbody .chatform .toolbar .items{padding:3px 10px 3px 0; border:1px solid #fff; height:22px}
+.chatbody .chatform .toolbar .items li{float:left; margin-left:10px}
+.chatbody .chatform .toolbar .items .btn{height:20px; line-height:19px; border:1px solid #e4e4e4; background-color:#e4e4e4; white-space:nowrap}
+.chatbody .chatform .toolbar .items .btn:hover,
+.chatbody .chatform .toolbar .items .btn-current{border-color:#90b830; background-color:#fff}
+.chatbody .chatform .toolbar .items .btn .ico{width:20px; height:20px}
+.chatbody .chatform .toolbar .items .btn_font .ico{background-position:0 -56px}
+.chatbody .chatform .toolbar .items .btn_exprimg .ico{background-position:-20px -56px}
+.chatbody .chatform .toolbar .items .btn_img .ico{background-position:-40px -56px}
+.chatbody .chatform .toolbar .items .btn_img object{margin-top:3px}
+.chatbody .chatform .toolbar .items .btn_upload .ico{background-position:-60px -56px}
+.chatbody .chatform .toolbar .items .btn_rate .ico{background-position:-80px -56px}
+.chatbody .chatform .toolbar .items .btn_chathistory{float:right}
+.chatbody .chatform .toolbar .items .btn_chathistory .pointer{display:inline-block}
+.chatbody .chatform .toolbar .items .btn_chathistory .ico{background-position:-100px -56px}
+.chatbody .chatform .toolbar .items .btn_chathistory .ico-pointer{width:12px; height:12px; background-position:-24px -12px}
+.chatbody .chatform .toolbar .goto-chathistory{border-color:#90b830; background-color:#fff}
+.chatbody .chatform .toolbar .goto-chathistory li{cursor:pointer}
+.chatbody .chatform .toolbar .goto-chathistory li .ico{display:none}
+.chatbody .chatform .ua-textarea{display:block; border:none; height:60px}
+.chatbody .chatform .exec{border-top:1px solid #ccc; padding:6px}
+.chatbody .chatform .exec .btn_send{float:right; line-height:28px; padding:0 18px 0 0; font-size:14px; position:relative}
+.chatbody .chatform .exec .btn_send .btn{height:28px; padding:0 20px; color:#fff}
+.chatbody .chatform .exec .btn_send .pointer{position:absolute; right:0; top:0; width:18px; height:100%; border-left:1px solid #507a2b; text-align:center}
+.chatbody .chatform .exec .btn_send .ico-pointer{background-position:-60px 0}
+
+
+/**********constant**********/
+.layout-right{position:absolute; width:210px; height:100%; overflow:auto; top:0; right:0}
+
+/*mod*/
+.mod-block{border:1px solid #ccc; padding:1px; background:#fff}
+.mod-block .title{background:#693; color:#fff; height:24px; line-height:24px; padding:0 10px; cursor:pointer}
+.mod-block .title h3{font-szie:14px; font-weight:normal}
+.mod-block .title .ico-fold{float:right; margin-top:6px; background-position:0 -12px}
+.mod-block .content{padding:5px 10px; overflow:auto}
+.mod-block.fold .title .ico-fold{background-position:-12px -12px}
+.mod-block.unfold .title .ico-fold{background-position:0 -12px}
+.mod-block.nofold .title{cursor:default}
+
+.mod-block-s2{padding:0}
+.mod-block-s2 .title{background-color:#f2f2f2; color:#000; border-bottom:1px solid #ccc; height:26px; line-height:26px}
+
+.mod-block-faq{}
+.mod-block-faq .list .q{padding-top:3px; font-weight:bold}
+.mod-block-faq .list .a{color:#666; padding-bottom:3px}
+
+.mod-block-orderinfo dl{padding:3px 0; color:#666}
+.mod-block-orderinfo dt{float:left; color:#000}
+.mod-block-orderinfo .goods dt{float:none}
+.mod-block-orderinfo .goods dd{margin-top:3px}
+.mod-block-orderinfo .goods .pic{float:left; width:55px; height:55px; overflow:hidden; margin-right:6px}
+.mod-block-orderinfo .goods .page{margin-top:12px; text-align:center}
+.mod-block-orderinfo .goods .page .info{line-height:20px; padding:0 3px}
+.mod-block-orderinfo .goods .page .btn{padding:0 6px; border:1px solid #ccc}
+.mod-block-orderinfo .goods .page .btn:hover{border-color:#90b830}
+
+.mod-block-shopinfo dl{padding:3px 0; color:#666}
+.mod-block-shopinfo dt{float:left; color:#000}
+.mod-block-shopinfo .exec{margin-top:3px; text-align:center}
+
+.mod-block-memberinfo dl{padding:3px 0; color:#666}
+.mod-block-memberinfo dt{float:left; color:#000}
+
+
+/**********chat history**********/
+.chathistory{height:100%}
+.chathistory .searchbar{border:1px solid #ccc; margin-bottom:6px; background:#e4e4e4}
+.chathistory .searchbar .wrap{border:1px solid #fff; padding:3px 12px}
+.chathistory .searchbar .ua-form .form{width:540px}
+.chathistory .searchbar .ua-form dl{padding:3px 0; line-height:24px}
+.chathistory .searchbar .ua-form dt{display:inline}
+.chathistory .searchbar .ua-form dd{display:inline}
+.chathistory .searchbar .ua-form .ua-text{height:22px; line-height:22px}
+.chathistory .searchbar .ua-form .exec{text-align:right; width:1%}
+.chathistory .searchbar .ua-form .exec .btn_search{width:40px; height:48px; line-height:48px; font-size:14px}
+
+.chathistory .layout-left{width:220px; height:auto}
+.chathistory .layout-constant{padding-left:226px; height:auto; padding-right:0}
+
+.chathistory .mod-block-contactlist .content{padding:3px 0}
+.chathistory .mod-block-contactlist dt{padding:3px 6px}
+.chathistory .mod-block-contactlist dt .ico{margin-right:3px; background-position:-12px 0}
+.chathistory .mod-block-contactlist .fold dt .ico{background-position:-12px 0}
+.chathistory .mod-block-contactlist .unfold dt .ico{background-position:0 0}
+.chathistory .mod-block-contactlist .list li a{display:block; padding:3px 18px; line-height:34px; text-overflow:ellipsis; white-space:nowrap; overflow:hidden}
+.chathistory .mod-block-contactlist .list li .face{float:left; wdith:34px; height:34px; overflow:hidden; margin-right:6px}
+.chathistory .mod-block-contactlist .list li:hover a{background:#d7fcc1; color:#90b830}
+.chathistory .mod-block-contactlist .list li.current a{background:#90b830; color:#fff}
+
+.chathistory .mod-block-chatlist .page-mini{float:right}
+.chathistory .chatlist{min-height:100px}
+.chathistory .chatlist .list{padding:6px}
+.chathistory .chatlist .list li{margin-bottom:12px; font-size:12px; line-height:21px}
+.chathistory .chatlist .list .who{color:#36c; font-weight:bold}
+.chathistory .chatlist .list .who .date{padding-left:6px; font-weight:normal; font-size:12px}
+.chathistory .chatlist .list .what{word-wrap:break-word; word-break:break-all}
+.chathistory .chatlist .list .opposite{margin-right:40px}
+.chathistory .chatlist .list .opposite .who{color:#693}
+.chathistory .chatlist .list .self{color:#666; text-align:right; margin-left:40px}
+.chathistory .chatlist .list .dateline{font-size:13px; height:41px; line-height:41px}
+.chathistory .chatlist .list .dateline .line{display:block; height:20px; border-bottom:1px solid #90b830}
+.chathistory .chatlist .list .dateline .date{display:block; left:0; top:0; text-align:center; margin-top:-20px}
+.chathistory .chatlist .list .dateline .date em{padding:0 20px; background:#fff; font-style:italic}
+
+
+/**********floater**********/
+.simplemodal-container{top:0; background:#fff; border:3px solid #693; box-shadow:0 0 6px 0 rgba(0,0,0,0.3); height:0}
+.simplemodal-container .modalCloseImg{display:block; position:absolute; top:4px; right:4px; height:20px; width:20px; overflow:hidden; cursor:pointer; background:url(../images/icons.png) -20px -76px no-repeat}
+.simplemodal-container .modalCloseImg:hover{background-position:0px -76px}
+
+/*
+.ua-floatbox{display:none; padding:6px; border:3px solid #693; background:#fff; position:relative}
+.ua-floatbox-wrapper{width:550px}
+.ua-floatbox-title{font-size:14px; line-height:16px; padding-bottom:6px; border-bottom:1px solid #90b830}
+.ua-floatbox-content{margin-top:6px; overflow:auto}
+.ua-floatbox-content .exec{margin-top:12px}
+.ua-floatbox-content .exec .btn{height:28px; line-height:28px}
+*/
+
+.ua-floatbox-s1{display:none}
+.ua-floatbox-s1 .ua-floatbox-wrapper{padding:6px; width:auto; max-width:600px}
+.ua-floatbox-s1 .ua-floatbox-title{font-size:14px; line-height:16px; padding-bottom:6px; border-bottom:1px solid #90b830; color:#693; cursor:move}
+.ua-floatbox-s1 .btn_close{display:none}
+.ua-floatbox-s1 .ua-floatbox-content{overflow:auto; margin-top:6px}
+.ua-floatbox-s1 .ua-form dt{width:200px}
+.ua-floatbox-s1 .ua-form dd{width:340px}
+.ua-floatbox-s1 .exec{margin-top:12px}
+.ua-floatbox-s1 .exec .btn{height:24px; line-height:24px}
+
+ /*float box chathistory*/
+.ua-floatbox-chathistory{display:none; height:auto}
+.ua-floatbox-chathistory .ua-floatbox-wrapper{}
+.ua-floatbox-chathistory .ua-floatbox-content{}
+.ua-floatbox-chathistory .mod-block-chatlist .content{height:280px}
+.ua-floatbox-chathistory .mod-block-contactlist .content{height:284px}
+.ua-floatbox-chathistory .searchbar .wrap{border:1px solid #fff; padding:3px 9px}
+.ua-floatbox-chathistory .searchbar .ua-form .exec .btn_search{padding:0 5px}
+
+
+ /*float box rate*/
+.ua-floatbox-rate .ua-floatbox-wrapper{width:430px}
+.ua-floatbox-rate .ua-opts{text-align:center; margin-top:10px}
+
+
+/*responsive*/
+/*
+@media screen and (max-width:1220px){
+
+}
+*/
