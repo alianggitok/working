@@ -1,0 +1,106 @@
+
+<span id="btn-alert" class="ui red button">alert</span>
+<span id="btn-alert-transparent" class="ui orange button">transparent alert</span>
+<span id="btn-confirm" class="ui green button">confirm</span>
+
+<div class="ui divider"></div>
+<span id="btn-dialog" class="ui blue button">dialog</span>
+
+<div class="ui divider"></div>
+<span id="btn-msg" class="ui pink button">message</span>
+<span id="btn-autohidemsg" class="ui pink button">automatic hide message</span>
+
+
+<!--dialog-->
+<div id="dialog-demo" class="ui modal ui-dialog">
+	<i class="close icon ui-dialog-close"></i>
+	<div class="header">
+		Dialog Title
+	</div>
+	<div class="content">
+		<form class="ui form">
+			<div class="ui grid fields">
+				<div class="stackable doubling two column row">
+					<div class="column">
+						<div class="field">
+							<label>字段</label>
+							<input type="text" name="" placeholder="">
+						</div>
+					</div>
+					<div class="column">
+						<div class="field">
+							<label>字段</label>
+							<input type="text" name="" placeholder="">
+						</div>
+					</div>
+					<div class="column">
+						<div class="field">
+							<label>字段</label>
+							<select class="ui compact dropdown">
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+							</select>
+						</div>
+					</div>
+					<div class="column">
+						<div class="field">
+							<label>字段</label>
+							<input type="text" name="" placeholder="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="actions">
+		<div class="ui button deny">Cancel</div>
+		<div class="ui green button approve">Send</div>
+	</div>
+</div>
+
+<script>
+	$('#btn-dialog').click(function(){
+		app.ui.dialog('#dialog-demo');
+	});
+
+	$('#btn-alert').click(function(){
+		app.ui.alert({
+			msg:'alert text.'
+		});
+	});
+	
+	$('#btn-alert-transparent').click(function(){
+		app.ui.alert({
+			title:'',
+			msg:'这个提示框是透明的。',
+			icon:'huge info',
+			style:{
+				basic:'basic small',
+				header:'center aligned',
+				content:'center aligned',
+				buttons:'inverted'
+			}
+		});
+	});
+
+	$('#btn-confirm').click(function(){
+		app.ui.confirm({
+			msg:'confirm text?'
+		});
+	});
+
+	$('#btn-msg').click(function(){
+		app.ui.message();
+	});
+	$('#btn-autohidemsg').click(function(){
+		app.ui.message({
+			type:'success',
+			msg:'3 秒后消失',
+			size:'mini',
+			icon:'info',
+			closeBtn:false,
+			autoHide:3000
+		});
+	});
+</script>
