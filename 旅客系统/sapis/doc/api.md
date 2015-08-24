@@ -8,6 +8,8 @@
 - [Semantic UI](http://semantic-ui.com/)
 - [jquery.datatimepicker](http://xdsoft.net/jqplugins/datetimepicker/)
 
+支持 Chrome 40.0+
+
 &nbsp;
 ##sys
 ###app.checkRE()
@@ -112,7 +114,7 @@
 - **说明：** 读取模块内容。
 - **参数：** opts（object，配置参数）
 	- **opts** 
-		- obj：指定内容的载体选择器，必选
+		- obj：指定内容注入的目标选择器，被读出的内容将注入其中，在注入前会清空其中的内容，必选
 		- href：请求内容的地址，必选
 		- bufferContext：缓冲UI的上下文选择器，默认 'body'，慎用
 		- scrollToTop：载入前是否将载体滚动到顶部，默认 true

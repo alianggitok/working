@@ -6,7 +6,11 @@
 				<div class="column">
 					<div class="field">
 						<label>布控类型</label>
-						<input type="text" name="" placeholder="">
+						<select class="ui compact dropdown">
+							<option value="">not selected</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
 					</div>
 				</div>
 			</div>
@@ -27,6 +31,7 @@
 
 	<div class="handlebar right aligned">
 		<span id="btn-add" class="ui teal tiny button"><i class="plus icon"></i>添加</span>
+		<span id="btn-delete" class="ui red tiny button"><i class="remove icon"></i>删除</span>
 	</div>
 
 	<table class="ui top attached blue segment celled striped selectable unstackable table">
@@ -143,79 +148,47 @@
 
 
 <!--dialogs-->
-<div id="detail-person" class="ui coupled modal ui-dialog">
+<div id="dialog-add" class="ui coupled modal ui-dialog">
 	<i class="close icon ui-dialog-close"></i>
 	<div class="header">
-		<i class="user icon"></i>预警人员详细信息
+		<i class="user icon"></i>添加类型
 	</div>
 	<div class="content">
-		<table class="ui celled unstackable table">
-			<tbody>
-				<tr>
-					<td class="right aligned collapsing"><b>姓名：</b></td>
-					<td>2</td>
-					<td class="right aligned collapsing"><b>曾用名：</b></td>
-					<td>2</td>
-				</tr>
-				<tr>
-					<td class="right aligned collapsing"><b>性别：</b></td>
-					<td>2</td>
-					<td class="right aligned collapsing"><b>民族：</b></td>
-					<td>2</td>
-				</tr>
-				<tr>
-					<td class="right aligned collapsing"><b>证件号码：</b></td>
-					<td>2</td>
-					<td class="right aligned collapsing"><b>出生日期：</b></td>
-					<td>2</td>
-				</tr>
-				<tr>
-					<td class="right aligned collapsing"><b>口音：</b></td>
-					<td>2</td>
-					<td class="right aligned collapsing"><b>身高：</b></td>
-					<td>2</td>
-				</tr>
-				<tr>
-					<td class="right aligned collapsing"><b>体貌特征：</b></td>
-					<td>2</td>
-					<td class="right aligned collapsing"><b>户籍地区划：</b></td>
-					<td>2</td>
-				</tr>
-				<tr>
-					<td class="right aligned collapsing"><b>户籍地详址：</b></td>
-					<td>2</td>
-					<td class="right aligned collapsing"><b>布控原因：</b></td>
-					<td>2</td>
-				</tr>
-				<tr>
-					<td class="right aligned collapsing"><b>布控类型：</b></td>
-					<td>2</td>
-					<td class="right aligned collapsing"><b>联系单位：</b></td>
-					<td>2</td>
-				</tr>
-				<tr>
-					<td class="right aligned collapsing"><b>联系人1：</b></td>
-					<td>2</td>
-					<td class="right aligned collapsing"><b>联系人1座机/手机：</b></td>
-					<td>2</td>
-				</tr>
-				<tr>
-					<td class="right aligned collapsing"><b>联系人2：</b></td>
-					<td>2</td>
-					<td class="right aligned collapsing"><b>联系人2座机/手机：</b></td>
-					<td>2</td>
-				</tr>
-				<tr>
-					<td class="right aligned collapsing"><b>布控开始时间：</b></td>
-					<td>2</td>
-					<td class="right aligned collapsing"><b>布控结束时间：</b></td>
-					<td>2</td>
-				</tr>
-			</tbody>
-		</table>
+		<form class="ui small form">
+			<div class="ui grid fields"><!-- stackable doubling-->
+
+				<div class="stackable doubling three column row">
+					<div class="column">
+						<div class="field">
+							<label>布控类型</label>
+							<input type="text" name="" placeholder="">
+						</div>
+					</div>
+					<div class="column">
+						<div class="field">
+							<label>创建人</label>
+							<input type="text" name="" placeholder="">
+						</div>
+					</div>
+					<div class="column">
+						<div class="field">
+							<label>创建时间</label>
+							<div class="ui icon input">
+								<input class="ui-datapicker" type="text">
+								<i class="calendar icon"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</form>
 	</div>
 	<div class="actions">
+		<span class="ui primary button"><i class="plus icon"></i>添加</span>
 		<span class="ui button deny">关闭</span>
 	</div>
 </div>
 
+
+<script src="module/flow/control/types.js"></script>

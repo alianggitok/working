@@ -88,6 +88,7 @@
 <!--		<div class="ui top attached blue segment"><h3>Datagrid 标题</h3></div>-->
 	<div class="handlebar right aligned">
 		<span id="btn-add" class="ui teal tiny button"><i class="plus icon"></i>添加</span>
+		<span id="btn-delete" class="ui red tiny button"><i class="remove icon"></i>删除</span>
 	</div>
 
 	<table class="ui top attached blue segment celled striped selectable unstackable table">
@@ -358,7 +359,7 @@
 
 
 <!--dialogs-->
-<div id="detail" class="ui coupled modal ui-dialog">
+<div id="dialog-detail" class="ui coupled modal ui-dialog">
 	<i class="close icon ui-dialog-close"></i>
 	<div class="header">
 		<i class="alarm icon"></i>预警详细信息
@@ -367,63 +368,63 @@
 		<table class="ui celled unstackable table">
 			<tbody>
 				<tr>
-					<td class="right aligned collapsing"><b>姓名：</b></td>
+					<td class="right aligned collapsing th"><b>姓名：</b></td>
 					<td>2</td>
-					<td class="right aligned collapsing"><b>曾用名：</b></td>
-					<td>2</td>
-				</tr>
-				<tr>
-					<td class="right aligned collapsing"><b>性别：</b></td>
-					<td>2</td>
-					<td class="right aligned collapsing"><b>民族：</b></td>
+					<td class="right aligned collapsing th"><b>曾用名：</b></td>
 					<td>2</td>
 				</tr>
 				<tr>
-					<td class="right aligned collapsing"><b>证件号码：</b></td>
+					<td class="right aligned collapsing th"><b>性别：</b></td>
 					<td>2</td>
-					<td class="right aligned collapsing"><b>出生日期：</b></td>
-					<td>2</td>
-				</tr>
-				<tr>
-					<td class="right aligned collapsing"><b>口音：</b></td>
-					<td>2</td>
-					<td class="right aligned collapsing"><b>身高：</b></td>
+					<td class="right aligned collapsing th"><b>民族：</b></td>
 					<td>2</td>
 				</tr>
 				<tr>
-					<td class="right aligned collapsing"><b>体貌特征：</b></td>
+					<td class="right aligned collapsing th"><b>证件号码：</b></td>
 					<td>2</td>
-					<td class="right aligned collapsing"><b>户籍地区划：</b></td>
-					<td>2</td>
-				</tr>
-				<tr>
-					<td class="right aligned collapsing"><b>户籍地详址：</b></td>
-					<td>2</td>
-					<td class="right aligned collapsing"><b>布控原因：</b></td>
+					<td class="right aligned collapsing th"><b>出生日期：</b></td>
 					<td>2</td>
 				</tr>
 				<tr>
-					<td class="right aligned collapsing"><b>布控类型：</b></td>
+					<td class="right aligned collapsing th"><b>口音：</b></td>
 					<td>2</td>
-					<td class="right aligned collapsing"><b>联系单位：</b></td>
-					<td>2</td>
-				</tr>
-				<tr>
-					<td class="right aligned collapsing"><b>联系人1：</b></td>
-					<td>2</td>
-					<td class="right aligned collapsing"><b>联系人1座机/手机：</b></td>
+					<td class="right aligned collapsing th"><b>身高：</b></td>
 					<td>2</td>
 				</tr>
 				<tr>
-					<td class="right aligned collapsing"><b>联系人2：</b></td>
+					<td class="right aligned collapsing th"><b>体貌特征：</b></td>
 					<td>2</td>
-					<td class="right aligned collapsing"><b>联系人2座机/手机：</b></td>
+					<td class="right aligned collapsing th"><b>户籍地区划：</b></td>
 					<td>2</td>
 				</tr>
 				<tr>
-					<td class="right aligned collapsing"><b>布控开始时间：</b></td>
+					<td class="right aligned collapsing th"><b>户籍地详址：</b></td>
 					<td>2</td>
-					<td class="right aligned collapsing"><b>布控结束时间：</b></td>
+					<td class="right aligned collapsing th"><b>布控原因：</b></td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td class="right aligned collapsing th"><b>布控类型：</b></td>
+					<td>2</td>
+					<td class="right aligned collapsing th"><b>联系单位：</b></td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td class="right aligned collapsing th"><b>联系人1：</b></td>
+					<td>2</td>
+					<td class="right aligned collapsing th"><b>联系人1座机/手机：</b></td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td class="right aligned collapsing th"><b>联系人2：</b></td>
+					<td>2</td>
+					<td class="right aligned collapsing th"><b>联系人2座机/手机：</b></td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td class="right aligned collapsing th"><b>布控开始时间：</b></td>
+					<td>2</td>
+					<td class="right aligned collapsing th"><b>布控结束时间：</b></td>
 					<td>2</td>
 				</tr>
 			</tbody>
@@ -432,13 +433,13 @@
 		<table class="ui celled unstackable table">
 			<tbody>
 				<tr>
-					<td class="right aligned collapsing"><b>反馈报告人：</b></td>
+					<td class="right aligned collapsing th"><b>反馈报告人：</b></td>
 					<td>2</td>
-					<td class="right aligned collapsing"><b>反馈报告时间：</b></td>
+					<td class="right aligned collapsing th"><b>反馈报告时间：</b></td>
 					<td>2</td>
 				</tr>
 				<tr>
-					<td class="right aligned collapsing"><b>处理反馈：</b></td>
+					<td class="right aligned collapsing th"><b>处理反馈：</b></td>
 					<td colspan="3">2</td>
 				</tr>
 			</tbody>
@@ -449,7 +450,7 @@
 	</div>
 </div>
 
-<div id="plus" class="ui coupled modal ui-dialog">
+<div id="dialog-plus" class="ui coupled modal ui-dialog">
 	<i class="close icon ui-dialog-close"></i>
 	<div class="header">
 		<i class="alarm icon"></i>预警详细信息
@@ -458,63 +459,63 @@
 		<table class="ui celled unstackable table">
 			<tbody>
 				<tr>
-					<td class="right aligned collapsing"><b>姓名：</b></td>
+					<td class="right aligned collapsing th"><b>姓名：</b></td>
 					<td>2</td>
-					<td class="right aligned collapsing"><b>曾用名：</b></td>
-					<td>2</td>
-				</tr>
-				<tr>
-					<td class="right aligned collapsing"><b>性别：</b></td>
-					<td>2</td>
-					<td class="right aligned collapsing"><b>民族：</b></td>
+					<td class="right aligned collapsing th"><b>曾用名：</b></td>
 					<td>2</td>
 				</tr>
 				<tr>
-					<td class="right aligned collapsing"><b>证件号码：</b></td>
+					<td class="right aligned collapsing th"><b>性别：</b></td>
 					<td>2</td>
-					<td class="right aligned collapsing"><b>出生日期：</b></td>
-					<td>2</td>
-				</tr>
-				<tr>
-					<td class="right aligned collapsing"><b>口音：</b></td>
-					<td>2</td>
-					<td class="right aligned collapsing"><b>身高：</b></td>
+					<td class="right aligned collapsing th"><b>民族：</b></td>
 					<td>2</td>
 				</tr>
 				<tr>
-					<td class="right aligned collapsing"><b>体貌特征：</b></td>
+					<td class="right aligned collapsing th"><b>证件号码：</b></td>
 					<td>2</td>
-					<td class="right aligned collapsing"><b>户籍地区划：</b></td>
-					<td>2</td>
-				</tr>
-				<tr>
-					<td class="right aligned collapsing"><b>户籍地详址：</b></td>
-					<td>2</td>
-					<td class="right aligned collapsing"><b>布控原因：</b></td>
+					<td class="right aligned collapsing th"><b>出生日期：</b></td>
 					<td>2</td>
 				</tr>
 				<tr>
-					<td class="right aligned collapsing"><b>布控类型：</b></td>
+					<td class="right aligned collapsing th"><b>口音：</b></td>
 					<td>2</td>
-					<td class="right aligned collapsing"><b>联系单位：</b></td>
-					<td>2</td>
-				</tr>
-				<tr>
-					<td class="right aligned collapsing"><b>联系人1：</b></td>
-					<td>2</td>
-					<td class="right aligned collapsing"><b>联系人1座机/手机：</b></td>
+					<td class="right aligned collapsing th"><b>身高：</b></td>
 					<td>2</td>
 				</tr>
 				<tr>
-					<td class="right aligned collapsing"><b>联系人2：</b></td>
+					<td class="right aligned collapsing th"><b>体貌特征：</b></td>
 					<td>2</td>
-					<td class="right aligned collapsing"><b>联系人2座机/手机：</b></td>
+					<td class="right aligned collapsing th"><b>户籍地区划：</b></td>
 					<td>2</td>
 				</tr>
 				<tr>
-					<td class="right aligned collapsing"><b>布控开始时间：</b></td>
+					<td class="right aligned collapsing th"><b>户籍地详址：</b></td>
 					<td>2</td>
-					<td class="right aligned collapsing"><b>布控结束时间：</b></td>
+					<td class="right aligned collapsing th"><b>布控原因：</b></td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td class="right aligned collapsing th"><b>布控类型：</b></td>
+					<td>2</td>
+					<td class="right aligned collapsing th"><b>联系单位：</b></td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td class="right aligned collapsing th"><b>联系人1：</b></td>
+					<td>2</td>
+					<td class="right aligned collapsing th"><b>联系人1座机/手机：</b></td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td class="right aligned collapsing th"><b>联系人2：</b></td>
+					<td>2</td>
+					<td class="right aligned collapsing th"><b>联系人2座机/手机：</b></td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td class="right aligned collapsing th"><b>布控开始时间：</b></td>
+					<td>2</td>
+					<td class="right aligned collapsing th"><b>布控结束时间：</b></td>
 					<td>2</td>
 				</tr>
 			</tbody>
@@ -524,11 +525,11 @@
 			<table class="ui celled unstackable table">
 				<tbody>
 					<tr>
-						<td class="right aligned collapsing"><b>反馈报告人：</b></td>
+						<td class="right aligned collapsing th"><b>反馈报告人：</b></td>
 						<td><input name="" type="text"></td>
 					</tr>
 					<tr>
-						<td class="right aligned collapsing"><b>处理反馈：</b></td>
+						<td class="right aligned collapsing th"><b>处理反馈：</b></td>
 						<td><textarea rows="4"></textarea></td>
 					</tr>
 				</tbody>
@@ -542,3 +543,4 @@
 	</div>
 </div>
 
+<script src="module/flow/warning/warning.js"></script>

@@ -19,7 +19,7 @@
 
 			<div class="ui blue piled padded segment">
 				<h1 class="header">旅客系统登录</h1>
-				<form class="ui form segment basic padded">
+				<form class="ui form vertical padded segment">
 					<div class="field">
 						<div class="ui left icon input">
 							<i class="icon user"></i>
@@ -33,10 +33,10 @@
 						</div>
 					</div>
 					<div class="ui message error"></div>
-					<span class="ui button submit primary">密码登陆</span>
-					<span class="ui button reset" type="reset">密钥登录</span>
+					<span class="ui blue button submit"><i class="unlock alternate icon"></i>密码登录</span>
+					<span class="ui red button reset" type="reset"><i class="privacy flipped icon"></i>密钥登录</span>
 				</form>
-				<div class="ui segment basic left aligned">
+				<div class="ui vertical left aligned padded segment regulations">
 					<div class="ui accordion">
 						<div class="title active"><i class="icon dropdown"></i>严格遵守上海市公安局内网信息使用管理“五不准”</div>
 						<div class="content active">
@@ -52,15 +52,14 @@
 				</div>
 
 			</div>
-			<div class="ui basic segment">&copy; USKY 2015</div>
+			<div class="ui basic segment"><i class="copyright icon"></i> USKY 2015</div>
 
 		</div>
 
 	</div>
 
-	<script src="js/lib/jquery-1.11.2.min.js"></script>
-	<script src="js/lib/semantic-ui/semantic.min.js"></script>
-	<script src="js/common.js"></script>
+	<script src="js/lib/requirejs/require.min.js"></script>
+	<script src="js/config.js"></script>
 
 </body>
 

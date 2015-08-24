@@ -5,41 +5,6 @@
 
 
 
-<script>
-	$(function(){
-		var player=$(app.elems.alarm).get(0),
-			 btn=$('#btn-alarm'),
-			 isPlaying=function(){
-				 return !player.paused;
-			 };
-		
-		function btnStyle(){
-			if(isPlaying()){
-				btn.find('.icon').removeClass('play').addClass('pause');
-				btn.find('.text').text('Playing');
-			}else{
-				btn.find('.icon').removeClass('pause').addClass('play');
-				btn.find('.text').text('Stopped');
-			}
-		}
-		btnStyle();
+<script src="module/demo/alarm.js"></script>
 
-		$('#btn-alarm').click(function(){
-			
-			if(isPlaying()){
-				player.pause();
-				player.load()
-			}else{
-				player.volume=1;
-				player.play();
-			}
-			
-			btnStyle();
-
-		});
-
-	})
-	
-	
-</script>
 
