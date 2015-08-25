@@ -13,8 +13,8 @@ app.info={
 	ver:'3.0',
 	copyright:'Copyright &copy; 2015 USKY All rights reserved.',
 	update:'2015-8-01',
-	root:'',
-	sourceRoot:''
+	root:'/lvkeWeb',
+	sourceRoot:'/lvkeWeb'
 };
 
 app.path={
@@ -68,7 +68,8 @@ app.settings={
 		{id:61,pid:6,name:'',text:'搜索查询列表',icon:'',href:'module/demo/search.html',target:'',intro:''},
 		{id:62,pid:6,name:'',text:'表单',icon:'',href:'module/demo/form.html',target:'',intro:''},
 		{id:63,pid:6,name:'',text:'弹层、提示、确认',icon:'',href:'module/demo/modal.html',target:'',intro:''},
-		{id:64,pid:6,name:'',text:'警报',icon:'',href:'module/demo/alarm.html',target:'',intro:''}
+		{id:64,pid:6,name:'',text:'警报',icon:'',href:'module/demo/alarm.html',target:'',intro:''},
+		{id:65,pid:6,name:'',text:'Angular',icon:'',href:'module/demo/angular.html',target:'',intro:''}
 	]
 };
 
@@ -121,7 +122,7 @@ requirejs.config({
 });
 
 requirejs.onError=function(err){
-	console.log('Requirejs errors: '+err.requireType);
+	console.log('Requirejs errors: '+err.requireType, err);
 	alert('Requirejs errors: '+err.requireType+', please refresh the page.');
 	throw err;
 };

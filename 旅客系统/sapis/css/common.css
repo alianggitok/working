@@ -27,6 +27,9 @@
 #leftSide .menu > .item > i.icon{display: none}
 #leftSide .item::before{top:0; bottom:auto}
 
+#leftSide{background:#eee}
+#leftSide .item{color:#2185d0}
+#leftSide .item .icon{color:#2185d0}
 
 /* .ui.labels 修正 */
 .ui.labels{margin-bottom:-0.5em}
