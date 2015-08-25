@@ -1,4 +1,4 @@
-;(function($,ng,app,window){
+;(function($,ng,app,window,document){
 
 	app.elems={
 			leftSide:'#leftSide',
@@ -17,7 +17,9 @@
 		 };
 	
 	var elems=app.elems,
-		 animateDuration=app.settings.animateDuration;
+		 animateDuration=app.settings.animateDuration,
+		 bufferOpacity=app.settings.bufferOpacity,
+		 dimmerOpacity=app.settings.dimmerOpacity;
 	
 	app.checkRE=function(){
 		var userAgent=window.navigator.userAgent,
@@ -84,11 +86,13 @@
 			buffer:true,
 			bufferContext:'body',
 			bufferMsg:'处理中',
+			bufferOpacity:bufferOpacity,
 			beforeSend:function(){
 				if(opts.buffer){
 					buffer=app.ui.buffer.show({
 						msg:opts.bufferMsg,
-						context:opts.bufferContext
+						context:opts.bufferContext,
+						opacity:opts.bufferOpacity
 					});
 				}
 			},
@@ -230,7 +234,7 @@
 						inverted:false,//反色
 						closable:false,//点击留白关闭
 						duration:animateDuration,//动画持续时间
-						opacity:0.7//透明
+						opacity:bufferOpacity//透明
 					};
 					opts=$.extend(dfts,opts);
 				
@@ -354,6 +358,7 @@
 					obj:elems.contents,
 					href:href,
 					bufferContext:elems.main,
+//					bufferOpacity:0.6,
 					success:function(){
 						app.ui.tabNavig();
 					}
@@ -404,7 +409,8 @@
 				app.ui.loadModule({
 					obj:elems.contents,
 					href:href,
-					bufferContext:elems.main
+					bufferContext:elems.main,
+//					bufferOpacity:0.6
 				});
 			});
 			
@@ -421,6 +427,7 @@
 				obj:elems.module,
 				href:'/',
 				bufferContext:'body',
+				bufferOpacity:bufferOpacity,
 				scrollToTop:true,
 				success:function(){}
 			};
@@ -442,12 +449,28 @@
 				dataType:'html',
 				type:'GET',
 				bufferContext:opts.bufferContext,
+				bufferOpacity:opts.bufferOpacity,
 				url:opts.href
 			},function(html){
 				console.warn('loading href:',opts.href);
-				$(opts.obj).html(html);
+				var contObj=$(html);
+				app.module.currentObj=contObj;
+				$(opts.obj).empty();
+				$(opts.obj).append(contObj);
+//				alert(!ng.element(contObj.get(0)).injector())
+//				ng.element(contObj.get(0)).ready(function () {
+//					ng.bootstrap(contObj.get(0), ['demo']);
+//				});
 				opts.success();
 				app.ui.init();
+
+			});
+		},
+		ngInit:function(){
+			console.log(app.module.currentObj)
+			ng.element(app.module.currentObj.get(0)).ready(function () {
+			ng.bootstrap(app.module.currentObj.get(0), ['demo']);
+				console.log('angular initialization!');
 			});
 		},
 		sidebar:function(obj,opts){
@@ -508,7 +531,7 @@
 					close:'.actions .close,.ui-dialog-close'
 				},
 				dimmerSettings:{
-					opacity:0.7,
+					opacity:dimmerOpacity,
 					onChange:function(){
 						app.ui.draw();
 					}
@@ -630,7 +653,7 @@
 					close:'.actions .close,.ui-dialog-close'
 				},
 				dimmerSettings:{
-					opacity:0.6,
+					opacity:dimmerOpacity,
 					onChange:function(){
 						app.ui.draw();
 					}
@@ -797,7 +820,7 @@
 	});
 
 	
-})(jQuery,angular,app,window);
+})(jQuery,angular,app,window,document);
 
 
 

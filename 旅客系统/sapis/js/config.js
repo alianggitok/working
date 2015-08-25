@@ -13,8 +13,8 @@ app.info={
 	ver:'3.0',
 	copyright:'Copyright &copy; 2015 USKY All rights reserved.',
 	update:'2015-8-01',
-	root:'/lvkeWeb',
-	sourceRoot:'/lvkeWeb'
+	root:'/sapis',
+	sourceRoot:'/sapis'
 };
 
 app.path={
@@ -29,6 +29,8 @@ app.path={
 app.settings={
 	animationDuration:300,
 	resourceTimeout:80000,
+	bufferOpacity:0.7,
+	dimmerOpacity:0.6,
 	menuItems:[
 		{id:1,pid:0,name:'',text:'首页',icon:'home',href:'module/home/home.html',target:'',intro:''},
 		
