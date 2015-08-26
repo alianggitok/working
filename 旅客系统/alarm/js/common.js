@@ -1,4 +1,4 @@
-;(function($,app,window){
+;(function($,ng,app,window,document){
 
 	app.elems={
 		alarm:'#alarm',
@@ -9,7 +9,9 @@
 	 };
 	
 	var elems=app.elems,
-		 animateDuration=app.settings.animateDuration;
+		 animateDuration=app.settings.animateDuration,
+		 bufferOpacity=app.settings.bufferOpacity,
+		 dimmerOpacity=app.settings.dimmerOpacity;
 	
 	app.checkRE=function(){
 		var userAgent=window.navigator.userAgent,
@@ -76,11 +78,13 @@
 			buffer:true,
 			bufferContext:'body',
 			bufferMsg:'处理中',
+			bufferOpacity:bufferOpacity,
 			beforeSend:function(){
 				if(opts.buffer){
 					buffer=app.ui.buffer.show({
 						msg:opts.bufferMsg,
-						context:opts.bufferContext
+						context:opts.bufferContext,
+						opacity:opts.bufferOpacity
 					});
 				}
 			},
@@ -153,7 +157,6 @@
 			
 		},
 		response:function(){
-			console.warn('response');
 			var width=$(window).width();
 			if(width>960){
 				console.log('response: medium');
@@ -189,7 +192,7 @@
 						inverted:false,//反色
 						closable:false,//点击留白关闭
 						duration:animateDuration,//动画持续时间
-						opacity:0.7//透明
+						opacity:bufferOpacity//透明
 					};
 					opts=$.extend(dfts,opts);
 				
@@ -230,6 +233,7 @@
 				obj:elems.module,
 				href:'/',
 				bufferContext:'body',
+				bufferOpacity:bufferOpacity,
 				scrollToTop:true,
 				success:function(){}
 			};
@@ -251,13 +255,33 @@
 				dataType:'html',
 				type:'GET',
 				bufferContext:opts.bufferContext,
+				bufferOpacity:opts.bufferOpacity,
 				url:opts.href
 			},function(html){
 				console.warn('loading href:',opts.href);
-				$(opts.obj).html(html);
+				var contObj=$(html);
+				app.module.currentObj=contObj;
+				$(opts.obj).empty();
+				$(opts.obj).append(contObj);
 				opts.success();
 				app.ui.init();
 			});
+		},
+		ngInit:function(opts){
+			var dfts={
+				obj:app.module.currentObj,
+				ngModule:''
+			};
+			opts=$.extend(dfts,opts);
+
+//			console.log(obj)
+			if(opts.obj&&opts.ngModule){
+				ng.element(opts.obj.get(0)).ready(function () {
+				ng.bootstrap(opts.obj.get(0), [opts.ngModule]);
+					console.log('angular initialization!');
+				});
+			}
+		},
 		},
 		modal:function(opts){
 			var obj=null;
@@ -286,7 +310,7 @@
 					close:'.actions .close,.ui-dialog-close'
 				},
 				dimmerSettings:{
-					opacity:0.7,
+					opacity:dimmerOpacity,
 					onChange:function(){
 						app.ui.draw();
 					}
@@ -409,7 +433,7 @@
 					close:'.actions .close,.ui-dialog-close'
 				},
 				dimmerSettings:{
-					opacity:0.6,
+					opacity:dimmerOpacity,
 					onChange:function(){
 						app.ui.draw();
 					}
@@ -570,7 +594,7 @@
 	});
 	
 	
-})(jQuery,app,window);
+})(jQuery,angular,app,window,document);
 
 
 

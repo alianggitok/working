@@ -6,15 +6,15 @@
 var app={};
 
 app.info={
-	name:'SAPIS',
-	title:'旅客安全信息系统',
-	fullTitle:'SAPIS 旅客安全信息系统',
-	sortTitle:'SAPIS',
-	ver:'3.0',
+	name:'logSystem',
+	title:'日志系统',
+	fullTitle:'日志系统',
+	sortTitle:'logSystem',
+	ver:'1.0',
 	copyright:'Copyright &copy; 2015 USKY All rights reserved.',
-	update:'2015-8-01',
-	root:'',
-	sourceRoot:''
+	update:'2015-8-18',
+	root:'/sapis',
+	sourceRoot:'/sapis'
 };
 
 app.path={
@@ -29,47 +29,13 @@ app.path={
 app.settings={
 	animationDuration:300,
 	resourceTimeout:80000,
-	menuItems:[
-		{id:1,pid:0,name:'',text:'首页',icon:'home',href:'module/home/home.html',target:'',intro:''},
-		
-		{id:2,pid:0,name:'',text:'信息查询',icon:'table',href:'#',target:'',intro:''},
-		{id:21,pid:2,name:'',text:'旅客查询',icon:'users',href:'module/info/passenger.html',target:'',intro:'查询旅客的详细信息'},
-		{id:22,pid:2,name:'',text:'航班查询',icon:'plane',href:'module/info/flight.html',target:'',intro:'查询航班的详细信息'},
-		{id:23,pid:2,name:'',text:'布控查询',icon:'protect',href:'module/info/control-passenger.html',target:'',intro:''},
-		{id:231,pid:23,name:'',text:'布控旅客查询',icon:'',href:'module/info/control-passenger.html',target:'',intro:'查询布控的旅客的详细信息'},
-		{id:232,pid:23,name:'',text:'布控航班查询',icon:'',href:'module/info/control-flight.html',target:'',intro:'查询布控的航班的详细信息'},
-		{id:24,pid:2,name:'',text:'预警查询',icon:'warning sign',href:'module/info/warning.html',target:'',intro:'查询预警的详细信息'},
-		
-		{id:3,pid:0,name:'',text:'流程管理',icon:'random',href:'#',target:'',intro:''},
-		{id:31,pid:3,name:'',text:'布控管理',icon:'protect',href:'module/flow/control/passenger-single.html',target:'',intro:''},
-		{id:231,pid:31,name:'',text:'旅客单条布控',icon:'search',href:'module/flow/control/passenger-single.html',target:'',intro:''},
-		{id:232,pid:31,name:'',text:'旅客批量布控',icon:'search',href:'module/flow/control/passenger-batch.html',target:'',intro:''},
-		{id:233,pid:31,name:'',text:'航班布控',icon:'search',href:'module/flow/control/flight.html',target:'',intro:''},
-		{id:234,pid:31,name:'',text:'布控类型',icon:'search',href:'module/flow/control/types.html',target:'',intro:''},
-		{id:235,pid:31,name:'',text:'追逃布控',icon:'search',href:'module/flow/control/track.html',target:'',intro:''},
-		{id:32,pid:3,name:'',text:'预警后处理',icon:'warning sign',href:'module/flow/warning/warning.html',target:'',intro:''},
-		{id:321,pid:32,name:'',text:'预警反馈',icon:'warning sign',href:'module/flow/warning/warning.html',target:'',intro:''},
-		
-		{id:4,pid:0,name:'',text:'统计报表',icon:'area chart',href:'#',target:'',intro:''},
-		{id:41,pid:4,name:'',text:'旅客统计',icon:'file text',href:'module/statistic/passenger-chart.html',target:'',intro:''},
-		{id:411,pid:41,name:'',text:'图表',icon:'file text',href:'module/statistic/passenger-chart.html',target:'',intro:''},
-		{id:412,pid:41,name:'',text:'报表',icon:'file text',href:'module/statistic/passenger-statement.html',target:'',intro:''},
-		{id:42,pid:4,name:'',text:'航班统计',icon:'file text',href:'',target:'',intro:''},
-		{id:42,pid:4,name:'',text:'户籍统计',icon:'file text',href:'',target:'',intro:''},
-		{id:42,pid:4,name:'',text:'预警统计',icon:'file text',href:'',target:'',intro:''},
-		
-		{id:5,pid:0,name:'',text:'系统运维',icon:'settings',href:'#',target:'',intro:''},
-		{id:51,pid:5,name:'',text:'系统报告',icon:'file text',href:'module/maintain/report.html',target:'',intro:''},
-		
-		{id:6,pid:0,name:'',text:'页面演示',icon:'file',href:'#',target:'',intro:''},
-		{id:61,pid:6,name:'',text:'搜索查询列表',icon:'',href:'module/demo/search.html',target:'',intro:''},
-		{id:62,pid:6,name:'',text:'表单',icon:'',href:'module/demo/form.html',target:'',intro:''},
-		{id:63,pid:6,name:'',text:'弹层、提示、确认',icon:'',href:'module/demo/modal.html',target:'',intro:''},
-		{id:64,pid:6,name:'',text:'警报',icon:'',href:'module/demo/alarm.html',target:'',intro:''}
-	]
+	bufferOpacity:0.7,
+	dimmerOpacity:0.6
 };
 
-app.module={};
+app.module={
+	currentObj:null//临时存放当前模块元素的对象
+};
 
 app.elems={};
 
@@ -118,7 +84,7 @@ requirejs.config({
 });
 
 requirejs.onError=function(err){
-	console.log('Requirejs errors: '+err.requireType);
+	console.log('Requirejs errors: '+err.requireType, err);
 	alert('Requirejs errors: '+err.requireType+', please refresh the page.');
 	throw err;
 };

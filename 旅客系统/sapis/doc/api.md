@@ -203,3 +203,18 @@
 			autoHide:3000
 		});
 
+&nbsp;
+##Angular
+###app.ui.ngInit(opts)
+- **说明：** 初始化指定 html，多用在对 jQuery 动态加载的 html 做 ng 初始化，是业务模块必须的，通常在业务模块 js 的最后调用一次。
+- **参数：**
+	- **opts** 
+		- obj：DOM 对象
+		- ngModule：ng 模块名,字符串
+- **示例：**
+
+		app.ui.ngInit({
+			obj: $('#contents'),
+			ngModule: 'app'
+		});
+

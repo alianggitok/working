@@ -1,4 +1,4 @@
-;(function($,ng){
+;(function($,ng,app){
 
 		
 	var module=ng.module('demo',[]);
@@ -14,7 +14,9 @@
 
 
 	//required calling
-	app.ui.ngInit();
+	app.ui.ngInit({
+		ngModule:'demo'
+	});
 
 
-})(jQuery,angular);
+})(jQuery,angular,app);

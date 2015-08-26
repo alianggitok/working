@@ -13,8 +13,8 @@ app.info={
 	ver:'1.0',
 	copyright:'Copyright &copy; 2015 USKY All rights reserved.',
 	update:'2015-8-19',
-	root:'',
-	sourceRoot:''
+	root:'/sapis',
+	sourceRoot:'/sapis'
 };
 
 app.path={
@@ -28,10 +28,14 @@ app.path={
 
 app.settings={
 	animationDuration:300,
-	resourceTimeout:80000
+	resourceTimeout:80000,
+	bufferOpacity:0.7,
+	dimmerOpacity:0.6
 };
 
-app.module={};
+app.module={
+	currentObj:null//临时存放当前模块元素的对象
+};
 
 app.elems={};
 
@@ -80,7 +84,7 @@ requirejs.config({
 });
 
 requirejs.onError=function(err){
-	console.log('Requirejs errors: '+err.requireType);
+	console.log('Requirejs errors: '+err.requireType, err);
 	alert('Requirejs errors: '+err.requireType+', please refresh the page.');
 	throw err;
 };

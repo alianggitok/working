@@ -1,0 +1,15 @@
+{
+    "jscodehints.detectedExclusions": [
+        "E:/github/working/旅客系统/alarm/js/lib/jquery.datetimepicker/DateTimePicker_files/lounge.load.45bc8bf015d73d5632649fe38c12f898.js",
+        "E:/github/working/旅客系统/alarm/js/lib/jquery.datetimepicker/DateTimePicker_files/magicsuggest-min.js",
+        "E:/github/working/旅客系统/alarm/js/lib/jquery.datetimepicker/DateTimePicker_files/masonry.pkgd.min.js",
+        "E:/github/working/旅客系统/alarm/js/lib/jquery.datetimepicker/DateTimePicker_files/plusone.js",
+        "outlayer/outlayer.js",
+        "E:/github/working/旅客系统/alarm/js/lib/jquery.datetimepicker/DateTimePicker_files/rainbow-custom.min.js",
+        "E:/github/working/旅客系统/alarm/js/lib/jquery.datetimepicker/DateTimePicker_files/watch.js",
+        "E:/github/working/旅客系统/alarm/js/lib/jquery.datetimepicker/DateTimePicker_files/widgets.js",
+        "E:/github/working/旅客系统/sapis/js/lib/jquery.datetimepicker/DateTimePicker_files/plusone.js",
+        "E:/github/working/旅客系统/alarm/js/lib/requirejs/text.js",
+        "E:/github/working/旅客系统/alarm/js/lib/semantic-ui/components/accordion.js"
+    ]
+}

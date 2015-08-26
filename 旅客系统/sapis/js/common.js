@@ -457,21 +457,25 @@
 				app.module.currentObj=contObj;
 				$(opts.obj).empty();
 				$(opts.obj).append(contObj);
-//				alert(!ng.element(contObj.get(0)).injector())
-//				ng.element(contObj.get(0)).ready(function () {
-//					ng.bootstrap(contObj.get(0), ['demo']);
-//				});
 				opts.success();
 				app.ui.init();
 
 			});
 		},
-		ngInit:function(){
-			console.log(app.module.currentObj)
-			ng.element(app.module.currentObj.get(0)).ready(function () {
-			ng.bootstrap(app.module.currentObj.get(0), ['demo']);
-				console.log('angular initialization!');
-			});
+		ngInit:function(opts){
+			var dfts={
+				obj:app.module.currentObj,
+				ngModule:''
+			};
+			opts=$.extend(dfts,opts);
+
+//			console.log(obj)
+			if(opts.obj&&opts.ngModule){
+				ng.element(opts.obj.get(0)).ready(function () {
+				ng.bootstrap(opts.obj.get(0), [opts.ngModule]);
+					console.log('angular initialization!');
+				});
+			}
 		},
 		sidebar:function(obj,opts){
 			var dfts={
@@ -640,6 +644,7 @@
 					content:'left aligned',
 					actions:'right aligned',
 				},
+				observeChanges:true,
 				allowMultiple:true,//是否同时打开多个
 				context:'body',//上下文
 				closeBtn:true,//是否显示关闭按钮

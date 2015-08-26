@@ -75,7 +75,9 @@ app.settings={
 	]
 };
 
-app.module={};
+app.module={
+	currentObj:null//临时存放当前模块元素的对象
+};
 
 app.elems={};
 
