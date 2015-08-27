@@ -71,7 +71,7 @@ app.settings={
 		{id:62,pid:6,name:'',text:'表单',icon:'',href:'module/demo/form.html',target:'',intro:''},
 		{id:63,pid:6,name:'',text:'弹层、提示、确认',icon:'',href:'module/demo/modal.html',target:'',intro:''},
 		{id:64,pid:6,name:'',text:'警报',icon:'',href:'module/demo/alarm.html',target:'',intro:''},
-		{id:65,pid:6,name:'',text:'Angular',icon:'',href:'module/demo/angular.html',target:'',intro:''}
+		{id:65,pid:6,name:'',text:'Angular Module',icon:'',href:'module/demo/angular.html',target:'',intro:''}
 	]
 };
 
