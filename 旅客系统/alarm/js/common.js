@@ -176,7 +176,7 @@
 			}
 //			app.ui.draw();
 		},
-		draw:function(leftSideVisibled){
+		draw:function(){
 			console.warn('draw');
 		},
 		buffer:{
@@ -281,7 +281,6 @@
 					console.log('angular module initialization:',opts.obj);
 				});
 			}
-		},
 		},
 		modal:function(opts){
 			var obj=null;

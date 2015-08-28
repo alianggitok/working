@@ -13,8 +13,8 @@ app.info={
 	ver:'1.0',
 	copyright:'Copyright &copy; 2015 USKY All rights reserved.',
 	update:'2015-8-19',
-	root:'/sapis',
-	sourceRoot:'/sapis'
+	root:'/alarm',
+	sourceRoot:'/alarm'
 };
 
 app.path={
