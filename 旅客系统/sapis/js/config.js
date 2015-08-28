@@ -13,8 +13,8 @@ app.info={
 	ver:'3.0',
 	copyright:'Copyright &copy; 2015 USKY All rights reserved.',
 	update:'2015-8-01',
-	root:'/sapis',
-	sourceRoot:'/sapis'
+	root:'/lvkeWeb',
+	sourceRoot:'/lvkeWeb'
 };
 
 app.path={
@@ -67,11 +67,13 @@ app.settings={
 		{id:51,pid:5,name:'',text:'系统报告',icon:'file text',href:'module/maintain/report.html',target:'',intro:''},
 		
 		{id:6,pid:0,name:'',text:'页面组件演示',icon:'file',href:'#',target:'',intro:''},
-		{id:61,pid:6,name:'',text:'搜索查询列表',icon:'',href:'module/demo/search.html',target:'',intro:''},
-		{id:62,pid:6,name:'',text:'表单',icon:'',href:'module/demo/form.html',target:'',intro:''},
-		{id:63,pid:6,name:'',text:'弹层、提示、确认',icon:'',href:'module/demo/modal.html',target:'',intro:''},
-		{id:64,pid:6,name:'',text:'警报',icon:'',href:'module/demo/alarm.html',target:'',intro:''},
-		{id:65,pid:6,name:'',text:'Angular Module',icon:'',href:'module/demo/angular.html',target:'',intro:''}
+		{id:61,pid:6,name:'',text:'UI JS API',icon:'',href:'doc/api.html',target:'_blank',intro:''},
+		{id:62,pid:6,name:'',text:'搜索查询列表',icon:'',href:'module/demo/search.html',target:'',intro:''},
+		{id:63,pid:6,name:'',text:'表单',icon:'',href:'module/demo/form.html',target:'',intro:''},
+		{id:64,pid:6,name:'',text:'弹层、提示、确认',icon:'',href:'module/demo/modal.html',target:'',intro:''},
+		{id:65,pid:6,name:'',text:'警报',icon:'',href:'module/demo/alarm.html',target:'',intro:''},
+		{id:66,pid:6,name:'',text:'Angular Module1',icon:'',href:'module/demo/angular1.html',target:'',intro:''},
+		{id:67,pid:6,name:'',text:'Angular Module2',icon:'',href:'module/demo/angular2.html',target:'',intro:''}
 	]
 };
 
@@ -81,54 +83,57 @@ app.module={
 
 app.elems={};
 
-requirejs.config({
-	baseUrl:app.path.commonJS,
-	paths: {
-		//plugin
-		'domReady':['lib/requirejs/domReady'],
-		'text':['lib/requirejs/text'],
-		//lib
-		'angular':['lib/angular.1.2.28.min'],
-		'jquery':['lib/jquery-1.11.2.min'],
-		'jquery.cookie':['lib/jquery.cookie.1.4.1'],
-		'jquery.datetimepicker':['lib/jquery.datetimepicker/jquery.datetimepicker'],
-		'jquery.datatables':['lib/jquery.dataTables/js/jquery.dataTables.min'],
-		'smarttable':['lib/smart-table/smart-table.min'],
-		'json2':['lib/json2'],
-		'semanticUI':['lib/semantic-ui/semantic.min'],
-		//module
-		'common':['common']
-	},
-	shim: {
-		'jquery':{
-			deps:['angular']
-		},
-		'jquery.cookie':{
-			deps:['jquery']
-		},
-		'jquery.datetimepicker':{
-			deps:['jquery']
-		},
-		'jquery.datatables':{
-			deps:['jquery']
-		},
-		'smarttable':{
-			deps:['angular']
-		},
-		'semanticUI':{
-			deps:['jquery']
-		},
-		'common':{
-			deps:['semanticUI','json2','jquery.cookie','jquery.datetimepicker','jquery.datatables','smarttable']
-		}
-	},
-	waitSeconds:app.settings.resourceTimeout/1000
-});
-
-requirejs.onError=function(err){
-	console.log('Requirejs errors: '+err.requireType, err);
-	alert('Requirejs errors: '+err.requireType+', please refresh the page.');
-	throw err;
-};
-
-require(['common']);
+//requirejs.config({
+//	baseUrl:app.path.commonJS,
+//	paths: {
+//		//plugin
+//		'domReady':['lib/requirejs/domReady'],
+//		'text':['lib/requirejs/text'],
+//		//lib
+//		'angular':['lib/angular.1.2.28/angular.min'],
+//		'jquery':['lib/jquery-1.11.2.min'],
+//		'jquery.cookie':['lib/jquery.cookie.1.4.1'],
+//		'jquery.datetimepicker':['lib/jquery.datetimepicker/jquery.datetimepicker'],
+//		'smarttable':['lib/smart-table/smart-table.min'],
+//		'json2':['lib/json2'],
+//		'semanticUI':['lib/semantic-ui/semantic.min'],
+//		//module
+//		'common':['common'],
+//		'index':['index']
+//	},
+//	shim: {
+//		'angular':{
+//			exports:'angular'
+//		},
+//		'jquery':{
+//			deps:['angular']
+//		},
+//		'jquery.cookie':{
+//			deps:['jquery']
+//		},
+//		'jquery.datetimepicker':{
+//			deps:['jquery']
+//		},
+//		'smarttable':{
+//			deps:['angular']
+//		},
+//		'semanticUI':{
+//			deps:['jquery']
+//		},
+//		'common':{
+//			deps:['semanticUI','json2','jquery.cookie','jquery.datetimepicker','smarttable']
+//		},
+//		'index':{
+//			deps:['common']
+//		}
+//	},
+//	waitSeconds:app.settings.resourceTimeout/1000
+//});
+//
+//requirejs.onError=function(err){
+//	console.log('Requirejs errors: '+err.requireType, err);
+//	alert('Requirejs errors: '+err.requireType+', please refresh the page.');
+//	throw err;
+//};
+//
+//require(['angular','index']);

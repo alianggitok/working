@@ -282,7 +282,7 @@
 			while(data.length){
 				tempData=data.splice(0,1)[0];
 //				console.log(tempData);
-				tempHtml+='<a class="item" href="'+tempData.href+'" data-intro="'+tempData.intro+'" data-icon="'+tempData.icon+'" data-pid="'+tempData.pid+'" data-id="'+tempData.id+'"><i class="icon '+tempData.icon+'"></i>'+tempData.text+'</a>';
+				tempHtml+='<a class="item" href="'+tempData.href+'" target="'+tempData.target+'" data-intro="'+tempData.intro+'" data-icon="'+tempData.icon+'" data-pid="'+tempData.pid+'" data-id="'+tempData.id+'"><i class="icon '+tempData.icon+'"></i>'+tempData.text+'</a>';
 			}
 			
 			tempItems=$(tempHtml);
@@ -315,19 +315,25 @@
 				var href=$(this).attr('href'),
 					 id=$(this).attr('data-id'),
 					 icon=$(this).attr('data-icon'),
+					 target=$(this).attr('target'),
 					 title=$(this).text(),
 					 intro=$(this).attr('data-intro'),
 					 activeItem=$(this);
+				
+				if(!href||href==='#'){
+					return;
+				}
+				
+				if(target==='_blank'){
+					window.open(href,target);
+					return;
+				}
 				
 				obj.find('.menu').stop(true,false).slideUp(animateDuration);
 				activeItem.next('.menu').stop(true,false).slideDown(animateDuration,function(){
 					$(this).css('height','auto');
 				});
 
-				if(!href||href==='#'){
-					return;
-				}
-				
 				app.cookie.set({
 					currentNavigID:id
 				});
@@ -371,7 +377,6 @@
 			obj.children('.item').on({
 				'mouseenter':
 				function(){
-//					console.log(animateDuration)
 					obj.find('.menu').stop(true,false).delay(animateDuration).slideUp(animateDuration);
 					$(this).next('.menu').stop(true,false).delay(animateDuration).slideDown(animateDuration,function(){
 						$(this).css('height','auto');
@@ -428,7 +433,7 @@
 				});
 			});
 			
-			console.warn('currentTabNavigID in cookie:',cookieTabNavigID);
+//			console.warn('currentTabNavigID in cookie:',cookieTabNavigID);
 			if(!cookieTabNavigID||currentItem.length===0){
 				items.first().click();
 			}else{
@@ -483,11 +488,11 @@
 			};
 			opts=$.extend(dfts,opts);
 
-//			console.log(obj)
+//			console.log(opts.obj)
 			if(opts.obj&&opts.ngModule){
 				ng.element(opts.obj.get(0)).ready(function () {
-				ng.bootstrap(opts.obj.get(0), [opts.ngModule]);
-					console.log('angular initialization!');
+					ng.bootstrap(opts.obj.get(0), [opts.ngModule]);
+					console.log('angular module initialization:',opts.obj);
 				});
 			}
 		},
@@ -762,6 +767,7 @@
 	
 	//dom ready
 	$(function(){
+		
 		app.checkRE();
 
 		app.ui.init();

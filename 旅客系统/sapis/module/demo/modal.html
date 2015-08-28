@@ -1,14 +1,18 @@
 
-<span id="btn-alert" class="ui red button">alert</span>
-<span id="btn-alert-transparent" class="ui orange button">transparent alert</span>
+<span id="btn-alert-error" class="ui red button">alert error</span>
+<span id="btn-alert-success" class="ui blue button">alert success</span>
+<span id="btn-alert-info" class="ui orange button">alert infomation</span>
+<span id="btn-alert-transparent" class="ui grey button">alert transparent</span>
+
+<div class="ui divider"></div>
 <span id="btn-confirm" class="ui green button">confirm</span>
 
 <div class="ui divider"></div>
-<span id="btn-dialog" class="ui blue button">dialog</span>
+<span id="btn-dialog" class="ui yellow button">dialog</span>
 
 <div class="ui divider"></div>
 <span id="btn-msg" class="ui pink button">message</span>
-<span id="btn-autohidemsg" class="ui pink button">automatic hide message</span>
+<span id="btn-msg-autohide" class="ui purple button">automatic hide message</span>
 
 
 <!--dialog-->
@@ -59,14 +63,33 @@
 	</div>
 </div>
 
-<script>
-	$('#btn-dialog').click(function(){
-		app.ui.dialog('#dialog-demo');
-	});
 
-	$('#btn-alert').click(function(){
+
+<script>
+	//alert
+	$('#btn-alert-error').click(function(){
 		app.ui.alert({
-			msg:'alert text.'
+			title:'错误',
+			icon:'warning sign',
+			msg:'出错啦！',
+			buttons:[//按钮，基于semantic ui
+				'<button class="ui red button approve"><i class="checkmark icon"></i>知道了</button>'
+			]
+		});
+	});
+	
+	$('#btn-alert-success').click(function(){
+		app.ui.alert({
+			title:'成功',
+			icon:'checkmark',
+			msg:'成功啦！'
+		});
+	});
+	
+	$('#btn-alert-info').click(function(){
+		app.ui.alert({
+			title:'消息',
+			msg:'今天是个好天气！'
 		});
 	});
 	
@@ -84,16 +107,23 @@
 		});
 	});
 
+	//confirm
 	$('#btn-confirm').click(function(){
 		app.ui.confirm({
 			msg:'confirm text?'
 		});
 	});
 
+	//dialog
+	$('#btn-dialog').click(function(){
+		app.ui.dialog('#dialog-demo');
+	});
+	
+	//msg
 	$('#btn-msg').click(function(){
 		app.ui.message();
 	});
-	$('#btn-autohidemsg').click(function(){
+	$('#btn-msg-autohide').click(function(){
 		app.ui.message({
 			type:'success',
 			msg:'3 秒后消失',

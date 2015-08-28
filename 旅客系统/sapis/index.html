@@ -9,7 +9,6 @@
 	<link rel="stylesheet" href="js/lib/semantic-ui/semantic.css">
 	<link rel="stylesheet" href="js/lib/jquery.datetimepicker/jquery.datetimepicker.css">
 	<link rel="stylesheet" href="css/common.css">
-	
 </head>
 
 <body class="dimmable dimmed">
@@ -22,11 +21,11 @@
 	<!--navigation-->
 	<nav id="leftSide" class="ui left sidebar vertical menu"></nav><!--icon labeled inverted-->
 
-	<nav id="top" class="ui top fixed menu">
+	<nav id="top" class="ui top fixed menu" ng-app="topmenu">
 		<a id="leftSideTrigger" class="item ui-popup" data-content="收展边栏"><i class="outdent icon"></i></a>
 		<div class="header item">SAPIS 旅客安全信息系统</div>
 		<div class="right menu">
-			<div class="item"><i class="icon user"></i>用户名</div>
+			<div class="item"><i class="icon user"></i><span ng-controller="userinfo">{{data.name}}</span></div>
 			<a id="btn-logout" class="item ui-popup" data-content="退出系统"><i class="icon sign out"></i>退出</a>
 		</div>
 	</nav>
@@ -47,9 +46,21 @@
 	<!--sound player-->
 	<audio id="alarm" src="sound/alerm03.mp3" controls loop></audio>
 
+<!--
 	<script src="js/lib/requirejs/require.min.js"></script>
 	<script src="js/config.js"></script>
-
+-->
+	<script src="js/lib/angular.1.2.28/angular.min.js"></script>
+	<script src="js/lib/jquery-1.11.2.min.js"></script>
+	<script src="js/lib/jquery.cookie.1.4.1.js"></script>
+	<script src="js/lib/jquery.datetimepicker/jquery.datetimepicker.js"></script>
+	<script src="js/lib/json2.js"></script>
+	<script src="js/lib/semantic-ui/semantic.min.js"></script>
+	<script src="js/lib/smart-table/smart-table.min.js"></script>
+	<script src="js/config.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/index.js"></script>
+	
 </body>
 
 </html>

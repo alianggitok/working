@@ -9,7 +9,7 @@
 	 };
 	
 	var elems=app.elems,
-		 animateDuration=app.settings.animateDuration,
+		 animateDuration=app.settings.animationDuration,
 		 bufferOpacity=app.settings.bufferOpacity,
 		 dimmerOpacity=app.settings.dimmerOpacity;
 	
@@ -274,11 +274,11 @@
 			};
 			opts=$.extend(dfts,opts);
 
-//			console.log(obj)
+//			console.log(opts.obj)
 			if(opts.obj&&opts.ngModule){
 				ng.element(opts.obj.get(0)).ready(function () {
-				ng.bootstrap(opts.obj.get(0), [opts.ngModule]);
-					console.log('angular initialization!');
+					ng.bootstrap(opts.obj.get(0), [opts.ngModule]);
+					console.log('angular module initialization:',opts.obj);
 				});
 			}
 		},
@@ -519,11 +519,11 @@
 
 		}
 	};
-
 	
 	
 	//dom ready
 	$(function(){
+		
 		app.checkRE();
 
 		app.ui.init();

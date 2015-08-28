@@ -49,7 +49,7 @@
 		- data：请求参数，object
 		- dataType：请求类型，默认 'json'
 		- type：默认POST
-		- bufferContext：缓冲UI的上下文选择器，默认 'body'
+		- bufferContext：缓冲UI出现位置的上下文选择器，默认 'body'
 		- bufferMsg：缓冲UI中的提示文本，默认 '处理中'
 	- **callback**：请求成功后的回调
 - **示例：**

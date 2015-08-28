@@ -39,54 +39,57 @@ app.module={
 
 app.elems={};
 
-requirejs.config({
-	baseUrl:app.path.commonJS,
-	paths: {
-		//plugin
-		'domReady':['lib/requirejs/domReady'],
-		'text':['lib/requirejs/text'],
-		//lib
-		'angular':['lib/angular.1.2.28.min'],
-		'jquery':['lib/jquery-1.11.2.min'],
-		'jquery.cookie':['lib/jquery.cookie.1.4.1'],
-		'jquery.datetimepicker':['lib/jquery.datetimepicker/jquery.datetimepicker'],
-		'jquery.datatables':['lib/jquery.dataTables/js/jquery.dataTables.min'],
-		'smarttable':['lib/smart-table/smart-table.min'],
-		'json2':['lib/json2'],
-		'semanticUI':['lib/semantic-ui/semantic.min'],
-		//module
-		'common':['common']
-	},
-	shim: {
-		'jquery':{
-			deps:['angular']
-		},
-		'jquery.cookie':{
-			deps:['jquery']
-		},
-		'jquery.datetimepicker':{
-			deps:['jquery']
-		},
-		'jquery.datatables':{
-			deps:['jquery']
-		},
-		'smarttable':{
-			deps:['angular']
-		},
-		'semanticUI':{
-			deps:['jquery']
-		},
-		'common':{
-			deps:['semanticUI','json2','jquery.cookie','jquery.datetimepicker','jquery.datatables','smarttable']
-		}
-	},
-	waitSeconds:app.settings.resourceTimeout/1000
-});
-
-requirejs.onError=function(err){
-	console.log('Requirejs errors: '+err.requireType, err);
-	alert('Requirejs errors: '+err.requireType+', please refresh the page.');
-	throw err;
-};
-
-require(['common']);
+//requirejs.config({
+//	baseUrl:app.path.commonJS,
+//	paths: {
+//		//plugin
+//		'domReady':['lib/requirejs/domReady'],
+//		'text':['lib/requirejs/text'],
+//		//lib
+//		'angular':['lib/angular.1.2.28/angular.min'],
+//		'jquery':['lib/jquery-1.11.2.min'],
+//		'jquery.cookie':['lib/jquery.cookie.1.4.1'],
+//		'jquery.datetimepicker':['lib/jquery.datetimepicker/jquery.datetimepicker'],
+//		'smarttable':['lib/smart-table/smart-table.min'],
+//		'json2':['lib/json2'],
+//		'semanticUI':['lib/semantic-ui/semantic.min'],
+//		//module
+//		'common':['common'],
+//		'index':['index']
+//	},
+//	shim: {
+//		'angular':{
+//			exports:'angular'
+//		},
+//		'jquery':{
+//			deps:['angular']
+//		},
+//		'jquery.cookie':{
+//			deps:['jquery']
+//		},
+//		'jquery.datetimepicker':{
+//			deps:['jquery']
+//		},
+//		'smarttable':{
+//			deps:['angular']
+//		},
+//		'semanticUI':{
+//			deps:['jquery']
+//		},
+//		'common':{
+//			deps:['semanticUI','json2','jquery.cookie','jquery.datetimepicker','smarttable']
+//		},
+//		'index':{
+//			deps:['common']
+//		}
+//	},
+//	waitSeconds:app.settings.resourceTimeout/1000
+//});
+//
+//requirejs.onError=function(err){
+//	console.log('Requirejs errors: '+err.requireType, err);
+//	alert('Requirejs errors: '+err.requireType+', please refresh the page.');
+//	throw err;
+//};
+//
+//require(['angular','index']);
