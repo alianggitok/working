@@ -22,7 +22,7 @@ app.path={
 	sourceRoot:app.info.sourceRoot,//数据源根地址
 	commonJS:app.info.root+'/js',//全局js
 	commonCSS:app.info.root+'/css',//全局css
-	sound:app.info.root+'/sound',
+	sound:app.info.root+'/sound',//声音
 	module:app.info.root+'/module'//模块
 };
 
