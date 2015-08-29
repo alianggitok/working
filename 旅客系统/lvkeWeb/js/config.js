@@ -67,7 +67,7 @@ app.settings={
 		{id:51,pid:5,name:'',text:'系统报告',icon:'file text',href:'module/maintain/report.html',target:'',intro:''},
 		
 		{id:6,pid:0,name:'',text:'页面组件演示',icon:'file',href:'#',target:'',intro:''},
-		{id:61,pid:6,name:'',text:'UI JS API',icon:'',href:'doc/api.html',target:'_blank',intro:''},
+		{id:61,pid:6,name:'',text:'APIs',icon:'',href:'module/demo/apis.html',target:'',intro:''},
 		{id:62,pid:6,name:'',text:'搜索查询列表',icon:'',href:'module/demo/search.html',target:'',intro:''},
 		{id:63,pid:6,name:'',text:'表单',icon:'',href:'module/demo/form.html',target:'',intro:''},
 		{id:64,pid:6,name:'',text:'弹层、提示、确认',icon:'',href:'module/demo/modal.html',target:'',intro:''},
