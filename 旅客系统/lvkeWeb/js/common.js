@@ -377,8 +377,8 @@
 			obj.children('.item').on({
 				'mouseenter':
 				function(){
-					obj.find('.menu').stop(true,false).delay(animateDuration).slideUp(animateDuration);
-					$(this).next('.menu').stop(true,false).delay(animateDuration).slideDown(animateDuration,function(){
+					obj.find('.menu').stop(true,false).delay(animateDuration/2).slideUp(animateDuration);
+					$(this).next('.menu').stop(true,false).delay(animateDuration/2).slideDown(animateDuration,function(){
 						$(this).css('height','auto');
 					});
 				}

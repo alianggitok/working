@@ -22,14 +22,14 @@
 .ui.vertical.icon.menu .item >.title > .icon:not(.dropdown) {display: block; margin: 0em auto; float: none;}
 .ui.vertical.labeled.icon.menu .item >.title >.icon:not(.dropdown) {margin: 0em auto 0.5rem !important;}
 */
+#leftSide{background:#eaeced; border-top: none; border-bottom: none}
 #leftSide .menu{padding-bottom:0.5em}
 #leftSide .menu > .item{padding-top:0.8em; padding-bottom: 0.8em}
 #leftSide .menu > .item > i.icon{display: none}
 #leftSide .item::before{top:0; bottom:auto}
-
-#leftSide{background:#eaeced}
 #leftSide .item:hover{color:#333; background:rgba(0, 0, 0, 0.03)}
 #leftSide .item.active{color:#000; background:rgba(0, 0, 0, 0.05)}
+#leftSide > .item:first-child::before{display: none!important}
 /*
 #leftSide .item .icon{color:#2185d0}
 */
