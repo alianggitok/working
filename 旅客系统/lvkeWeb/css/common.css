@@ -27,9 +27,15 @@
 #leftSide .menu > .item > i.icon{display: none}
 #leftSide .item::before{top:0; bottom:auto}
 
-#leftSide{background:#eee}
-#leftSide .item{color:#2185d0}
+#leftSide{background:#eaeced}
+#leftSide .item:hover{color:#333; background:rgba(0, 0, 0, 0.03)}
+#leftSide .item.active{color:#000; background:rgba(0, 0, 0, 0.05)}
+/*
 #leftSide .item .icon{color:#2185d0}
+*/
+
+/*顶部导航*/
+#top{background:#f3f4f5}
 
 /* .ui.labels 修正 */
 .ui.labels{margin-bottom:-0.5em}
