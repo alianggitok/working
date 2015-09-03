@@ -1,7 +1,7 @@
 
-<div class="ui segment clearing">
+<div class="ui segment clearing" ng-app="demo">
 
-	<form class="ui small form">
+	<form class="ui small form" ng-controller="form">
 		<div class="ui grid fields">
 			<div class="equal width stackable column row">
 				<div class="column">
@@ -9,8 +9,8 @@
 						<label>类型</label>
 						<select class="ui compact dropdown" name="type">
 							<option value="">not selected</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
+							<option value="1">a</option>
+							<option value="2">b</option>
 						</select>
 					</div>
 				</div>
@@ -43,6 +43,26 @@
 					<div class="field">
 						<label>备注</label>
 						<textarea type="text" name="remark" placeholder=""></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="equal width stackable column row">
+				<div class="column">
+					<div class="field">
+						<label>select1(ng-repeat)</label>
+						<select class="ui compact dropdown" name="type">
+							<option value="">not selected</option>
+							<option ng-repeat="item in select1" value="{{item}}">{{item}}</option>
+						</select>
+					</div>
+				</div>
+				<div class="column">
+					<div class="field">
+						<label>select2(ng-repeat)</label>
+						<select class="ui compact dropdown" name="type">
+							<option value="">not selected</option>
+							<option ng-repeat="item in select2" value="{{item.value}}">{{item.text}}</option>
+						</select>
 					</div>
 				</div>
 			</div>

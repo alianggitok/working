@@ -73,7 +73,8 @@ app.settings={
 		{id:64,pid:6,name:'',text:'弹层、提示、确认',icon:'',href:'module/demo/modal.html',target:'',intro:''},
 		{id:65,pid:6,name:'',text:'警报',icon:'',href:'module/demo/alarm.html',target:'',intro:''},
 		{id:66,pid:6,name:'',text:'Angular Module1',icon:'',href:'module/demo/angular1.html',target:'',intro:''},
-		{id:67,pid:6,name:'',text:'Angular Module2',icon:'',href:'module/demo/angular2.html',target:'',intro:''}
+		{id:67,pid:6,name:'',text:'Angular Module2',icon:'',href:'module/demo/angular2.html',target:'',intro:''},
+		{id:68,pid:6,name:'',text:'Smart Table',icon:'',href:'module/demo/smarttable.html',target:'',intro:''}
 	]
 };
 
@@ -81,7 +82,7 @@ app.module={
 	currentObj:null//临时存放当前模块元素的对象
 };
 
-app.elems={};
+app.elems={};//全局 DOM 对象定义
 
 //requirejs.config({
 //	baseUrl:app.path.commonJS,

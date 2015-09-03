@@ -211,10 +211,16 @@
 	- **opts** 
 		- obj：DOM 对象
 		- ngModule：ng 模块名,字符串
+		- uiInit：初始化 ui 控件（如 datapicker 等），部分控件设置参数需要等待domready后回调，所以有了这个参数
 - **示例：**
 
 		app.ui.ngInit({
 			obj: $('#contents'),
-			ngModule: 'app'
+			ngModule: 'app',
+			uiInit: function(){
+				$('.ui-datapicker').datetimepicker({
+					format:'Y'
+				});
+			}
 		});
 

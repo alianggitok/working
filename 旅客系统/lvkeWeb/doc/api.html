@@ -1,4 +1,8 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+<title>api</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style type="text/css">
 /* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
 /* Author: Nicolas Hery - http://nicolashery.com */
@@ -285,7 +289,8 @@ img {
   max-width: 100%
 }
 </style>
-
+</head>
+<body>
 <h1>SAPIS Javascript Library API</h1>
 <p><em>—— Warren</em> in <em>2015-8-18</em></p>
 <p>基于：</p>
@@ -355,7 +360,7 @@ img {
 <li>data：请求参数，object</li>
 <li>dataType：请求类型，默认 'json'</li>
 <li>type：默认POST</li>
-<li>bufferContext：缓冲UI的上下文选择器，默认 'body'</li>
+<li>bufferContext：缓冲UI出现位置的上下文选择器，默认 'body'</li>
 <li>bufferMsg：缓冲UI中的提示文本，默认 '处理中'</li>
 </ul>
 </li>
@@ -454,7 +459,7 @@ app.ui.buffer.hide(buffer);
 <strong>参数：</strong> opts（object，配置参数）
 <ul>
 <li>
-<strong>opts</strong> 
+<strong>opts</strong>
 <ul>
 <li>obj：指定内容注入的目标选择器，被读出的内容将注入其中，在注入前会清空其中的内容，必选</li>
 <li>href：请求内容的地址，必选</li>
@@ -487,7 +492,7 @@ app.ui.buffer.hide(buffer);
 <strong>参数：</strong> opts（object，配置参数）
 <ul>
 <li>
-<strong>opts</strong> 
+<strong>opts</strong>
 <ul>
 <li>title：弹窗标题，默认 '确认'</li>
 <li>msg：提示文本</li>
@@ -535,7 +540,7 @@ app.ui.buffer.hide(buffer);
 <strong>参数：</strong> obj（对象选择器，建议用id），opts（object，配置参数）
 <ul>
 <li>
-<strong>opts</strong> 
+<strong>opts</strong>
 <ul>
 <li>
 style：
@@ -573,10 +578,10 @@ dimmersettings：
 <ul>
 <li><strong>说明：</strong> 显示一个消息层。</li>
 <li>
-<strong>参数：</strong> 
+<strong>参数：</strong>
 <ul>
 <li>
-<strong>opts</strong> 
+<strong>opts</strong>
 <ul>
 <li>type：消息类型，默认 'info'，可选值有：'success'、'info'、'warning'、'error'</li>
 <li>size：尺寸，默认 'small'</li>
@@ -609,10 +614,11 @@ dimmersettings：
 <strong>参数：</strong>
 <ul>
 <li>
-<strong>opts</strong> 
+<strong>opts</strong>
 <ul>
 <li>obj：DOM 对象</li>
 <li>ngModule：ng 模块名,字符串</li>
+<li>uiInit：初始化 ui 控件（如 datapicker 等），部分控件设置参数需要等待domready后回调，所以有了这个参数</li>
 </ul>
 </li>
 </ul>
@@ -621,12 +627,18 @@ dimmersettings：
 <p><strong>示例：</strong></p>
 <pre><code>app.ui.ngInit({
     obj: $('#contents'),
-    ngModule: 'app'
+    ngModule: 'app',
+    uiInit: function(){
+        $('.ui-datapicker').datetimepicker({
+            format:'Y'
+        });
+    }
 });
 </code></pre>
 
 </li>
 </ul>
 
-
+</body>
+</html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
