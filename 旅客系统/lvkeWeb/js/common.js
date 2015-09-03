@@ -806,8 +806,12 @@
 			}
 		});
 		$(window).resize(function(){
-			app.ui.response();
-			app.ui.draw();
+//			var timer=window.setTimeout(function(){
+				app.ui.response();
+				app.ui.draw();
+//				window.clearTimeout(timer);
+//				timer=null;
+//			},animateDuration);
 		});
 //		$('body').visibility('refresh');
 
