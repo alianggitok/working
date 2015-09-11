@@ -10,9 +10,9 @@ app.info={
 	title:'旅客安全信息系统',
 	fullTitle:'SAPIS 旅客安全信息系统',
 	sortTitle:'SAPIS',
-	ver:'3.0',
+	ver:'3.0.1',
 	copyright:'Copyright &copy; 2015 USKY All rights reserved.',
-	update:'2015-8-01',
+	update:'2015-9-01',
 	root:'/lvkeWeb',
 	sourceRoot:'/lvkeWeb'
 };
@@ -27,10 +27,10 @@ app.path={
 };
 
 app.settings={
-	animationDuration:300,
+	animateDuration:300,
 	resourceTimeout:80000,
 	bufferOpacity:0.7,
-	dimmerOpacity:0.6,
+	dimmerOpacity:0.7,
 	menuItems:[
 		{id:1,pid:0,name:'',text:'首页',icon:'home',href:'module/home/home.html',target:'',intro:''},
 		
@@ -67,14 +67,15 @@ app.settings={
 		{id:51,pid:5,name:'',text:'系统报告',icon:'file text',href:'module/maintain/report.html',target:'',intro:''},
 		
 		{id:6,pid:0,name:'',text:'页面组件演示',icon:'file',href:'#',target:'',intro:''},
-		{id:61,pid:6,name:'',text:'APIs',icon:'',href:'module/demo/apis.html',target:'',intro:''},
+		{id:61,pid:6,name:'',text:'API',icon:'',href:'module/demo/api.html',target:'',intro:'开发API文档汇总'},
 		{id:62,pid:6,name:'',text:'搜索查询列表',icon:'',href:'module/demo/search.html',target:'',intro:''},
-		{id:63,pid:6,name:'',text:'表单',icon:'',href:'module/demo/form.html',target:'',intro:''},
-		{id:64,pid:6,name:'',text:'弹层、提示、确认',icon:'',href:'module/demo/modal.html',target:'',intro:''},
-		{id:65,pid:6,name:'',text:'警报',icon:'',href:'module/demo/alarm.html',target:'',intro:''},
-		{id:66,pid:6,name:'',text:'Angular Module1',icon:'',href:'module/demo/angular1.html',target:'',intro:''},
-		{id:67,pid:6,name:'',text:'Angular Module2',icon:'',href:'module/demo/angular2.html',target:'',intro:''},
-		{id:68,pid:6,name:'',text:'Smart Table',icon:'',href:'module/demo/smarttable.html',target:'',intro:''}
+		{id:63,pid:6,name:'',text:'表单',icon:'',href:'module/demo/form.html',target:'',intro:'演示表单的操作'},
+		{id:64,pid:6,name:'',text:'弹层、提示、确认',icon:'',href:'module/demo/modal.html',target:'',intro:'各类弹出层的调用汇总'},
+		{id:65,pid:6,name:'',text:'警报',icon:'',href:'module/demo/alarm.html',target:'',intro:'报警演示'},
+		{id:66,pid:6,name:'',text:'Angular Module1',icon:'',href:'module/demo/angular1.html',target:'',intro:'angular 模块加载'},
+		{id:67,pid:6,name:'',text:'Angular Module2',icon:'',href:'module/demo/angular2.html',target:'',intro:'angular 模块加载后的 UI 初始化'},
+		{id:68,pid:6,name:'',text:'Smarttable',icon:'',href:'module/demo/smarttable.html',target:'',intro:''},
+		{id:69,pid:6,name:'',text:'iframe scale resize',icon:'',href:'module/demo/iframe.html',target:'',intro:'iframe 尺寸流式等比例调整'}
 	]
 };
 

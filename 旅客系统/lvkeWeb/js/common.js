@@ -1,3 +1,9 @@
+/*
+common library for lvkeWeb
+depend on jQuery, Semantic-UI, AngularJS
+code by Warren in 2015-8
+*/
+
 ;(function($,ng,app,window,document){
 
 	app.elems={
@@ -17,7 +23,7 @@
 		 };
 	
 	var elems=app.elems,
-		 animateDuration=app.settings.animationDuration,
+		 animateDuration=app.settings.animateDuration,
 		 bufferOpacity=app.settings.bufferOpacity,
 		 dimmerOpacity=app.settings.dimmerOpacity;
 	
@@ -176,6 +182,8 @@
 				labels.eq(n).addClass(activeClass);
 			});
 
+			//iframe scale resize
+			app.ui.scaleResize('.ui-iframe-resize-scale');
 		},
 		response:function(){
 			var width=$(window).width();
@@ -487,14 +495,15 @@
 				bufferOpacity:opts.bufferOpacity,
 				url:opts.href
 			},function(html){
-				console.warn('loading href:',opts.href);
-				var contObj=$(html);
-				app.module.currentObj=contObj;
-				$(opts.obj).empty();
-				$(opts.obj).append(contObj);
-				opts.success();
-				app.ui.init();
-
+				if(html){
+					console.warn('loading href:',opts.href);
+					var contObj=$(html);
+					app.module.currentObj=contObj;
+					$(opts.obj).empty();
+					$(opts.obj).append(contObj);
+					opts.success();
+					app.ui.init();
+				}
 			});
 		},
 		ngInit:function(opts){
@@ -780,7 +789,95 @@
 				app.ui.draw();
 			});
 
+		},
+		scaleResize:function(obj){
+			var scale=$(obj).height()/$(obj).width();
+			$(obj).css('width','100%');
+			$(obj).height($(obj).width()*scale);
+			$(window).off('resize.fluid').on('resize.fluid',function(){
+				var width=$(obj).width(),
+					 height=width*scale;
+				$(obj).height(height);
+//				console.warn('===========> scale resize\n','width:',width,'height:',height,'scale:',scale);
+			});
+		},
+		iframeResize:function(opts){
+
+//			var dfts={
+//				iframe:'.ui-iframe-autosize',
+//				refer:'body'
+//			};
+//			opts=$.extend(dfts,opts);
+//
+//			var iframeObj=$(opts.iframe),
+//				 referObj=iframeObj.contents().find(opts.refer),
+//				 iframeStyle=null;
+//
+//			function resize(){
+//				iframeStyle={
+//					'width':'100%',
+//					'height':referObj.outerHeight()+'px',
+//					'overflow':'auto'
+//				};
+//				iframeObj.css(iframeStyle);
+//			}
+//
+//			if(iframeObj.length){
+//				resize();
+//			}
+
+		},
+		windowUnload:function(opts){//confirmMsg,fn
+			var dfts={
+				msg:'',
+				callback:function(){
+				}
+			};
+			opts=$.extend(dfts,opts);
+			window.onbeforeunload=function(e){
+				opts.callback();
+				(e||window.event).returnValue=opts.msg;
+				return opts.msg;
+			};
+		},
+		mutationObserver:function(opts) {
+			var dfts={
+				obj:null,
+				callback:function(){},
+				observerLog:false
+			}
+			opts=$.extend(dfts,opts);
+
+			if(opts.obj.length<1||!opts.obj){
+				return;
+			}
+
+			var mutationObserver = window.WebKitMutationObserver || window.MozMutationObserver || window.MutationObserver;
+			if (mutationObserver) {
+				var observer = new mutationObserver(function(l){
+					if(opts.observerLog){
+						for(var i=0; i<l.length; i++){
+							console.log(l[i]);
+						}
+					}
+					opts.callback();
+				});
+
+				observer.observe(opts.obj.get(0),{
+					attributes:true,
+					childList: true,
+					characterData:true,
+					subtree:true
+				});
+			}else{
+				opts.obj.off('propertychange.uiObserve DOMAttrModified.uiObserve').on({
+					'propertychange.uiObserve DOMAttrModified.uiObserve':function() {
+						opts.callback();
+					}
+				});
+			};
 		}
+
 	};
 	
 	
@@ -791,29 +888,28 @@
 
 		app.ui.init();
 		
+		app.ui.windowUnload({
+			msg:'您当前的操作将中断用户对系统的操作！'
+		});
+
 		//visibility
-		$('body').visibility({
-			once:true,
-			continuous:false,
-			observeChanges:true,
-			checkOnRefresh:false,
-			refreshOnResize:true,
-			refreshOnLoad:true,
-			throttle:animateDuration,
-			onUpdate:function(){
-				app.ui.response();
-				app.ui.draw();
-			}
-		});
+//		$('body').visibility({
+//			once:true,
+//			continuous:false,
+//			observeChanges:true,
+//			checkOnRefresh:false,
+//			refreshOnResize:true,
+//			refreshOnLoad:true,
+//			throttle:animateDuration,
+//			onUpdate:function(){
+//				app.ui.response();
+//				app.ui.draw();
+//			}
+//		});
 		$(window).resize(function(){
-//			var timer=window.setTimeout(function(){
-				app.ui.response();
-				app.ui.draw();
-//				window.clearTimeout(timer);
-//				timer=null;
-//			},animateDuration);
-		});
-//		$('body').visibility('refresh');
+			app.ui.response();
+			app.ui.draw();
+		}).resize();
 
 		$(elems.leftSide).sidebar('show');
 

@@ -4,6 +4,8 @@
 .pushable > .pusher{min-width: 500px}
 :focus{outline: none}
 
+iframe{border:none; padding:0; margin:0}
+
 #header{text-align: right}
 #header .header{float:left; margin-right: 1em}
 #header .intro{font-size:0.6em; color: #666; font-weight: normal}
@@ -24,12 +26,13 @@
 */
 #leftSide{background:#eaeced; border-top: none; border-bottom: none}
 #leftSide .menu{padding-bottom:0.5em}
-#leftSide .menu > .item{padding-top:0.8em; padding-bottom: 0.8em}
+#leftSide .menu > .item{padding:0.8em 1.6em}
 #leftSide .menu > .item > i.icon{display: none}
 #leftSide .item::before{top:0; bottom:auto}
 #leftSide .item:hover{color:#333; background:rgba(0, 0, 0, 0.03)}
 #leftSide .item.active{color:#000; background:rgba(0, 0, 0, 0.05)}
 #leftSide > .item:first-child::before{display: none!important}
+#leftSide.labeled.icon .menu > .item{padding:0.7em 1.3em}
 /*
 #leftSide .item .icon{color:#2185d0}
 */
@@ -47,6 +50,7 @@
 .ui.form .fields .field.right.aligned{text-align:right}
 .ui.form .ui.grid.fields{margin-top:0; margin-bottom:0}
 .ui.form .ui.grid.fields .column{padding-top: 0!important; padding-bottom: 0!important}
+.ui.form .ui.grid.fields .fields{margin-bottom: -1em}
 .ui.form .ui.grid.fields .field{margin-bottom:1em}
 
 .ui-stuff-margintop{margin-top:1em}
